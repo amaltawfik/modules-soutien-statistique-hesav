@@ -558,7 +558,7 @@ Dans un script, la touche <kbd>↵ Enter</kbd> insère une nouvelle ligne, elle 
 
 Exemple :
 
-```{r, echo = TRUE}
+```{r, echo = F}
 # Calcul d'une moyenne
 mean(1 + 5 + 9) # On peut ajouter ici un autre commentaire
 ```
@@ -656,7 +656,7 @@ getwd()
 
 Exemple personnel :
 
--   J'ai crée un dossier structuré comme suit : `Code → R → sandbox` dans mon dossier *Documents* (`~/Documents/Code/R/sandbox`).
+-   J'ai créé un dossier structuré comme suit : `Code → R → sandbox` dans mon dossier *Documents* (`~/Documents/Code/R/sandbox`).
     -   Vous pouvez le mettre sur votre Bureau (`~/Desktop/Code/R/sandbox`) ou ailleurs selon vos préférences.
 -   Tous les fichiers sauvegardés (hors projet) seront automatiquement enregistrés dans ce dossier `sandbox`.
 
@@ -709,7 +709,7 @@ Une fois le projet créé :
 -   Son nom s’affiche en haut à droite de l’interface RStudio.\
 -   Ce menu déroulant permet de passer facilement d’un projet à l’autre.\
 -   Chaque projet conserve son historique, environnement et fichiers propres.\
--   Pour rouvrir un projet, il suffit de **double-cliquer sur le fichier `.Rproj`** ou de passer par le menu **File → Open Project…** et de sélectionner le fichier `.Rproj`\*\* : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.
+-   Pour rouvrir un projet, il suffit de **double-cliquer sur le fichier `.Rproj`** ou de passer par le menu **File → Open Project…** et de sélectionner le fichier `.Rproj` : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.
 
 ::: {.callout-tip title="Astuce : un projet = un dossier = une analyse"}
 Adoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible.
@@ -812,7 +812,7 @@ L’importation peut aussi se faire depuis le volet **Environnement → Import D
 ![](img/import_data.png){width="40%" fig-align="center"}
 
 
-## Nettoyage de l’environnement
+## Effacer les objets de l’environnement
 
 Videz votre **Environnement** comme si vous reveniez à ce projet après une longue pause.
 
@@ -826,7 +826,9 @@ rm(list = ls())
 ```
 
 ::: {.callout-tip title="Astuce : Relancer complètement R"}
-Vous pouvez aussi redémarrer la session R (**Session → Restart R**) : cela vide l’environnement et décharge tous les packages chargés.  
+Vous pouvez aussi redémarrer la session R à l’aide du menu **Session → Restart R**. Cette action vide l’environnement **et** décharge tous les packages chargés.  
+
+Raccourci clavier : <kbd style="font-size: 0.8em;">Ctrl</kbd> + <kbd style="font-size: 0.8em;">Shift</kbd> + <kbd style="font-size: 0.8em;">F10</kbd> (Windows / Linux) ou <kbd style="font-size: 0.8em;">Cmd</kbd> + <kbd style="font-size: 0.8em;">Shift</kbd> + <kbd style="font-size: 0.8em;">F10</kbd> (macOS)  
 
 Méthode la plus sûre pour repartir sur une base propre.
 :::

@@ -354,7 +354,7 @@
     "href": "01-intro_r_rstudio/index.html#insérer-des-commentaires-dans-un-script",
     "title": "Introduction à R et RStudio",
     "section": "Insérer des commentaires dans un script",
-    "text": "Insérer des commentaires dans un script\n\nLes commentaires commencent par un ou plusieurs symboles #.\n\nR ignore tout ce qui suit sur la ligne.\n\nIls servent à expliquer, documenter et structurer les scripts.\n\n\nExemple :\n\n# Calcul d'une moyenne\nmean(1 + 5 + 9) # On peut ajouter ici un autre commentaire\n\n[1] 15\n\n\nPour insérer ou retirer rapidement un commentaire dans RStudio :\n\nCtrl + Shift + C (Windows / Linux) ou ⌘ + Shift + C (macOS)\n\nCette commande est également accessible depuis le menu :\n\nCode → Comment/Uncomment Lines"
+    "text": "Insérer des commentaires dans un script\n\nLes commentaires commencent par un ou plusieurs symboles #.\n\nR ignore tout ce qui suit sur la ligne.\n\nIls servent à expliquer, documenter et structurer les scripts.\n\n\nExemple :\n\n\n[1] 15\n\n\nPour insérer ou retirer rapidement un commentaire dans RStudio :\n\nCtrl + Shift + C (Windows / Linux) ou ⌘ + Shift + C (macOS)\n\nCette commande est également accessible depuis le menu :\n\nCode → Comment/Uncomment Lines"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#créer-des-sections-dans-un-script",
@@ -403,7 +403,7 @@
     "href": "01-intro_r_rstudio/index.html#définir-son-répertoire-de-travail-par-défaut-hors-projet",
     "title": "Introduction à R et RStudio",
     "section": "Définir son répertoire de travail par défaut (hors projet)",
-    "text": "Définir son répertoire de travail par défaut (hors projet)\n\nConseillé de rassembler tous vos fichiers au même endroit lorque vous ne travaillez pas dans un projet R\nDéfinir un répertoire de travail par défaut (working directory).\n\nExemple personnel :\n\nJ’ai crée un dossier structuré comme suit : Code → R → sandbox dans mon dossier Documents (~/Documents/Code/R/sandbox).\n\nVous pouvez le mettre sur votre Bureau (~/Desktop/Code/R/sandbox) ou ailleurs selon vos préférences.\n\nTous les fichiers sauvegardés (hors projet) seront automatiquement enregistrés dans ce dossier sandbox."
+    "text": "Définir son répertoire de travail par défaut (hors projet)\n\nConseillé de rassembler tous vos fichiers au même endroit lorque vous ne travaillez pas dans un projet R\nDéfinir un répertoire de travail par défaut (working directory).\n\nExemple personnel :\n\nJ’ai créé un dossier structuré comme suit : Code → R → sandbox dans mon dossier Documents (~/Documents/Code/R/sandbox).\n\nVous pouvez le mettre sur votre Bureau (~/Desktop/Code/R/sandbox) ou ailleurs selon vos préférences.\n\nTous les fichiers sauvegardés (hors projet) seront automatiquement enregistrés dans ce dossier sandbox."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#les-projets-rstudio",
@@ -438,7 +438,7 @@
     "href": "01-intro_r_rstudio/index.html#gérer-ses-projets-au-quotidien",
     "title": "Introduction à R et RStudio",
     "section": "Gérer ses projets au quotidien",
-    "text": "Gérer ses projets au quotidien\nUne fois le projet créé :\n\nSon nom s’affiche en haut à droite de l’interface RStudio.\n\nCe menu déroulant permet de passer facilement d’un projet à l’autre.\n\nChaque projet conserve son historique, environnement et fichiers propres.\n\nPour rouvrir un projet, il suffit de double-cliquer sur le fichier .Rproj ou de passer par le menu File → Open Project… et de sélectionner le fichier .Rproj** : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.\n\n\n\n\n\n\n\n\nAstuce : un projet = un dossier = une analyse\n\n\nAdoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible."
+    "text": "Gérer ses projets au quotidien\nUne fois le projet créé :\n\nSon nom s’affiche en haut à droite de l’interface RStudio.\n\nCe menu déroulant permet de passer facilement d’un projet à l’autre.\n\nChaque projet conserve son historique, environnement et fichiers propres.\n\nPour rouvrir un projet, il suffit de double-cliquer sur le fichier .Rproj ou de passer par le menu File → Open Project… et de sélectionner le fichier .Rproj : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.\n\n\n\n\n\n\n\n\nAstuce : un projet = un dossier = une analyse\n\n\nAdoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#workflow-reproductible",
@@ -476,11 +476,11 @@
     "text": "Importer des données par les menus de RStudio\nL’importation peut aussi se faire depuis le volet Environnement → Import Dataset :"
   },
   {
-    "objectID": "01-intro_r_rstudio/index.html#nettoyage-de-lenvironnement",
-    "href": "01-intro_r_rstudio/index.html#nettoyage-de-lenvironnement",
+    "objectID": "01-intro_r_rstudio/index.html#effacer-les-objets-de-lenvironnement",
+    "href": "01-intro_r_rstudio/index.html#effacer-les-objets-de-lenvironnement",
     "title": "Introduction à R et RStudio",
-    "section": "Nettoyage de l’environnement",
-    "text": "Nettoyage de l’environnement\nVidez votre Environnement comme si vous reveniez à ce projet après une longue pause.\nDeux solutions simples\n\nCliquez sur l’icône du balai 🧹 dans le panneau Environment pour tout effacer.\n\nOu exécutez dans la console :\n\n\nrm(list = ls())\n\n\n\n\n\n\n\n\nAstuce : Relancer complètement R\n\n\nVous pouvez aussi redémarrer la session R (Session → Restart R) : cela vide l’environnement et décharge tous les packages chargés.\nMéthode la plus sûre pour repartir sur une base propre."
+    "section": "Effacer les objets de l’environnement",
+    "text": "Effacer les objets de l’environnement\nVidez votre Environnement comme si vous reveniez à ce projet après une longue pause.\nDeux solutions simples\n\nCliquez sur l’icône du balai 🧹 dans le panneau Environment pour tout effacer.\n\nOu exécutez dans la console :\n\n\nrm(list = ls())\n\n\n\n\n\n\n\n\nAstuce : Relancer complètement R\n\n\nVous pouvez aussi redémarrer la session R à l’aide du menu Session → Restart R. Cette action vide l’environnement et décharge tous les packages chargés.\nRaccourci clavier : Ctrl + Shift + F10 (Windows / Linux) ou Cmd + Shift + F10 (macOS)\nMéthode la plus sûre pour repartir sur une base propre."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#ressources-pour-apprendre-et-approfondir-r",

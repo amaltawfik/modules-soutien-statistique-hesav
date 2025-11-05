@@ -870,8 +870,6 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 </ul>
 <p>Exemple&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul d'une moyenne</span></span>
-<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">9</span>) <span class="co"># On peut ajouter ici un autre commentaire</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15</code></pre>
 </div>
@@ -889,9 +887,9 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 <h2>Créer des sections dans un script</h2>
 <p>Quand un script devient long, il est utile de le structurer en sections pour faciliter la navigation et la lecture.</p>
 <p>Pour créer une section dans RStudio (et des sous-sections), il suffit d’écrire un commentaire suivi d’au moins quatre tirets (<code>-</code>)&nbsp;:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Titre de la section ------------------------------------</span></span>
-<span id="cb41-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Sous-section ------------------------------------------</span></span>
-<span id="cb41-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">### Sous-sous-section ------------------------------------</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Titre de la section ------------------------------------</span></span>
+<span id="cb40-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Sous-section ------------------------------------------</span></span>
+<span id="cb40-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">### Sous-sous-section ------------------------------------</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Dans la marge gauche un triangle noir permet de plier ou déplier le contenu de la section.</p>
 <p>Voici un exemple de structure de script&nbsp;: <a href="script_template.R">⬇️ Télécharger le modèle de script</a></p>
 </section>
@@ -944,8 +942,8 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 </ul>
 <p>Ou exécuter la fonction <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/getwd.html"><code>getwd()</code></a>&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Get the working directory</span></span>
-<span id="cb42-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Get the working directory</span></span>
+<span id="cb41-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/at/switchdrive/HESAV/Modules R/Modules de soutien statistique/01-intro_r_rstudio"</code></pre>
 </div>
@@ -972,7 +970,7 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 </ul>
 <p>Exemple personnel&nbsp;:</p>
 <ul>
-<li>J’ai crée un dossier structuré comme suit&nbsp;: <code>Code → R → sandbox</code> dans mon dossier <em>Documents</em> (<code>~/Documents/Code/R/sandbox</code>).
+<li>J’ai créé un dossier structuré comme suit&nbsp;: <code>Code → R → sandbox</code> dans mon dossier <em>Documents</em> (<code>~/Documents/Code/R/sandbox</code>).
 <ul>
 <li>Vous pouvez le mettre sur votre Bureau (<code>~/Desktop/Code/R/sandbox</code>) ou ailleurs selon vos préférences.</li>
 </ul></li>
@@ -1045,7 +1043,7 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 </li>
 <li>Chaque projet conserve son historique, environnement et fichiers propres.<br>
 </li>
-<li>Pour rouvrir un projet, il suffit de <strong>double-cliquer sur le fichier <code>.Rproj</code></strong> ou de passer par le menu <strong>File → Open Project…</strong> et de sélectionner le fichier <code>.Rproj</code>**&nbsp;: RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.</li>
+<li>Pour rouvrir un projet, il suffit de <strong>double-cliquer sur le fichier <code>.Rproj</code></strong> ou de passer par le menu <strong>File → Open Project…</strong> et de sélectionner le fichier <code>.Rproj</code>&nbsp;: RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.</li>
 </ul>
 <div title="Astuce&nbsp;: un projet = un dossier = une analyse">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1113,24 +1111,24 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 <h2>Importer des données dans R — Trop de fonctions !</h2>
 <p>Beaucoup (trop) de packages et de fonctions différentes&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers R</span></span>
-<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/raw/data.rda"</span>)</span>
-<span id="cb45-3"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/raw/data.rds"</span>)</span>
-<span id="cb45-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-5"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers CSV</span></span>
-<span id="cb45-6"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw/data.csv"</span>)</span>
-<span id="cb45-7"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/raw/data.csv"</span>)</span>
-<span id="cb45-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers Excel</span></span>
-<span id="cb45-10"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> xlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
-<span id="cb45-11"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
-<span id="cb45-12"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-13"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers SPSS / Stata / SAS</span></span>
-<span id="cb45-14"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_spss</span>(<span class="st">"data/raw/data.sav"</span>)</span>
-<span id="cb45-15"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_stata</span>(<span class="st">"data/raw/data.dta"</span>)</span>
-<span id="cb45-16"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_sas</span>(<span class="st">"data/raw/data.sas7bdat"</span>)</span>
-<span id="cb45-17"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-18"><a aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers R</span></span>
+<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/raw/data.rda"</span>)</span>
+<span id="cb44-3"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/raw/data.rds"</span>)</span>
+<span id="cb44-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers CSV</span></span>
+<span id="cb44-6"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw/data.csv"</span>)</span>
+<span id="cb44-7"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/raw/data.csv"</span>)</span>
+<span id="cb44-8"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers Excel</span></span>
+<span id="cb44-10"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> xlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
+<span id="cb44-11"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
+<span id="cb44-12"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-13"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers SPSS / Stata / SAS</span></span>
+<span id="cb44-14"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_spss</span>(<span class="st">"data/raw/data.sav"</span>)</span>
+<span id="cb44-15"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_stata</span>(<span class="st">"data/raw/data.dta"</span>)</span>
+<span id="cb44-16"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_sas</span>(<span class="st">"data/raw/data.sas7bdat"</span>)</span>
+<span id="cb44-17"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-18"><a aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="importer-et-exporter-des-données-avec-rio" class="slide level2">
@@ -1142,15 +1140,15 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 </ul>
 <p>De nombreux <a href="https://gesistsa.github.io/rio/index.html#supported-file-formats">formats supportés</a>&nbsp;: <code>.csv</code>, <code>.xlsx</code>, <code>.rda</code>, <code>.sav</code>, etc.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Importer différents formats</span></span>
-<span id="cb46-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
-<span id="cb46-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.rda"</span>)</span>
-<span id="cb46-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.dta"</span>)</span>
-<span id="cb46-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Exporter un objet R</span></span>
-<span id="cb46-7"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.csv"</span>)</span>
-<span id="cb46-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.rds"</span>)</span>
-<span id="cb46-9"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.sav"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Importer différents formats</span></span>
+<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
+<span id="cb45-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.rda"</span>)</span>
+<span id="cb45-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.dta"</span>)</span>
+<span id="cb45-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Exporter un objet R</span></span>
+<span id="cb45-7"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.csv"</span>)</span>
+<span id="cb45-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.rds"</span>)</span>
+<span id="cb45-9"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.sav"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="importer-des-données-par-les-menus-de-rstudio" class="slide level2">
@@ -1162,8 +1160,8 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 </figure>
 </div>
 </section>
-<section id="nettoyage-de-lenvironnement" class="slide level2">
-<h2>Nettoyage de l’environnement</h2>
+<section id="effacer-les-objets-de-lenvironnement" class="slide level2">
+<h2>Effacer les objets de l’environnement</h2>
 <p>Videz votre <strong>Environnement</strong> comme si vous reveniez à ce projet après une longue pause.</p>
 <h3 id="deux-solutions-simples">Deux solutions simples</h3>
 <ul>
@@ -1172,7 +1170,7 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 <li>Ou exécutez dans la console&nbsp;:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div title="Astuce&nbsp;: Relancer complètement R">
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -1184,7 +1182,8 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 <p><strong>Astuce&nbsp;: Relancer complètement R</strong></p>
 </div>
 <div class="callout-content">
-<p>Vous pouvez aussi redémarrer la session R (<strong>Session → Restart R</strong>)&nbsp;: cela vide l’environnement et décharge tous les packages chargés.</p>
+<p>Vous pouvez aussi redémarrer la session R à l’aide du menu <strong>Session → Restart R</strong>. Cette action vide l’environnement <strong>et</strong> décharge tous les packages chargés.</p>
+<p>Raccourci clavier : <kbd style="font-size: 0.8em;">Ctrl</kbd> + <kbd style="font-size: 0.8em;">Shift</kbd> + <kbd style="font-size: 0.8em;">F10</kbd> (Windows / Linux) ou <kbd style="font-size: 0.8em;">Cmd</kbd> + <kbd style="font-size: 0.8em;">Shift</kbd> + <kbd style="font-size: 0.8em;">F10</kbd> (macOS)</p>
 <p>Méthode la plus sûre pour repartir sur une base propre.</p>
 </div>
 </div>
