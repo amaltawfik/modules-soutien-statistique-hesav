@@ -31,20 +31,29 @@ website:
             href: 07-regression_logistique/index.qmd
 
 format:
+  # ---- Présentations revealjs ----
   revealjs:
-    theme: [simple, dark]   # clair + sombre pour les présentations
+    theme: [simple, dark]             # clair + sombre
     slide-number: true
     toc: true
-    embed-resources: true
     transition: fade
-    link-external-newwindow: true
+    link-external-newwindow: true     # ouvre les liens externes dans un nouvel onglet
+    lightbox: true                    # agrandit les images au clic
+    code-overflow: scroll
+    code-line-numbers: false
+    chalkboard:
+      buttons: true
+      theme: whiteboard
 
+  # ---- Pages HTML du site ----
   html:
     theme:
       light: flatly
       dark: darkly
     bootstrap: 5
     light-switch: true
+    link-external-newwindow: true     # ouvre les liens externes dans un nouvel onglet
+    lightbox: true                    # agrandit les images sur le site aussi
     bslib:
       info: "#4F4F52"
       base_font:
