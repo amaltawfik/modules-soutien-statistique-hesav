@@ -6,7 +6,7 @@ format:
     theme: [simple, dark]
     slide-number: true
     toc: true
-    embed-resources: true
+    # embed-resources: true
     transition: fade
 ---
 
