@@ -369,7 +369,7 @@ Cela oblige à ouvrir manuellement le projet sur lequel on veut travailler.</p><
 </figure>
 </div>
 </section>
-<section id="configurations-de-rstudio-code-editing" class="slide level2">
+<section id="configurations-de-rstudio-code-editing" class="slide level2 smaller">
 <h2>Configurations de RStudio — Code Editing</h2>
 <p>Menu&nbsp;: <strong>Tools → Global Options → Code → Editing</strong></p>
 <ul>
@@ -570,8 +570,7 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>nom_objet <span class="ot">&lt;-</span> valeur</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>On peut lire cette expression comme&nbsp;:</p>
-<p>“Le nom de l’objet reçoit la valeur” ou “Stocker ce qu’il y a à droite de <code>&lt;-</code> dans un objet nommé à gauche”</p>
+<p>On peut lire cette expression comme&nbsp;: “Le nom de l’objet reçoit la valeur” ou “Stocker ce qu’il y a à droite de <code>&lt;-</code> dans un objet nommé à gauche”</p>
 <ul>
 <li>Tous les objets créés apparaissent automatiquement dans le volet <strong>Environment</strong> de RStudio, d’où ils peuvent être visualisés ou supprimés.</li>
 </ul>
@@ -879,9 +878,7 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 </div>
 <p>Pour insérer ou retirer rapidement un commentaire dans RStudio&nbsp;:</p>
 <ul>
-<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (Windows / Linux)<br>
-</li>
-<li><kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (macOS)</li>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (Windows / Linux) ou <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (macOS)</li>
 </ul>
 <p>Cette commande est également accessible depuis le menu&nbsp;:</p>
 <ul>
@@ -924,8 +921,10 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 </ul></li>
 </ol>
 <p>L’instruction est alors envoyée à la console et exécutée.</p>
-<p>Si une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.</p>
-<p>Vous pouvez aussi sélectionner une partie du code (en surbrillance) et l’exécuter de la même manière, avec <strong>Run</strong> ou le raccourci clavier.</p>
+<ul>
+<li><p>Si une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.</p></li>
+<li><p>Vous pouvez aussi sélectionner une partie du code (en surbrillance) et l’exécuter de la même manière, avec <strong>Run</strong> ou le raccourci clavier.</p></li>
+</ul>
 </section>
 <section id="workflow-flux-de-travail" class="slide level2">
 <h2><em>Workflow</em> (flux de travail)</h2>
@@ -990,6 +989,7 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 </li>
 <li>Objectif&nbsp;: tout garder ensemble dans un seul dossier.</li>
 </ul>
+<p>Pour en savoir plus sur la gestion des projets&nbsp;: <a href="https://www.rstudio.com/ide/docs/using/projects" class="uri">https://www.rstudio.com/ide/docs/using/projects</a></p>
 </section>
 <section id="quest-ce-quun-projet" class="slide level2">
 <h2>Qu’est-ce qu’un projet ?</h2>
@@ -1062,7 +1062,6 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 </div>
 </div>
 </div>
-<p>Pour en savoir plus sur la gestion des projets&nbsp;: <a href="https://www.rstudio.com/ide/docs/using/projects" class="uri">https://www.rstudio.com/ide/docs/using/projects</a></p>
 </section>
 <section id="workflow-reproductible" class="slide level2">
 <h2><em>Workflow</em> reproductible</h2>
@@ -1136,8 +1135,7 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 </section>
 <section id="importer-et-exporter-des-données-avec-rio" class="slide level2">
 <h2>Importer et exporter des données avec <strong><code>rio</code></strong></h2>
-<p>Le package <a href="https://gesistsa.github.io/rio/"><code>rio</code></a> simplifie grandement l’importation et l’exportation de fichiers de données dans R.</p>
-<h3 id="fonctions-principales">Fonctions principales</h3>
+<p>Le package <a href="https://gesistsa.github.io/rio/"><code>rio</code></a> simplifie grandement l’importation et l’exportation de fichiers de données dans R avec deux fonctions principales&nbsp;:</p>
 <ul>
 <li><a href="https://gesistsa.github.io/rio/reference/import.html"><code>import()</code></a> → Lire un fichier</li>
 <li><a href="https://gesistsa.github.io/rio/reference/export.html"><code>export()</code></a> → Sauvegarder un objet R</li>

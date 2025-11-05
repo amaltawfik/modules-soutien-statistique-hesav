@@ -158,7 +158,7 @@ Cela force à relancer les scripts à chaque ouverture de RStudio et permet de v
 
 ![](img/rstudio_options_general_basic.png){fig-align="center"}
 
-## Configurations de RStudio — Code Editing 
+## Configurations de RStudio — Code Editing {.smaller}
 
 Menu : **Tools → Global Options → Code → Editing**
 
@@ -305,9 +305,7 @@ nom_objet <- valeur
 
 ```
 
-On peut lire cette expression comme :
-
-"Le nom de l’objet reçoit la valeur" ou "Stocker ce qu'il y a à droite de `<-` dans un objet nommé à gauche"
+On peut lire cette expression comme : "Le nom de l’objet reçoit la valeur" ou "Stocker ce qu'il y a à droite de `<-` dans un objet nommé à gauche"
 
 -   Tous les objets créés apparaissent automatiquement dans le volet **Environment** de RStudio, d’où ils peuvent être visualisés ou supprimés.
 
@@ -551,11 +549,8 @@ Le \[1\] n’est pas un résultat, mais un repère visuel : il indique simpleme
 
 Dans un script, la touche <kbd>↵ Enter</kbd> insère une nouvelle ligne, elle n’exécute pas le code (contrairement à la console).
 
+
 ## Insérer des commentaires dans un script
-
-```{r}
-
-```
 
 -   Les commentaires commencent par un ou plusieurs symboles `#`.\
 -   R ignore tout ce qui suit sur la ligne.\
@@ -570,12 +565,12 @@ mean(1 + 5 + 9) # On peut ajouter ici un autre commentaire
 
 Pour insérer ou retirer rapidement un commentaire dans RStudio :
 
--   <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (Windows / Linux)\
--   <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (macOS)
+-   <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (Windows / Linux) ou <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (macOS)
 
 Cette commande est également accessible depuis le menu :
 
 -   Code → Comment/Uncomment Lines
+
 
 ## Créer des sections dans un script
 
@@ -615,11 +610,11 @@ Dans un script R, pour exécuter une instruction :
     -   <kbd>Ctrl</kbd> + <kbd>↵ Enter</kbd> (Windows / Linux)\
     -   <kbd>⌘</kbd> + <kbd>↵ Enter</kbd> (macOS)
 
-L’instruction est alors envoyée à la console et exécutée.
+L’instruction est alors envoyée à la console et exécutée.  
 
-Si une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.
+-   Si une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.
 
-Vous pouvez aussi sélectionner une partie du code (en surbrillance) et l’exécuter de la même manière, avec **Run** ou le raccourci clavier.
+-   Vous pouvez aussi sélectionner une partie du code (en surbrillance) et l’exécuter de la même manière, avec **Run** ou le raccourci clavier.
 
 ## *Workflow* (flux de travail)
 
@@ -672,6 +667,8 @@ Exemple personnel :
 -   Facilite la gestion et la **reproductibilité**.\
 -   Objectif : tout garder ensemble dans un seul dossier.
 
+Pour en savoir plus sur la gestion des projets : <https://www.rstudio.com/ide/docs/using/projects>
+
 ## Qu’est-ce qu’un projet ?
 
 En pratique, un projet RStudio correspond simplement à un dossier\
@@ -718,7 +715,7 @@ Une fois le projet créé :
 Adoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible.
 :::
 
-Pour en savoir plus sur la gestion des projets : <https://www.rstudio.com/ide/docs/using/projects>
+
 
 ## *Workflow* reproductible
 
@@ -789,9 +786,7 @@ data <- haven::read_sas("data/raw/data.sas7bdat")
 
 ## Importer et exporter des données avec **`rio`**
 
-Le package [`rio`](https://gesistsa.github.io/rio/) simplifie grandement l’importation et l’exportation de fichiers de données dans R.
-
-### Fonctions principales
+Le package [`rio`](https://gesistsa.github.io/rio/) simplifie grandement l’importation et l’exportation de fichiers de données dans R avec deux fonctions principales :
 
 -   [`import()`](https://gesistsa.github.io/rio/reference/import.html) → Lire un fichier
 -   [`export()`](https://gesistsa.github.io/rio/reference/export.html) → Sauvegarder un objet R

@@ -228,7 +228,7 @@
     "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-créer-et-nommer-des-objets",
     "title": "Introduction à R et RStudio",
     "section": "Premiers pas dans R — Créer et nommer des objets",
-    "text": "Premiers pas dans R — Créer et nommer des objets\nToutes les instructions R servant à créer des objets, appelées instructions d’affectation, ont la même forme :\n\nnom_objet &lt;- valeur\n\nOn peut lire cette expression comme :\n“Le nom de l’objet reçoit la valeur” ou “Stocker ce qu’il y a à droite de &lt;- dans un objet nommé à gauche”\n\nTous les objets créés apparaissent automatiquement dans le volet Environment de RStudio, d’où ils peuvent être visualisés ou supprimés.\n\n\n\n\n\n\n\nAvertissement\n\n\nLes noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles . et _, mais ne doivent pas commencer par un chiffre ni contenir d’espace.\nR est sensible à la casse (x ≠ X). Évitez les accents et les majuscules dans les noms d’objets."
+    "text": "Premiers pas dans R — Créer et nommer des objets\nToutes les instructions R servant à créer des objets, appelées instructions d’affectation, ont la même forme :\n\nnom_objet &lt;- valeur\n\nOn peut lire cette expression comme : “Le nom de l’objet reçoit la valeur” ou “Stocker ce qu’il y a à droite de &lt;- dans un objet nommé à gauche”\n\nTous les objets créés apparaissent automatiquement dans le volet Environment de RStudio, d’où ils peuvent être visualisés ou supprimés.\n\n\n\n\n\n\n\nAvertissement\n\n\nLes noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles . et _, mais ne doivent pas commencer par un chiffre ni contenir d’espace.\nR est sensible à la casse (x ≠ X). Évitez les accents et les majuscules dans les noms d’objets."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-copier-modifier-et-supprimer-des-objets",
@@ -354,7 +354,7 @@
     "href": "01-intro_r_rstudio/index.html#insérer-des-commentaires-dans-un-script",
     "title": "Introduction à R et RStudio",
     "section": "Insérer des commentaires dans un script",
-    "text": "Insérer des commentaires dans un script\n\nLes commentaires commencent par un ou plusieurs symboles #.\n\nR ignore tout ce qui suit sur la ligne.\n\nIls servent à expliquer, documenter et structurer les scripts.\n\n\nExemple :\n\n# Calcul d'une moyenne\nmean(1 + 5 + 9) # On peut ajouter ici un autre commentaire\n\n[1] 15\n\n\nPour insérer ou retirer rapidement un commentaire dans RStudio :\n\nCtrl + Shift + C (Windows / Linux)\n\n⌘ + Shift + C (macOS)\n\nCette commande est également accessible depuis le menu :\n\nCode → Comment/Uncomment Lines"
+    "text": "Insérer des commentaires dans un script\n\nLes commentaires commencent par un ou plusieurs symboles #.\n\nR ignore tout ce qui suit sur la ligne.\n\nIls servent à expliquer, documenter et structurer les scripts.\n\n\nExemple :\n\n# Calcul d'une moyenne\nmean(1 + 5 + 9) # On peut ajouter ici un autre commentaire\n\n[1] 15\n\n\nPour insérer ou retirer rapidement un commentaire dans RStudio :\n\nCtrl + Shift + C (Windows / Linux) ou ⌘ + Shift + C (macOS)\n\nCette commande est également accessible depuis le menu :\n\nCode → Comment/Uncomment Lines"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#créer-des-sections-dans-un-script",
@@ -375,7 +375,7 @@
     "href": "01-intro_r_rstudio/index.html#exécution-du-code",
     "title": "Introduction à R et RStudio",
     "section": "Exécution du code",
-    "text": "Exécution du code\nDans un script R, pour exécuter une instruction :\n\nPlacez le curseur n’importe où sur la ligne du code.\n\nCliquez sur le bouton Run ou utilisez le raccourci clavier suivant :\n\nCtrl + ↵ Enter (Windows / Linux)\n\n⌘ + ↵ Enter (macOS)\n\n\nL’instruction est alors envoyée à la console et exécutée.\nSi une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.\nVous pouvez aussi sélectionner une partie du code (en surbrillance) et l’exécuter de la même manière, avec Run ou le raccourci clavier."
+    "text": "Exécution du code\nDans un script R, pour exécuter une instruction :\n\nPlacez le curseur n’importe où sur la ligne du code.\n\nCliquez sur le bouton Run ou utilisez le raccourci clavier suivant :\n\nCtrl + ↵ Enter (Windows / Linux)\n\n⌘ + ↵ Enter (macOS)\n\n\nL’instruction est alors envoyée à la console et exécutée.\n\nSi une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.\nVous pouvez aussi sélectionner une partie du code (en surbrillance) et l’exécuter de la même manière, avec Run ou le raccourci clavier."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#workflow-flux-de-travail",
@@ -410,7 +410,7 @@
     "href": "01-intro_r_rstudio/index.html#les-projets-rstudio",
     "title": "Introduction à R et RStudio",
     "section": "Les projets RStudio",
-    "text": "Les projets RStudio\n\nFonctionnalité de RStudio pour organiser son travail.\n\nRegroupe tous les éléments d’une analyse : données, scripts, résultats, figures, documentation.\nFacilite la gestion et la reproductibilité.\n\nObjectif : tout garder ensemble dans un seul dossier."
+    "text": "Les projets RStudio\n\nFonctionnalité de RStudio pour organiser son travail.\n\nRegroupe tous les éléments d’une analyse : données, scripts, résultats, figures, documentation.\nFacilite la gestion et la reproductibilité.\n\nObjectif : tout garder ensemble dans un seul dossier.\n\nPour en savoir plus sur la gestion des projets : https://www.rstudio.com/ide/docs/using/projects"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#quest-ce-quun-projet",
@@ -438,7 +438,7 @@
     "href": "01-intro_r_rstudio/index.html#gérer-ses-projets-au-quotidien",
     "title": "Introduction à R et RStudio",
     "section": "Gérer ses projets au quotidien",
-    "text": "Gérer ses projets au quotidien\nUne fois le projet créé :\n\nSon nom s’affiche en haut à droite de l’interface RStudio.\n\nCe menu déroulant permet de passer facilement d’un projet à l’autre.\n\nChaque projet conserve son historique, environnement et fichiers propres.\n\nPour rouvrir un projet, il suffit de double-cliquer sur le fichier .Rproj ou de passer par le menu File → Open Project… et de sélectionner le fichier .Rproj** : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.\n\n\n\n\n\n\n\n\nAstuce : un projet = un dossier = une analyse\n\n\nAdoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible.\n\n\n\n\nPour en savoir plus sur la gestion des projets : https://www.rstudio.com/ide/docs/using/projects"
+    "text": "Gérer ses projets au quotidien\nUne fois le projet créé :\n\nSon nom s’affiche en haut à droite de l’interface RStudio.\n\nCe menu déroulant permet de passer facilement d’un projet à l’autre.\n\nChaque projet conserve son historique, environnement et fichiers propres.\n\nPour rouvrir un projet, il suffit de double-cliquer sur le fichier .Rproj ou de passer par le menu File → Open Project… et de sélectionner le fichier .Rproj** : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.\n\n\n\n\n\n\n\n\nAstuce : un projet = un dossier = une analyse\n\n\nAdoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#workflow-reproductible",
@@ -466,7 +466,7 @@
     "href": "01-intro_r_rstudio/index.html#importer-et-exporter-des-données-avec-rio",
     "title": "Introduction à R et RStudio",
     "section": "Importer et exporter des données avec rio",
-    "text": "Importer et exporter des données avec rio\nLe package rio simplifie grandement l’importation et l’exportation de fichiers de données dans R.\nFonctions principales\n\nimport() → Lire un fichier\nexport() → Sauvegarder un objet R\n\nDe nombreux formats supportés : .csv, .xlsx, .rda, .sav, etc.\n\n# Importer différents formats\nimport(\"data/raw/data.xlsx\")\nimport(\"data/raw/data.rda\")\nimport(\"data/raw/data.dta\")\n\n# Exporter un objet R\nexport(data, \"data/processed/data.csv\")\nexport(data, \"data/processed/data.rds\")\nexport(data, \"data/processed/data.sav\")"
+    "text": "Importer et exporter des données avec rio\nLe package rio simplifie grandement l’importation et l’exportation de fichiers de données dans R avec deux fonctions principales :\n\nimport() → Lire un fichier\nexport() → Sauvegarder un objet R\n\nDe nombreux formats supportés : .csv, .xlsx, .rda, .sav, etc.\n\n# Importer différents formats\nimport(\"data/raw/data.xlsx\")\nimport(\"data/raw/data.rda\")\nimport(\"data/raw/data.dta\")\n\n# Exporter un objet R\nexport(data, \"data/processed/data.csv\")\nexport(data, \"data/processed/data.rds\")\nexport(data, \"data/processed/data.sav\")"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#importer-des-données-par-les-menus-de-rstudio",
