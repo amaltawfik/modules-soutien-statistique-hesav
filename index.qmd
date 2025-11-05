@@ -20,7 +20,7 @@ Ouvert à toutes et tous, sans inscription
 
 | Jour | Date | Module | Présentation |
 |------|------|---------|--------------|
-| Jeudi | 06.11.2025 | Introduction à R et RStudio : premiers pas, bonnes pratiques et *workflow* | <a href="./01-intro_r_rstudio/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./01-intro_r_rstudio/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
+| Jeudi | 06.11.2025 | Introduction à R et RStudio : premiers pas, bonnes pratiques et *workflow* | <a href="./01-intro_r_rstudio/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./pdf/01-intro_r_rstudio.pdf" class="btn btn-outline-secondary btn-sm" target="_blank">PDF</a> |
 | Jeudi | 15.01.2026 | Nettoyage et manipulation des données avec R : introduction au [tidyverse](https://tidyverse.tidyverse.org/) | <a href="./tidyverse/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./tidyverse/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
 | Jeudi | 12.02.2026 | Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation | <a href="./analyses-bivariees/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./analyses-bivariees/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
 | Jeudi | 12.03.2026 | Régression linéaire | <a href="./regression-lineaire/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./regression-lineaire/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
