@@ -1,0 +1,144 @@
+Prise en main de l’environnement RStudio et configuration de base. Introduction aux bases de R : packages, fonctions, objets, données, scripts et projets. Mise en place de bonnes pratiques de travail reproductible et structuré (organisation des fichiers, workflow de recherche).
+
+
+
+Voici une **présentation Quarto** (contenu du fichier `.qmd`, sans YAML) que tu peux directement insérer dans ton module `01-intro_r_rstudio/index.qmd`.
+Elle est structurée comme une mini-leçon claire et progressive, adaptée à ton style de formation HESAV/UNIGE — concise, visuelle, avec sections et exemples reproductibles.
+
+---
+
+````markdown
+# 🌟 Introduction à R et RStudio
+
+## 🎬 Première ouverture de RStudio
+
+Lorsque vous lancez **RStudio** pour la première fois, vous voyez **quatre zones principales** :
+
+1. **Source** *(en haut à gauche)* : pour écrire et exécuter du code R (scripts `.R` ou `.qmd`)  
+2. **Console** *(en bas à gauche)* : où le code s’exécute et les résultats apparaissent  
+3. **Environnement / History** *(en haut à droite)* : où sont listés vos objets, variables et historique  
+4. **Files / Plots / Packages / Help / Viewer** *(en bas à droite)* : pour naviguer entre fichiers, graphiques, aide, etc.
+
+::: {.callout-note}
+💡 **Astuce** : Si vous ne voyez pas les quatre panneaux, allez dans *View > Panes > Pane Layout* pour les réinitialiser.
+:::
+
+---
+
+## 🧾 Créer votre premier script
+
+1. Cliquez sur **File ▸ New File ▸ R Script**  
+2. Tapez quelques commandes simples :
+
+```r
+2 + 2
+x <- 5
+y <- 3
+x * y
+````
+
+3. Enregistrez votre script sous le nom `premier_script.R` dans un dossier clair (ex. `scripts/`).
+
+::: {.callout-tip}
+✅ **Bon réflexe** : ne travaillez jamais dans le dossier “Documents” général — créez un dossier par projet R.
+:::
+
+---
+
+## ⚙️ Prise en main de l’environnement
+
+* **Console** → exécution directe
+* **Script** → reproduction et traçabilité
+* **Environment** → aperçu des objets créés
+* **Plots** → affichage des graphiques
+* **Help** → documentation des fonctions (`?mean`, `help(sum)`)
+
+---
+
+## 📦 Bases de R : packages, fonctions et objets
+
+### Fonctions
+
+Une **fonction** exécute une action sur un ou plusieurs objets :
+
+```r
+mean(c(1, 2, 3, 4))
+```
+
+### Packages
+
+Un **package** est une boîte à outils additionnelle.
+Exemples :
+
+```r
+install.packages("tidyverse")   # à installer une fois
+library(tidyverse)              # à charger à chaque session
+```
+
+### Objets
+
+Les **objets** stockent des données :
+
+```r
+note <- c(4.5, 5, 5.5)
+mean(note)
+```
+
+---
+
+## 🗂️ Données, scripts et projets
+
+* Les **données** peuvent venir d’un fichier `.csv`, d’un tableur ou d’un autre logiciel.
+* Les **scripts** (`.R`, `.qmd`) contiennent le code que vous écrivez.
+* Un **projet RStudio** (`.Rproj`) rassemble tout ce qui concerne un travail spécifique : données, code, résultats.
+
+::: {.callout-important}
+🎯 **But** : chaque projet = un dossier organisé, autonome et reproductible.
+:::
+
+---
+
+## 🔄 Workflow reproductible
+
+### Structure recommandée
+
+```
+mon_projet/
+├── data/
+│   ├── data-raw/        # données brutes
+│   └── data-processed/  # données nettoyées
+├── scripts/
+│   └── analyse.R
+├── outputs/
+│   ├── figures/
+│   └── tables/
+└── mon_projet.Rproj
+```
+
+### Bonnes pratiques
+
+* Utiliser des **noms clairs et sans espaces** (`revenus_2025.csv`)
+* **Commenter** votre code (`# ce que fait cette ligne`)
+* **Versionner** vos analyses (Git, GitHub)
+* **Éviter le copier-coller** entre projets : privilégiez des scripts réutilisables
+
+---
+
+## 🧭 En résumé
+
+| Concept            | Rôle principal                           |
+| ------------------ | ---------------------------------------- |
+| **Script**         | Écrire et garder une trace du code       |
+| **Console**        | Tester du code rapidement                |
+| **Projet RStudio** | Regroupe tout le travail au même endroit |
+| **Package**        | Étend les fonctions de base de R         |
+| **Workflow**       | Organisation cohérente et reproductible  |
+
+::: {.callout-tip}
+📚 À retenir : “Un projet propre, c’est un esprit clair et des résultats vérifiables.”
+:::
+
+```
+
+
+

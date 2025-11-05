@@ -1,0 +1,141 @@
+Configurations de RStudio
+
+Décoche « Restore .RData into workspace at startup » — pour ne pas restaurer automatiquement l’espace de travail
+
+Choisis « Save workspace to .RData on exit : Never » — pour ne jamais sauvegarder l’espace de travail à la fermeture
+
+Les autres options (Restore most recently opened project et Restore previously open source documents) peuvent rester activées si tu trouves ça confortable — elles n’impactent pas la reproductibilité du code
+
+L’objectif : repartir d’un environnement propre à chaque session, et forcer que tout ce qui est important soit dans tes scripts.
+
+
+Répertoire de travail (Working directory)
+
+Tout processus informatique a un « répertoire de travail ».
+Dans R, c’est l’endroit où R cherche par défaut les fichiers à charger, et où il enregistre les fichiers que vous créez.
+
+Par défaut, c’est souvent le dossier où RStudio voulait sauvegarder votre .RData — en général, votre dossier personnel.
+
+Vous pouvez vérifier le répertoire courant avec :
+getwd()
+
+Il s’affiche aussi en haut de la console RStudio.
+
+Quand on débute, ce n’est pas grave si le répertoire de travail est un dossier un peu aléatoire.
+Mais rapidement, il faut évoluer vers une organisation par projet :
+chaque analyse dans son propre dossier, et R travaille toujours à l’intérieur de ce dossier.
+
+Mais il existe une meilleure approche — celle des projets RStudio (.Rproj) —
+qui vous place sur la voie d’une gestion professionnelle et reproductible de votre travail R.
+
+
+
+Projets RStudio
+
+Garder tous les fichiers liés à un même projet bien organisés ensemble —
+les données d’entrée, les scripts R, les résultats d’analyse, les figures —
+est une pratique à la fois très sage et très courante.
+
+C’est pourquoi RStudio intègre nativement un système de “projets” (RStudio Projects) pour faciliter cette organisation.
+
+👉 Documentation officielle :http://www.rstudio.com/ide/docs/using/projects
+
+Créons-en un que nous utiliserons pour la suite de ce tutoriel.
+Procédez ainsi :
+Menu Projects → Create Project… → New Project.
+
+Le nom du dossier que vous choisissez ici deviendra le nom du projet.
+Appelez-le comme vous voulez — mais gardez à l’esprit qu’un bon nom est court et informatif.
+
+Ensuite, vérifiez que le dossier associé à votre projet correspond bien au répertoire de travail (working directory) du processus R en cours.
+
+
+
+
+
+entraînez-vous à relancer le code de différentes manières :
+
+🔹 Exécuter ligne par ligne avec le raccourci clavier (Cmd + Enter) ou le bouton Run (en haut à droite du script).
+
+🔹 Exécuter tout le script d’un coup :
+équivalent à taper dans la console :
+entraînez-vous à relancer le code de différentes manières :
+
+🔹 Exécuter ligne par ligne avec le raccourci clavier (Cmd + Enter) ou le bouton Run (en haut à droite du script).
+
+→ via le raccourci (Shift + Cmd + S) ou le bouton Source.
+
+🔹 Exécuter avec affichage (Source with echo) depuis le petit menu déroulant à côté du bouton Source. Ctrl + Shift + Enter
+
+
+Scripts
+
+Commentaires
+
+Les commentaires commencent par un ou plusieurs symboles #.
+🗣️ Utilisez-les généreusement.
+
+RStudio facilite leur ajout ou suppression sur les lignes sélectionnées avec :
+
+Ctrl + Shift + C (Windows / Linux)
+
+Cmd + Shift + C (macOS)
+Cette option se trouve aussi dans le menu Code → Comment/Uncomment Lines.
+
+
+Nettoyage de l’environnement
+
+Videz votre espace de travail —
+comme si vous reveniez à ce projet après une longue pause.
+
+➡️ Utilisez l’icône du balai 🧹 ou bien exécutez : rm(list = ls())
+
+
+
+Un workflow efficace pour l’avenir
+
+Créez un projet RStudio pour chaque projet d’analyse.
+
+Placez vos fichiers d’entrée (les données) dans le dossier du projet.
+
+Conservez vos scripts dans ce même dossier — modifiez-les, exécutez-les partiellement ou entièrement depuis RStudio.
+
+Enregistrez vos sorties (par ex. les PDF générés) dans ce dossier aussi.
+
+
+
+Travailler dans la console
+
+Studio IDE prend en charge la complétion automatique du code à l'aide de la touche Tab.
+
+Travailler dans la console dans l'IDE RStudio:
+https://support.posit.co/hc/en-us/articles/200404846-Working-in-the-Console-in-the-RStudio-IDE
+
+
+Récupération des commandes précédentes
+
+Lorsque vous travaillez avec R, vous voudrez souvent réexécuter une commande déjà tapée auparavant.
+
+Comme dans la console R standard, la console de RStudio permet de rappeler les commandes précédentes à l’aide des flèches du clavier :
+
+🔼 Flèche vers le haut (Up) — rappelle la ou les commandes précédentes
+
+🔽 Flèche vers le bas (Down) — fait l’inverse, pour revenir en avant dans l’historique
+
+Si vous souhaitez parcourir la liste complète de vos commandes récentes et en sélectionner une directement,
+utilisez le raccourci Ctrl + ↑ (sur Windows ou Linux).
+
+ous pouvez également utiliser le même raccourci clavier pour rechercher rapidement des commandes précédentes correspondant à un préfixe donné.
+
+
+Barre de titre de la console
+
+Cette capture d’écran illustre quelques fonctionnalités supplémentaires offertes par la barre de titre de la console :
+
+📂 Affichage du répertoire de travail courant (current working directory).
+
+⛔ Possibilité d’interrompre R pendant un calcul long.
+
+🔄 Possibilité de réduire ou agrandir la console par rapport au panneau d’édition (Source pane)
+
+

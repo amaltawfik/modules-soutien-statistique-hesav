@@ -1,0 +1,37 @@
+---
+title: "Régression linéaire"
+subtitle: "Modèles linéaires : construction, interprétation, diagnostics"
+format:
+  revealjs:
+    theme: [simple, dark]
+    slide-number: true
+    toc: true
+    embed-resources: true
+    transition: fade
+---
+
+<div style="text-align:right; margin-top:-1em">
+<a href="index.pdf" target="_blank" class="btn btn-outline-secondary">📄 Télécharger le PDF</a>
+</div>
+
+---
+
+## Objectifs
+
+- À compléter selon le cours.
+
+---
+
+## Plan
+
+1. …
+2. …
+3. …
+
+---
+
+## Ressources
+
+- Dossier `data/`
+- Script `R/`
+- Références à ajouter

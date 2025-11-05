@@ -1,0 +1,854 @@
+---
+title: "Introduction à R et RStudio"
+subtitle: "Premiers pas, bonnes pratiques et *workflow*"
+author:
+  - name: "Amal Tawfik"
+    orcid: "0009-0006-2422-1555"
+    email: "amal.tawfik@hesav.ch"
+    affiliations: "HESAV Haute École de Santé - Vaud (HES-SO)"
+date: "06 novembre 2025"
+
+lang: fr
+execute:
+  freeze: auto
+
+lightbox: true
+format:
+  clean-revealjs:
+    # Logo et style
+    logo: img/logo_hesav_black.png
+    css: nicecustom.scss
+
+    # Fond de la diapo de titre
+    # title-slide-attributes:
+      # data-background-image: img/logo_hesav_black.png # (ou supprime cette ligne si tu veux fond uni)
+      # data-background-position: center
+      # data-background-size: cover
+
+    # Navigation
+    menu:
+      side: left # menu latéral à gauche (facultatif)
+
+    # Numéros et date
+    slide-number: true
+    date-format: long
+
+    # Support des formules
+    html-math-method: mathjax
+    
+
+    # Liens cliquables dans la prévisualisation
+    preview-links: auto
+
+    # Tableau blanc interactif (chalkboard)
+    chalkboard:
+      buttons: true # cacher les boutons, activer via clavier
+      theme: whiteboard # fond clair, compatible avec thème HESAV
+    # highlight-style: breeze
+    code-line-numbers: false
+    # code-block-border-left: true
+    code-overflow: scroll
+---
+
+## Objectifs du module
+
+-   Découvrir l’environnement R et RStudio\
+-   Configurations de base
+-   Objets, fonctions et *packages*
+-   Créer un premier script et exécuter des commandes de base\
+-   Comprendre la logique des scripts et du *workflow* reproductible\
+-   Gérer un projet R et importer des données
+
+## Pourquoi apprendre R ?
+
+-   R est un logiciel libre et open source distribué sous licence GPL
+-   Un des langages de programmation les plus utilisés pour les analyses statistiques
+-   Reproductibilité et transparence
+-   Fonctionnalités infinies : tout le monde peut y contribuer et créer ses propres outils (fonctions et *packages*)
+-   Grande communauté et documentation
+
+## Principes de R
+
+-   R fonctionne à partir de lignes de commande et de scripts
+
+-   Les commandes R sont généralement simples à comprendre et ne nécessitent aucune expérience préalable en programmation pour débuter
+
+-   Les scripts offrent une réelle valeur ajoutée : ils peuvent être sauvegardés, modifiés, réutilisés et partagés très facilement
+
+-   R fonctionne avec des *packages* (extensions) qui sont un ensemble de fonctions qui étendent les fonctionnalités de R
+
+-   R est constitué de plusieurs packages de base, auxquels d’autres peuvent être ajoutés selon les besoins
+
+## Ressources clés pour l’écosystème R
+
+-   **Site officiel du projet R** : [r-project.org](https://www.r-project.org/)\
+-   **CRAN (Comprehensive R Archive Network)** — réseau de serveurs hébergeant les packages, la documentation et les binaires de R : [cloud.r-project.org](https://cloud.r-project.org/)\
+-   **R-universe (rOpenSci)** — plate-forme communautaire pour héberger et explorer des packages R : [ropensci.org/r-universe](https://ropensci.org/r-universe/)\
+-   **Moteur de recherche R-universe** — découvrir des packages R et leurs mainteneurs : [r-universe.dev/search](https://r-universe.dev/search)\
+-   **METACRAN** — moteur de recherche et visualisation des packages CRAN : [r-pkg.org](https://www.r-pkg.org/)\
+-   **Rseek** — moteur de recherche spécialisé, ciblant la documentation, les blogs et les forums R : [rseek.org](https://rseek.org/)\
+-   **Site du tidyverse** — un ensemble cohérent de packages conçus pour la science des données avec R : [tidyverse.org](https://www.tidyverse.org/)
+
+## RStudio I
+
+-   Logiciel qui facilite l’utilisation de R grâce à une interface simple et bien organisée.
+
+-   Permet de visualiser la console, les scripts, les graphiques, l’aide, les dossiers et le contenu de la mémoire de R (objets, graphiques, historique des commandes, etc.).
+
+-   Offre de nombreux outils intégrés : gestion de projets, exécution du code ligne par ligne et affichage des résultats.
+
+🔗 **Liens utiles :**
+
+-   [Site officiel de RStudio / Posit](https://posit.co/products/open-source/rstudio/)\
+-   [Documentation RStudio (guide de l'utilisateur)](https://docs.posit.co/ide/user/)
+
+## RStudio II
+
+-   Permet aussi de créer des rapports, des présentations, des sites web, des livres et des applications interactives grâce à des outils comme :
+    -   [Quarto](https://quarto.org/)\
+    -   [R Markdown](https://rmarkdown.rstudio.com/)\
+    -   [Shiny](https://shiny.posit.co/)
+-   L’apparence (thème, police, disposition des panneaux) et le comportement de RStudio peuvent être adaptés selon les préférences de l’utilisateur.
+
+## Interface de RStudio
+
+L'interface utilisateur de RStudio comporte 4 volets principaux
+
+-   **Source** : afficher et modifier divers fichiers liés au code, notamment les scripts R (`.R`, `.rmd`, `.qmd`, etc.)\
+-   **Console** : exécution des commandes\
+-   **Environment** : variables et objets créés\
+-   **Outputs** : Plots, Viewer et divers onglets utiles (Files, Packages, Help)
+
+## Les quatre volets de RStudio
+
+![](img/rstudio-panes-labeled.jpeg){width="80%" fig-align="center"}
+
+## Personnaliser l’apparence de RStudio
+
+Vous allez passer beaucoup de temps dans RStudio : personnalisez-le pour travailler plus confortablement !
+
+Ressources :
+
+-   [RStudio user Guide](https://docs.posit.co/ide/user/)
+
+-   [Pane Layout](https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html)
+
+-   [Themes](https://docs.posit.co/ide/user/ide/guide/ui/appearance.html)
+
+-   [Commande palette](https://docs.posit.co/ide/user/ide/guide/ui/command-palette.html)
+
+## Configurations de RStudio — Général {.smaller}
+
+Menu : **Tools → Global Options → General**
+
+-   Décocher : *Restore .RData into workspace at startup*\
+    → pour ne pas restaurer automatiquement l’espace de travail au démarrage.
+
+-   Choisir : *Save workspace to .RData on exit : Never*\
+    → pour ne jamais sauvegarder l’espace de travail à la fermeture.
+
+-   Décocher : *Restore most recently opened project*\
+    → empêche RStudio d’ouvrir automatiquement le dernier projet utilisé.\
+    Cela oblige à ouvrir manuellement le projet sur lequel on veut travailler.
+
+-   Décocher : *Restore previously open source documents*\
+    → évite que RStudio recharge automatiquement les fichiers script ou RMarkdown ouverts lors de la dernière session, pour un démarrage totalement propre.
+
+::: {.callout-tip title="Objectif" icon="false"}
+Repartir d’un environnement vide à chaque session, et s’assurer que tout ce qui est important est contenu dans les scripts.\
+Cela force à relancer les scripts à chaque ouverture de RStudio et permet de vérifier que tout fonctionne correctement du début à la fin.
+:::
+
+## Configurations de RStudio — Général (illustration)
+
+![](img/rstudio_options_general_basic.png){fig-align="center"}
+
+## Configurations de RStudio — Code Editing {.smaller}
+
+Menu : **Tools → Global Options → Code → Editing**
+
+-   Cocher : *Use native pipe operator, \|\>*\
+    → active la syntaxe de pipe native introduite dans R (R 4.1+).\
+    Permet d’utiliser [`|>`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/pipeOp.html) au lieu de [`%>%`](https://magrittr.tidyverse.org/reference/pipe.html) du package [magrittr](https://magrittr.tidyverse.org/index.html).
+
+-   Cocher : *Insert matching parens/quotes*\
+    → insère automatiquement les parenthèses et guillemets fermants, limitant les erreurs de frappe.
+
+-   Cocher : *Soft-wrap R source files*\
+    → effectue le retour à la ligne automatique des lignes longues, ce qui évite le défilement horizontal.
+
+::: {.callout-tip title="Objectif" icon="false"}
+Faciliter l’édition du code, réduire les erreurs de syntaxe et adopter la syntaxe R moderne avec le pipe natif `|>`.
+:::
+
+## Configurations de RStudio — Code Editing (illustration)
+
+![](img/rstudio_options_code_editing.png){fig-align="center"}
+
+## Configurations de RStudio — Code Display
+
+Menu : **Tools → Global Options → Code → Display**
+
+-   Cocher : *Show line numbers*\
+    → affiche le numéro de chaque ligne dans les scripts R et R Markdown, facilitant le repérage des erreurs et la navigation dans le code.
+
+-   Cocher : *Show margin*\
+    → affiche une ligne verticale (souvent à 80 caractères) pour favoriser un code lisible.
+
+-   Laisser cochée : *Highlight selected line*\
+    → met en surbrillance la ligne active pour mieux repérer la position du curseur.
+
+::: {.callout-tip title="Objectif" icon="false"}
+Améliorer la lisibilité, la navigation et le repérage rapide des lignes de code.
+:::
+
+## Configurations de RStudio — Code Display (illustration)
+
+![](img/rstudio_options_code_display.png){fig-align="center"}
+
+## Configurations de RStudio — Code Formatting
+
+Menu : **Tools → Global Options → Code → Formatting**
+
+-   Choisir : *R code formatting* → **styler**\
+    → sélectionne le package [styler](https://styler.r-lib.org/) comme outil de formatage du code en appliquant automatiquement les conventions de [style du tidyverse](https://style.tidyverse.org/) (indentation cohérente, espaces normalisés, code plus lisible).
+
+-   Cocher : *Format on save*\
+    → applique automatiquement le formatage à chaque sauvegarde de fichier, ce qui garantit un code toujours propre et uniforme, sans action manuelle.
+
+::: {.callout-tip title="Objectif" icon="false"}
+Assurer un code clair, cohérent et bien indenté grâce au formatage automatique géré par [styler](https://styler.r-lib.org/) à chaque sauvegarde.
+:::
+
+## Configurations de RStudio — Code Formatting (illustration)
+
+![](img/rstudio_options_code_formatting.png){fig-align="center"}
+
+## Configurations de RStudio — Appearance
+
+Menu : **Tools → Global Options → Appearance**
+
+-   Choisir un thème clair ou sombre selon vos préférences visuelles\
+    → facilite le confort de lecture, surtout lors de longues sessions de travail
+
+-   Ajuster la police (ex. *Fira Code*, *JetBrains Mono*, *Consolas*) et sa taille\
+    → pour une meilleure lisibilité du code
+
+Des thèmes personnalisés peuvent être installés :
+
+-   Le package [rsthemes](https://github.com/gadenbuie/rsthemes)\
+
+-   Le thème [Dracula](https://draculatheme.com/rstudio)\
+
+-   D'autres [ici](https://github.com/topics/rstheme) et [là](https://github.com/mkearney/rstudiothemes)
+
+-   Ou depuis **Tools → Global Options → Appearance → Add…**
+
+## Configurations de RStudio — Appearance (illustration)
+
+![](img/rstudio_options_appearance.png){fig-align="center"}
+
+## Tout est objet dans R
+
+Dans R, tout ce que vous manipulez est un objet :
+
+-   des valeurs simples (`x <- 5`),
+-   des structures de données (vecteurs, *data frames*, listes…),
+-   des fonctions,
+-   et même des graphiques, modèles statistiques ou résultats d’analyse.
+
+::: {.callout-tip title="À retenir" icon="false"}
+Dans R, tout ce que vous créez, importez ou calculez devient un objet stocké en mémoire, visible dans l’onglet **Environment** de RStudio — à condition de lui avoir donné un nom.
+
+C’est cette association à un nom qui permet ensuite de le retrouver et réutiliser.
+:::
+
+## Premiers pas dans R — Affectation et opérateur `<-`
+
+Saisir le texte suivant dans la console, puis appuyer sur <kbd>↵ Enter</kbd> :
+
+```{r}
+4 + 9
+```
+
+Utiliser l’opérateur d’assignation `<-` pour créer un objet contenant le résultat de `4 * 2` et l’associer au nom x :
+
+```{r, echo = TRUE}
+x <- 4 * 2
+x
+```
+
+Pour insérer rapidement l’opérateur d’assignation `<-` :
+
+-   <kbd>Alt</kbd> + <kbd>-</kbd> (Windows / Linux)\
+-   <kbd>Option</kbd> + <kbd>-</kbd> (macOS)
+
+## Premiers pas dans R — Manipuler des vecteurs
+
+Avec la fonction [`c()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/c.html) , on peut **c**ombiner plusieurs éléments séparés par une virgule :
+
+```{r, echo = TRUE}
+notes <- c(3, 2, 1, 4, 6)
+notes
+
+```
+
+On peut ensuite effectuer des calculs sur chacune de ces valeurs :
+
+```{r, echo = TRUE}
+notes * 2
+notes - 1
+notes + x
+```
+
+## Premiers pas dans R — Créer et nommer des objets
+
+Toutes les instructions R servant à créer des objets, appelées *instructions d’affectation*, ont la même forme :
+
+```{r, echo = TRUE, eval=FALSE}
+nom_objet <- valeur
+
+```
+
+On peut lire cette expression comme :
+
+"Le nom de l’objet reçoit la valeur" ou "Stocker ce qu'il y a à droite de `<-` dans un objet nommé à gauche"
+
+-   Tous les objets créés apparaissent automatiquement dans le volet **Environment** de RStudio, d’où ils peuvent être visualisés ou supprimés.
+
+::: callout-warning
+Les noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles `.` et `_`, mais ne doivent pas commencer par un chiffre.
+
+R est sensible à la casse (x ≠ X). Évitez les accents et les majuscules dans les noms d’objets.
+:::
+
+## Premiers pas dans R — Copier, modifier et supprimer des objets
+
+On peut copier un objet :
+
+```{r, echo = TRUE}
+a <- 2
+b <- a
+b
+```
+
+Le modifier :
+
+```{r, echo = TRUE}
+a <- 7
+a
+```
+
+L’effacer de l’environnement R avec la fonction [`rm()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rm.html) ([`remove()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rm.html)) :
+
+```{r, echo = TRUE}
+rm(a)
+```
+
+## Premiers pas dans R — Utilisation de fonctions I
+
+Une fonction exécute une action à partir d’arguments placés entre parenthèses.
+
+Voici trois fonctions très utiles pour débuter :
+
+-   [`data.frame()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/data.frame.html) : crée un tableau de données (*data frame*).\
+-   [`mean()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html) : calcule la moyenne arithmétique.\
+-   [`sd()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/sd.html) : calcule l’écart-type (la dispersion autour de la moyenne).
+
+## Premiers pas dans R — Utilisation de fonctions II
+
+On va construire une table de données à l’aide de la fonction [`data.frame()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/data.frame.html), qui regroupe plusieurs variables dans un même objet.
+
+L’objet créé est nommé `d` (nom arbitraire), et contient trois variables, `prenom` (chaînes de caractère écrites entre guillemets), `taille` (en cm) et `poids` (en kg) :
+
+```{r echo=TRUE}
+d <- data.frame(
+  prenom = c("Anne", "Sophie", "Marc", NA),
+  taille = c(160, 165, 170, 175),
+  poids  = c(55, 60, NA, 72)
+)
+d
+```
+
+## Données manquantes
+
+`NA` (*Not Available*) indique une valeur manquante, qu’il s’agisse d’un nombre, d’une chaîne de caractère, etc.
+
+```{r, echo = F}
+d
+```
+
+Il existe aussi `NaN` (*Not a Number*), qui signale une valeur numérique indéfinie (ex. 0/0) :
+
+```{r, echo = T}
+0 / 0
+```
+
+## Premiers pas dans R — Utilisation de fonctions III
+
+L’opérateur [`$`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html) permet d’accéder à une colonne (une variable) d’un tableau de données (*data frame*) ou à un élément nommé d’une liste.
+
+Appliquons maintenant les fonctions [`mean()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html) et [`sd()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/sd.html) à la variable `taille` du *data frame* `d` :
+
+```{r echo=TRUE}
+mean(d$taille)
+sd(d$taille)
+
+```
+
+`d$taille` signifie « la variable taille contenue dans `d` ».
+
+## Premiers pas dans R — Arguments de fonction
+
+Les fonctions prennent en entrée des arguments et renvoient un résultat.
+
+Vous pouvez spécifier les arguments ou utiliser leurs valeurs par défaut :
+
+```{r echo=TRUE}
+mean(d$poids)
+mean(d$poids, na.rm = TRUE)
+
+```
+
+-   Pour certaines fonctions comme `mean()`, `median()`, `sd()` ou `min()`, ajoutez l’argument `na.rm = TRUE` (*NA remove*) pour ignorer les valeurs manquantes.
+
+-   Sinon, si la variable contient des `NA`, le résultat renvoyé par R sera `NA` (`na.rm = FALSE` par défaut).
+
+-   `TRUE` est une valeur logique interne à R qui signifie vrai.
+
+## Installer des packages
+
+Pour installer un package depuis RStudio :
+
+1.  Ouvrir l’onglet **Packages** (dans le panneau inférieur droit).\
+2.  Cliquer sur le bouton **Install**.\
+3.  Dans la fenêtre qui s’ouvre, saisir le *nom du package* (ex. : *spicy*).\
+4.  Cliquer sur **Install** pour lancer l’installation.
+
+Ou en ligne de commande, avec la fonction [`install.packages()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/install.packages.html) :
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("spicy")
+```
+
+## Charger des packages
+
+Une fois installés, les packages doivent être chargés dans l’environnement R pour être utilisés avec la fonction [`library()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/library.html) :
+
+```{r, echo=TRUE, eval=FALSE}
+library(spicy)
+```
+
+Les packages installés doivent être chargés à chaque nouvelle session R.
+
+## Complétion automatique du code
+
+L’environnement RStudio permet de compléter automatiquement le code avec la touche <kbd>Tab ↹</kbd>
+
+-   Saisissez les premières lettres d’une fonction, d’un objet ou d’un argument\
+-   Appuyez sur <kbd>Tab ↹</kbd> pour afficher les suggestions de complétion\
+-   Utilisez ensuite les flèches <kbd>↑</kbd> et <kbd>↓</kbd> pour naviguer dans la liste\
+-   Validez votre choix avec <kbd>↵ Enter</kbd> ou continuez à taper
+
+*Exemple :*\
+Tapez `mea` puis appuyez sur <kbd>Tab ↹</kbd> → RStudio suggère `mean()`.
+
+::: notes
+**Commentaire pour l’oral :**\
+La touche **Tabulation (**<kbd>Tab</kbd>) est essentielle dans RStudio.\
+Elle permet d’accélérer la saisie du code, d’éviter les fautes de frappe et d’explorer les fonctions disponibles sans avoir à tout mémoriser.\
+Par exemple, si je tape `mea` puis <kbd>Tab</kbd>, RStudio me propose automatiquement `mean()` avec sa description.\
+C’est un excellent moyen de découvrir les arguments et d’apprendre plus vite.
+:::
+
+## Complétion pour les chemins de fichiers
+
+Pour insérer un chemin d’accès à un fichier, placez le curseur entre les guillemets doubles (`""`) puis appuyez sur <kbd>Tab ↹</kbd>.
+
+-   RStudio affichera alors tous les dossiers et fichiers disponibles dans le répertoire de travail.
+
+-   Vous pouvez naviguer avec les flèches <kbd>↑</kbd> <kbd>↓</kbd> ou la souris, ouvrir un dossier avec <kbd>Tab ↹</kbd>, et valider la sélection avec <kbd>↵ Enter</kbd>.
+
+Vous pouvez également accéder à des fichiers situés en dehors du répertoire actuel en commençant à taper le début de leur chemin d’accès (par exemple `"/Users/"` ou `"C:/"`) et en plaçant le curseur entre `/` et `"`puis en appuyant sur <kbd>Tab ↹</kbd> .
+
+## Obtenir de l’aide dans R
+
+-   Utilisez [`?fonction`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/help.html) ou [`help("fonction")`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/help.html) pour accéder à la documentation d’une fonction.\
+-   Pour explorer un package complet : `help(package="nom_du_package")`.\
+-   Recherchez des vignettes via [`browseVignettes()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/browseVignettes.html) ou [`vignette("nom")`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/vignette.html) pour des guides illustrés.\
+-   Utilisez des fonctions de recherche interne : [`apropos()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/apropos.html), [`help.search()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/help.search.html) (alias [`??`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/help.search.html)) et [`RSiteSearch()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/RSiteSearch.html) pour explorer plus largement.\
+-   Consultez le portail officiel : [Getting Help with R](https://www.r-project.org/help.html) — documentation, FAQ, mailing-lists, forums.\
+-   Utilisez votre moteur de recherche favori
+
+## Console
+
+La ligne commençant par le caractère `>` est appelée l’invite de commande (*prompt* en anglais).
+
+Elle indique que R est prêt à recevoir une instruction :
+
+```{r, echo = TRUE, eval=FALSE}
+x <- "Hello"
+>
+```
+
+Dans la console, le signe **`+`** indique que R attend la suite du code, souvent à cause d’un **`"`** ou **`)`** manquant :
+
+```{r, echo = TRUE, eval=FALSE}
+x <- "Hello
++
+```
+
+Ajouter le caractère oublié (puis <kbd>↵ Enter</kbd>) ou appuyer sur <kbd>Esc</kbd> (<kbd>Échap</kbd>) pour annuler et recommencer.
+
+## Récupération des commandes précédentes
+
+La console permet de rappeler les commandes précédentes à l’aide des flèches du clavier :
+
+-   <kbd>↑</kbd> rappelle la ou les commandes précédentes\
+-   <kbd>↓</kbd> avance dans l’historique\
+-   <kbd>Ctrl</kbd> + <kbd>↑</kbd> (Windows / Linux) ou <kbd>⌘</kbd> + <kbd>↑</kbd> (macOS) ouvre tout l’historique pour parcourir la liste complète de vos commandes récentes
+
+## Lire les résultats dans la console I
+
+Quand un objet contient beaucoup de valeurs, R les affiche sur plusieurs lignes dans la console. Par exemple, avec un vecteur de 40 nombres :
+
+```{r, echo = F, out.height="auto"}
+options(width = 75)
+set.seed(123)  # pour reproduire le même tirage
+tailles <- sample(155:199, 40)
+tailles
+
+```
+
+R ajoute un nombre entre crochets (\[ \]) au début de chaque ligne. Ce nombre indique la position du premier élément affiché sur cette ligne dans le vecteur.
+
+Ainsi :
+
+-   Sur la deuxième ligne, \[18\] signifie que le premier nombre de cette ligne est le 18ᵉ élément du vecteur
+
+-   Sur la dernière ligne, \[35\] signifie que le premier nombre affiché est le 35ᵉ
+
+## Lire les résultats dans la console II
+
+Ceci explique aussi le \[1\] affiché lorsqu’il y a une seule valeur :
+
+```{r, echo = F}
+8
+
+```
+
+Le \[1\] n’est pas un résultat, mais un repère visuel : il indique simplement que la valeur affichée correspond au premier élément du vecteur ou du résultat.
+
+## Les scripts
+
+-   Plutôt que de saisir les commandes directement dans la console, on les regroupe dans des **scripts R** — de simples fichiers texte.
+
+-   Ces scripts conservent une trace de toutes les opérations effectuées (importation, nettoyage, analyses, graphiques, etc.).
+
+-   Ils deviennent ainsi le **cœur du travail reproductible** : il suffit de les rouvrir et de réexécuter leurs commandes pour recréer les mêmes résultats.
+
+## Créer un script
+
+1.  Menu **File → New File → R Script**\
+2.  Une nouvelle zone s’ouvre en haut à gauche de RStudio.\
+3.  Enregistrer le script via l’icône 💾 ou **File → Save/Save as**\
+    (les fichiers portent l’extension `.R`).
+
+Dans un script, la touche <kbd>↵ Enter</kbd> insère une nouvelle ligne, elle n’exécute pas le code (contrairement à la console).
+
+## Insérer des commentaires dans un script
+
+```{r}
+
+```
+
+-   Les commentaires commencent par un ou plusieurs symboles `#`.\
+-   R ignore tout ce qui suit sur la ligne.\
+-   Ils servent à expliquer, documenter et structurer les scripts.\
+
+Exemple :
+
+```{r, echo = TRUE}
+# Calcul d'une moyenne
+mean(1 + 5 + 9) # On peut ajouter ici un autre commentaire
+```
+
+Pour insérer ou retirer rapidement un commentaire dans RStudio :
+
+-   <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (Windows / Linux)\
+-   <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd> (macOS)
+
+Cette commande est également accessible depuis le menu :
+
+-   Code → Comment/Uncomment Lines
+
+## Créer des sections dans un script
+
+Quand un script devient long, il est utile de le structurer en sections pour faciliter la navigation et la lecture.
+
+Pour créer une section dans RStudio (et des sous-sections), il suffit d’écrire un commentaire suivi d’au moins quatre tirets (`-`) :
+
+``` r
+# Titre de la section ------------------------------------
+## Sous-section ------------------------------------------
+### Sous-sous-section ------------------------------------
+```
+
+Dans la marge gauche un triangle noir permet de plier ou déplier le contenu de la section.
+
+Voici un exemple de structure de script : [⬇️ Télécharger le modèle de script](script_template.R)
+
+## Afficher la table des matières du script
+
+-   Cliquer sur l’icône **Outline** (tout à droite de la barre d’outils du script), ou utiliser le raccourci :
+
+    -   <kbd>Ctrl</kbd> + <kbd>Maj</kbd> + <kbd>O</kbd> (Windows / Linux) 
+    -   <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> (macOS)
+
+-   RStudio affiche alors une table des matières interactive, mise à jour automatiquement, listant toutes les sections du script.
+
+-   Le symbole "\#" sur fond orange, situé en bas de la fenêtre du script, donne également accès à la fonction *Document Outline* (table des matières) d’un simple clic.
+
+## Exécution du code
+
+Dans un script R, pour exécuter une instruction :
+
+1.  Placez le curseur n’importe où sur la ligne du code.\
+
+2.  Cliquez sur le bouton **Run** ou utilisez le raccourci clavier suivant :
+
+    -   <kbd>Ctrl</kbd> + <kbd>↵ Enter</kbd> (Windows / Linux)\
+    -   <kbd>⌘</kbd> + <kbd>↵ Enter</kbd> (macOS)
+
+L’instruction est alors envoyée à la console et exécutée.
+
+Si une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.
+
+Vous pouvez aussi sélectionner une partie du code (en surbrillance) et l’exécuter de la même manière, avec **Run** ou le raccourci clavier.
+
+## *Workflow* (flux de travail)
+
+Manière structurée et reproductible d’organiser son travail
+
+-   Eviter le code spaghetti : un code désordonné, illisible et non structuré, difficile à réutiliser.
+-   Travail reproductible
+-   Collaboration facilitée
+-   Apprentissage facilité
+
+## *Working directory* (répertoire de travail)
+
+-   C'est le dossier où R lit et enregistre les fichiers par défaut
+
+-   Le répertoire de travail utilisé par R est indiqué en haut du volet de la console RStudio
+
+Ou exécuter la fonction [`getwd()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/getwd.html) :
+
+```{r, echo = TRUE, eval=T}
+# Get the working directory
+getwd()
+```
+
+## Répertoire de travail par défaut dans RStudio
+
+-   RStudio démarre toujours dans le même dossier par défaut
+
+-   Pour connaître cet emplacement, allez dans le menu : **Tools → Global Options → General → Basic**
+
+-   Dossier par défaut utilisé par RStudio lorsqu’aucun projet n’est ouvert
+
+![](img/rstudio_options_general_basic.png){width="40%" fig-align="center"}
+
+## Définir son répertoire de travail par défaut (hors projet)
+
+-   Conseillé de rassembler tous vos fichiers au même endroit lorque vous ne travaillez pas dans un projet R
+
+-   Définir un répertoire de travail par défaut (*working directory*).
+
+Exemple personnel :
+
+-   J'ai crée un dossier structuré comme suit : `Code → R → sandbox` dans mon dossier *Documents* (`~/Documents/Code/R/sandbox`).
+    -   Vous pouvez le mettre sur votre Bureau (`~/Desktop/Code/R/sandbox`) ou ailleurs selon vos préférences.
+-   Tous les fichiers sauvegardés (hors projet) seront automatiquement enregistrés dans ce dossier `sandbox`.
+
+## Les projets RStudio
+
+-   Fonctionnalité de RStudio pour organiser son travail.\
+-   Regroupe tous les éléments d’une analyse : données, scripts, résultats, figures, documentation.
+-   Facilite la gestion et la **reproductibilité**.\
+-   Objectif : tout garder ensemble dans un seul dossier.
+
+## Qu’est-ce qu’un projet ?
+
+En pratique, un projet RStudio correspond simplement à un dossier\
+créé sur votre disque dur, dans lequel vous placerez :
+
+-   les jeux de données (brutes et nettoyées),\
+-   les scripts R,\
+-   les documents (notes, rapports, etc.),\
+-   les résultats et figures.
+
+RStudio reconnaît ce dossier comme un projet et l’ouvre dans une session dédiée, avec son propre environnement.
+
+## Pourquoi utiliser des projets ?
+
+Utiliser les projets RStudio offre plusieurs avantages :
+
+-   R démarre automatiquement dans le dossier du projet, ce qui simplifie l’accès aux fichiers sans écrire de longs chemins d’accès.\
+-   Si vous déplacez votre dossier, le projet continue de fonctionner.\
+-   L’onglet **Files** (en bas à droite) permet de naviguer facilement dans le contenu du projet.\
+-   Vous pouvez changer de projet en un clic si vous travaillez sur plusieurs analyses.
+
+## Créer un projet RStudio
+
+Pour créer un projet :
+
+1.  Menu **File → New Project…**\
+2.  Selon la situation :
+    -   **New Directory** → créer un nouveau dossier vide\
+    -   **Existing Directory** → utiliser un dossier existant
+3.  Cliquez sur **Create Project**
+
+À la création (et à chaque ouverture du projet), RStudio lance une nouvelle session R et définit automatiquement le dossier du projet comme répertoire de travail (*working directory*).
+
+## Gérer ses projets au quotidien
+
+Une fois le projet créé :
+
+-   Son nom s’affiche en haut à droite de l’interface RStudio.\
+-   Ce menu déroulant permet de passer facilement d’un projet à l’autre.\
+-   Chaque projet conserve son historique, environnement et fichiers propres.\
+-   Pour rouvrir un projet, il suffit de **double-cliquer sur le fichier `.Rproj`** ou de passer par le menu **File → Open Project…** et de sélectionner le fichier `.Rproj`\*\* : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.
+
+::: {.callout-tip title="Astuce : un projet = un dossier = une analyse"}
+Adoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible.
+:::
+
+Pour en savoir plus sur la gestion des projets : <https://www.rstudio.com/ide/docs/using/projects>
+
+## *Workflow* reproductible
+
+Structure recommandée :
+
+```         
+mon_projet/
+├── data/
+│   ├── raw/        # données brutes
+│   └── processed/  # données nettoyées
+├── scripts/
+│   └── analyse.R
+│   └── clean_data.R
+├── outputs/
+│   ├── figures/
+│   └── tables/
+└── mon_projet.Rproj
+```
+
+::: {.callout-tip title="Script à télécharger pour créer l'arborescence d'un projet" icon="false"}
+Vous pouvez télécharger et exécuter le script suivant pour créer automatiquement la structure de base d’un projet R :
+
+[⬇️  init_project.R](init_project.R)
+
+**Important :** exécutez ce script <span style="color:red">**depuis le répertoire du projet**</span> (ou après avoir ouvert le projet `.Rproj` dans RStudio), afin que les dossiers soient créés au bon endroit.
+:::
+
+## Formats et extensions des fichiers R
+
+### Fichiers de données
+
+-   **`.RData`** *(ou raccourci `.rda`)* : permet de **stocker plusieurs objets** R dans un même fichier.\
+-   **`.rds`** : permet de **sauvegarder un seul objet** à la fois (préférable pour les *workflows* reproductibles).
+
+### Fichiers de code
+
+-   **`.R`** : contient des **scripts R**, c’est-à-dire du code exécutable.
+
+### Fichiers de projet
+
+-   **`.Rproj`** : utilisé par RStudio pour définir un projet R (répertoire de travail, options, historique, etc.).
+
+## Importer des données dans R — Trop de fonctions !
+
+Beaucoup (trop) de packages et de fonctions différentes :
+
+```{r, echo = TRUE, eval=FALSE}
+# Fichiers R
+load("data/raw/data.rda")
+data <- readRDS("data/raw/data.rds")
+
+# Fichiers CSV
+data <- read.csv("data/raw/data.csv")
+data <- readr::read_csv("data/raw/data.csv")
+
+# Fichiers Excel
+data <- xlsx::read.xlsx("data/raw/data.xlsx")
+data <- readxl::read_excel("data/raw/data.xlsx")
+
+# Fichiers SPSS / Stata / SAS
+data <- haven::read_spss("data/raw/data.sav")
+data <- haven::read_stata("data/raw/data.dta")
+data <- haven::read_sas("data/raw/data.sas7bdat")
+
+# etc.
+
+```
+
+## Importer et exporter des données avec **`rio`**
+
+Le package [`rio`](https://gesistsa.github.io/rio/) simplifie grandement l’importation et l’exportation de fichiers de données dans R.
+
+### Fonctions principales
+
+-   [`import()`](https://gesistsa.github.io/rio/reference/import.html) → Lire un fichier
+-   [`export()`](https://gesistsa.github.io/rio/reference/export.html) → Sauvegarder un objet R
+
+De nombreux [formats supportés](https://gesistsa.github.io/rio/index.html#supported-file-formats) : `.csv`, `.xlsx`, `.rda`, `.sav`, etc.
+
+```{r, echo = TRUE, eval=FALSE}
+# Importer différents formats
+import("data/raw/data.xlsx")
+import("data/raw/data.rda")
+import("data/raw/data.dta")
+
+# Exporter un objet R
+export(data, "data/processed/data.csv")
+export(data, "data/processed/data.rds")
+export(data, "data/processed/data.sav")
+```
+
+## Importer des données par les menus de RStudio
+
+L’importation peut aussi se faire depuis le volet **Environnement → Import Dataset** :
+
+![](img/import_data.png){width="40%" fig-align="center"}
+
+
+## Nettoyage de l’environnement
+
+Videz votre **Environnement** comme si vous reveniez à ce projet après une longue pause.
+
+### Deux solutions simples
+
+-   Cliquez sur l’icône du **balai 🧹** dans le panneau **Environment** pour tout effacer.\
+-   Ou exécutez dans la console :
+
+```{r, eval=FALSE, echo=TRUE}
+rm(list = ls())
+```
+
+::: {.callout-tip title="Astuce : Relancer complètement R"}
+Vous pouvez aussi redémarrer la session R (**Session → Restart R**) : cela vide l’environnement et décharge tous les packages chargés.  
+
+Méthode la plus sûre pour repartir sur une base propre.
+:::
+
+## Ressources pour apprendre et approfondir R
+
+-   [Introduction à R et au tidyverse](https://juba.github.io/tidyverse/) : Très bonne introduction en français
+
+-   [R for Data Science (2e)](https://r4ds.hadley.nz/) : Introduction complète et progressive à la science des données avec R
+
+-   [Awesome R Learning Resources](https://github.com/iamericfletcher/awesome-r-learning-resources) : Liste des packages/travaux/etc. géniaux dans R
+
+-   [Advanced R](https://adv-r.hadley.nz/index.html) : Exploration approfondie du langage R
+
+-   [The Art of R Programming](https://nostarch.com/artofr.htm) : Ouvrage de référence sur la programmation avancée et les bonnes pratiques en R (non disponible en libre accès)

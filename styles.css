@@ -1,0 +1,27 @@
+/* Simple button styling for PDF download links and table tweaks */
+.btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+.btn-outline-secondary {
+  color: inherit;
+  background-color: transparent;
+  border-color: #888;
+}
+.btn-outline-secondary:hover {
+  background-color: #f0f0f0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+table th, table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
