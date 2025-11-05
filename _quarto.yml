@@ -3,13 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "Modules de soutien statistique 2025-2026"
+  title: "Modules de soutien statistique 2025–2026"
   page-navigation: true
   search: true
+  repo-url: https://github.com/amaltawfik/modules-soutien-statistique-hesav
+  repo-actions: [issue]
   navbar:
     background: primary
-    right:
-      - github
     left:
       - href: index.qmd
         text: Accueil
@@ -21,13 +21,13 @@ website:
             href: 02-clean_manipulation/index.qmd
           - text: "Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation"
             href: 03-analyses_bivariees/index.qmd
-          - text: "Régression linéaire"
+          - text: "Régression linéaire : principes, interprétation et visualisation des résultats"
             href: 04-regression_lineaire/index.qmd
-          - text: "Analyses factorielles exploratoires (EFA) et construction d’échelles"
+          - text: "Analyses factorielles exploratoires (EFA) et construction d’échelles : fondements et mise en œuvre"
             href: 05-efa_echelles/index.qmd
-          - text: "Visualisation des données avec ggplot2"
+          - text: "Visualisation des données avec ggplot2 : grammaire graphique et bonnes pratiques"
             href: 06-visualisation/index.qmd
-          - text: "Régression logistique"
+          - text: "Régression logistique : interprétation, ajustement et qualité du modèle"
             href: 07-regression_logistique/index.qmd
 
 format:
@@ -52,5 +52,4 @@ format:
       headings-color: "#2e2e2e"
       link-color: "#2e2e2e"
       link-decoration: underline dotted
-    css: styles/custom.scss  
-
+    css: styles/custom.scss

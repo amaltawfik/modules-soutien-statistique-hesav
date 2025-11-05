@@ -13,42 +13,32 @@ execute:
   freeze: auto
 
 lightbox: true
+
 format:
   clean-revealjs:
-    # Logo et style
+    # Apparence et logo
     logo: img/logo_hesav_black.png
-    css: nicecustom.scss
-
-    # Fond de la diapo de titre
-    # title-slide-attributes:
-      # data-background-image: img/logo_hesav_black.png # (ou supprime cette ligne si tu veux fond uni)
-      # data-background-position: center
-      # data-background-size: cover
+    css: styles/nicecustom.scss
 
     # Navigation
     menu:
-      side: left # menu latéral à gauche (facultatif)
+      side: left
 
     # Numéros et date
     slide-number: true
     date-format: long
 
-    # Support des formules
+    # Math / code / interactivité
     html-math-method: mathjax
-    
-
-    # Liens cliquables dans la prévisualisation
     preview-links: auto
-
-    # Tableau blanc interactif (chalkboard)
     chalkboard:
-      buttons: true # cacher les boutons, activer via clavier
-      theme: whiteboard # fond clair, compatible avec thème HESAV
-    # highlight-style: breeze
+      buttons: true
+      theme: whiteboard
     code-line-numbers: false
-    # code-block-border-left: true
     code-overflow: scroll
+    transition: fade
 ---
+
 
 ## Objectifs du module
 
