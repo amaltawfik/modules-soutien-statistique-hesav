@@ -232,6 +232,7 @@ Amal Tawfik <a href="https://orcid.org/0009-0006-2422-1555" class="quarto-title-
 </li>
 <li>Gérer un projet R et importer des données</li>
 </ul>
+<p>La présentation est disponible sur ce site : <a href="https://amaltawfik.github.io/modules-soutien-statistique-hesav/">https://amaltawfik.github.io/modules-soutien-statistique-hesav/</a></p>
 </section>
 <section id="pourquoi-apprendre-r" class="slide level2">
 <h2>Pourquoi apprendre R&nbsp;?</h2>
@@ -253,7 +254,7 @@ Amal Tawfik <a href="https://orcid.org/0009-0006-2422-1555" class="quarto-title-
 <li><p>R est constitué de plusieurs packages de base, auxquels d’autres peuvent être ajoutés selon les besoins</p></li>
 </ul>
 </section>
-<section id="ressources-clés-pour-lécosystème-r" class="slide level2">
+<section id="ressources-clés-pour-lécosystème-r" class="slide level2 smaller">
 <h2>Ressources clés pour l’écosystème R</h2>
 <ul>
 <li><strong>Site officiel du projet R</strong>&nbsp;: <a href="https://www.r-project.org/">r-project.org</a><br>
@@ -353,7 +354,8 @@ Cela oblige à ouvrir manuellement le projet sur lequel on veut travailler.</p><
 </div>
 <div class="callout-content">
 <p>Repartir d’un environnement vide à chaque session, et s’assurer que tout ce qui est important est contenu dans les scripts.<br>
-Cela force à relancer les scripts à chaque ouverture de RStudio et permet de vérifier que tout fonctionne correctement du début à la fin.</p>
+</p>
+<p>Cela force à relancer les scripts à chaque ouverture de RStudio et permet de vérifier que tout fonctionne correctement du début à la fin.</p>
 </div>
 </div>
 </div>
@@ -367,7 +369,7 @@ Cela force à relancer les scripts à chaque ouverture de RStudio et permet de v
 </figure>
 </div>
 </section>
-<section id="configurations-de-rstudio-code-editing" class="slide level2 smaller">
+<section id="configurations-de-rstudio-code-editing" class="slide level2">
 <h2>Configurations de RStudio — Code Editing</h2>
 <p>Menu&nbsp;: <strong>Tools → Global Options → Code → Editing</strong></p>
 <ul>
@@ -514,16 +516,17 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 </section>
 <section id="premiers-pas-dans-r-affectation-et-opérateur--" class="slide level2">
 <h2>Premiers pas dans R — Affectation et opérateur <code>&lt;-</code></h2>
-<p>Saisir le texte suivant dans la console, puis appuyer sur <kbd>↵ Enter</kbd>&nbsp;:</p>
+<p>Saisir la commande suivante dans la console, puis appuyer sur <kbd>↵ Enter</kbd>&nbsp;:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">9</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 13</code></pre>
 </div>
 </div>
 <p>Utiliser l’opérateur d’assignation <code>&lt;-</code> pour créer un objet contenant le résultat de <code>4 * 2</code> et l’associer au nom x&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">*</span> <span class="dv">2</span></span>
-<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb3-2"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -539,23 +542,23 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 <h2>Premiers pas dans R — Manipuler des vecteurs</h2>
 <p>Avec la fonction <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/c.html"><code>c()</code></a> , on peut <strong>c</strong>ombiner plusieurs éléments séparés par une virgule&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>notes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>notes</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>notes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>notes</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3 2 1 4 6</code></pre>
 </div>
 </div>
 <p>On peut ensuite effectuer des calculs sur chacune de ces valeurs&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-hidden="true" tabindex="-1"></a>notes <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>notes <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  6  4  2  8 12</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-hidden="true" tabindex="-1"></a>notes <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>notes <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 1 0 3 5</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-hidden="true" tabindex="-1"></a>notes <span class="sc">+</span> x</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>notes <span class="sc">+</span> x</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11 10  9 12 14</code></pre>
 </div>
@@ -565,7 +568,7 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 <h2>Premiers pas dans R — Créer et nommer des objets</h2>
 <p>Toutes les instructions R servant à créer des objets, appelées <em>instructions d’affectation</em>, ont la même forme&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a>nom_objet <span class="ot">&lt;-</span> valeur</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>nom_objet <span class="ot">&lt;-</span> valeur</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>On peut lire cette expression comme&nbsp;:</p>
 <p>“Le nom de l’objet reçoit la valeur” ou “Stocker ce qu’il y a à droite de <code>&lt;-</code> dans un objet nommé à gauche”</p>
@@ -581,7 +584,7 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 <p><strong>Avertissement</strong></p>
 </div>
 <div class="callout-content">
-<p>Les noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles <code>.</code> et <code>_</code>, mais ne doivent pas commencer par un chiffre.</p>
+<p>Les noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles <code>.</code> et <code>_</code>, mais ne doivent pas commencer par un chiffre ni contenir d’espace.</p>
 <p>R est sensible à la casse (x ≠ X). Évitez les accents et les majuscules dans les noms d’objets.</p>
 </div>
 </div>
@@ -591,24 +594,24 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 <h2>Premiers pas dans R — Copier, modifier et supprimer des objets</h2>
 <p>On peut copier un objet&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb13-2"><a aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a</span>
-<span id="cb13-3"><a aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb14-2"><a aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> a</span>
+<span id="cb14-3"><a aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 <p>Le modifier&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb15-2"><a aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb16-2"><a aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
 </div>
 <p>L’effacer de l’environnement R avec la fonction <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/rm.html"><code>rm()</code></a> (<a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/rm.html"><code>remove()</code></a>)&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(a)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(a)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="premiers-pas-dans-r-utilisation-de-fonctions-i" class="slide level2">
@@ -628,12 +631,12 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 <p>On va construire une table de données à l’aide de la fonction <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/data.frame.html"><code>data.frame()</code></a>, qui regroupe plusieurs variables dans un même objet.</p>
 <p>L’objet créé est nommé <code>d</code> (nom arbitraire), et contient trois variables, <code>prenom</code> (chaînes de caractère écrites entre guillemets), <code>taille</code> (en cm) et <code>poids</code> (en kg)&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb18-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">prenom =</span> <span class="fu">c</span>(<span class="st">"Anne"</span>, <span class="st">"Sophie"</span>, <span class="st">"Marc"</span>, <span class="cn">NA</span>),</span>
-<span id="cb18-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">taille =</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>),</span>
-<span id="cb18-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">poids  =</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">60</span>, <span class="cn">NA</span>, <span class="dv">72</span>)</span>
-<span id="cb18-5"><a aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-6"><a aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb19-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">prenom =</span> <span class="fu">c</span>(<span class="st">"Anne"</span>, <span class="st">"Sophie"</span>, <span class="st">"Marc"</span>, <span class="cn">NA</span>),</span>
+<span id="cb19-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">taille =</span> <span class="fu">c</span>(<span class="dv">160</span>, <span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">175</span>),</span>
+<span id="cb19-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">poids  =</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">60</span>, <span class="cn">NA</span>, <span class="dv">72</span>)</span>
+<span id="cb19-5"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-6"><a aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  prenom taille poids
 1   Anne    160    55
@@ -657,7 +660,7 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 </div>
 <p>Il existe aussi <code>NaN</code> (<em>Not a Number</em>), qui signale une valeur numérique indéfinie (ex. 0/0)&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a><span class="dv">0</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NaN</code></pre>
 </div>
@@ -668,11 +671,11 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 <p>L’opérateur <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html"><code>$</code></a> permet d’accéder à une colonne (une variable) d’un tableau de données (<em>data frame</em>) ou à un élément nommé d’une liste.</p>
 <p>Appliquons maintenant les fonctions <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html"><code>mean()</code></a> et <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/sd.html"><code>sd()</code></a> à la variable <code>taille</code> du <em>data frame</em> <code>d</code>&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>taille)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>taille)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 167.5</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>taille)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>taille)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6.454972</code></pre>
 </div>
@@ -684,11 +687,11 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 <p>Les fonctions prennent en entrée des arguments et renvoient un résultat.</p>
 <p>Vous pouvez spécifier les arguments ou utiliser leurs valeurs par défaut&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>poids)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>poids)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>poids, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>poids, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 62.33333</code></pre>
 </div>
@@ -713,14 +716,14 @@ Permet d’utiliser <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/
 </ol>
 <p>Ou en ligne de commande, avec la fonction <a href="https://stat.ethz.ch/R-manual/R-devel/library/utils/html/install.packages.html"><code>install.packages()</code></a>&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"spicy"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"spicy"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="charger-des-packages" class="slide level2">
 <h2>Charger des packages</h2>
 <p>Une fois installés, les packages doivent être chargés dans l’environnement R pour être utilisés avec la fonction <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/library.html"><code>library()</code></a>&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spicy)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spicy)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Les packages installés doivent être chargés à chaque nouvelle session R.</p>
 </section>
@@ -786,13 +789,13 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 <p>La ligne commençant par le caractère <code>&gt;</code> est appelée l’invite de commande (<em>prompt</em> en anglais).</p>
 <p>Elle indique que R est prêt à recevoir une instruction&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"Hello"</span></span>
-<span id="cb33-2"><a aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"Hello"</span></span>
+<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Dans la console, le signe <strong><code>+</code></strong> indique que R attend la suite du code, souvent à cause d’un <strong><code>"</code></strong> ou <strong><code>)</code></strong> manquant&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"Hello</span></span>
-<span id="cb34-2"><a aria-hidden="true" tabindex="-1"></a><span class="st">+</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"Hello</span></span>
+<span id="cb35-2"><a aria-hidden="true" tabindex="-1"></a><span class="st">+</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Ajouter le caractère oublié (puis <kbd>↵ Enter</kbd>) ou appuyer sur <kbd>Esc</kbd> (<kbd>Échap</kbd>) pour annuler et recommencer.</p>
 </section>
@@ -828,6 +831,8 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 <h2>Lire les résultats dans la console II</h2>
 <p>Ceci explique aussi le [1] affiché lorsqu’il y a une seule valeur&nbsp;:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -866,8 +871,8 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 </ul>
 <p>Exemple&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul d'une moyenne</span></span>
-<span id="cb37-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">9</span>) <span class="co"># On peut ajouter ici un autre commentaire</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Calcul d'une moyenne</span></span>
+<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">9</span>) <span class="co"># On peut ajouter ici un autre commentaire</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15</code></pre>
 </div>
@@ -887,9 +892,9 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 <h2>Créer des sections dans un script</h2>
 <p>Quand un script devient long, il est utile de le structurer en sections pour faciliter la navigation et la lecture.</p>
 <p>Pour créer une section dans RStudio (et des sous-sections), il suffit d’écrire un commentaire suivi d’au moins quatre tirets (<code>-</code>)&nbsp;:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Titre de la section ------------------------------------</span></span>
-<span id="cb39-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Sous-section ------------------------------------------</span></span>
-<span id="cb39-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">### Sous-sous-section ------------------------------------</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Titre de la section ------------------------------------</span></span>
+<span id="cb41-2"><a aria-hidden="true" tabindex="-1"></a><span class="do">## Sous-section ------------------------------------------</span></span>
+<span id="cb41-3"><a aria-hidden="true" tabindex="-1"></a><span class="do">### Sous-sous-section ------------------------------------</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Dans la marge gauche un triangle noir permet de plier ou déplier le contenu de la section.</p>
 <p>Voici un exemple de structure de script&nbsp;: <a href="script_template.R">⬇️ Télécharger le modèle de script</a></p>
 </section>
@@ -940,8 +945,8 @@ C’est un excellent moyen de découvrir les arguments et d’apprendre plus vit
 </ul>
 <p>Ou exécuter la fonction <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/getwd.html"><code>getwd()</code></a>&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Get the working directory</span></span>
-<span id="cb40-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Get the working directory</span></span>
+<span id="cb42-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "C:/Users/at/switchdrive/HESAV/Modules R/Modules de soutien statistique/01-intro_r_rstudio"</code></pre>
 </div>
@@ -1109,24 +1114,24 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 <h2>Importer des données dans R — Trop de fonctions !</h2>
 <p>Beaucoup (trop) de packages et de fonctions différentes&nbsp;:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers R</span></span>
-<span id="cb43-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/raw/data.rda"</span>)</span>
-<span id="cb43-3"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/raw/data.rds"</span>)</span>
-<span id="cb43-4"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers CSV</span></span>
-<span id="cb43-6"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw/data.csv"</span>)</span>
-<span id="cb43-7"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/raw/data.csv"</span>)</span>
-<span id="cb43-8"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers Excel</span></span>
-<span id="cb43-10"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> xlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
-<span id="cb43-11"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
-<span id="cb43-12"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-13"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers SPSS / Stata / SAS</span></span>
-<span id="cb43-14"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_spss</span>(<span class="st">"data/raw/data.sav"</span>)</span>
-<span id="cb43-15"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_stata</span>(<span class="st">"data/raw/data.dta"</span>)</span>
-<span id="cb43-16"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_sas</span>(<span class="st">"data/raw/data.sas7bdat"</span>)</span>
-<span id="cb43-17"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-18"><a aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers R</span></span>
+<span id="cb45-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/raw/data.rda"</span>)</span>
+<span id="cb45-3"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/raw/data.rds"</span>)</span>
+<span id="cb45-4"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers CSV</span></span>
+<span id="cb45-6"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/raw/data.csv"</span>)</span>
+<span id="cb45-7"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/raw/data.csv"</span>)</span>
+<span id="cb45-8"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers Excel</span></span>
+<span id="cb45-10"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> xlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
+<span id="cb45-11"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
+<span id="cb45-12"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-13"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Fichiers SPSS / Stata / SAS</span></span>
+<span id="cb45-14"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_spss</span>(<span class="st">"data/raw/data.sav"</span>)</span>
+<span id="cb45-15"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_stata</span>(<span class="st">"data/raw/data.dta"</span>)</span>
+<span id="cb45-16"><a aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_sas</span>(<span class="st">"data/raw/data.sas7bdat"</span>)</span>
+<span id="cb45-17"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-18"><a aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="importer-et-exporter-des-données-avec-rio" class="slide level2">
@@ -1139,15 +1144,15 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 </ul>
 <p>De nombreux <a href="https://gesistsa.github.io/rio/index.html#supported-file-formats">formats supportés</a>&nbsp;: <code>.csv</code>, <code>.xlsx</code>, <code>.rda</code>, <code>.sav</code>, etc.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Importer différents formats</span></span>
-<span id="cb44-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
-<span id="cb44-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.rda"</span>)</span>
-<span id="cb44-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.dta"</span>)</span>
-<span id="cb44-5"><a aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Exporter un objet R</span></span>
-<span id="cb44-7"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.csv"</span>)</span>
-<span id="cb44-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.rds"</span>)</span>
-<span id="cb44-9"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.sav"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Importer différents formats</span></span>
+<span id="cb46-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.xlsx"</span>)</span>
+<span id="cb46-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.rda"</span>)</span>
+<span id="cb46-4"><a aria-hidden="true" tabindex="-1"></a><span class="fu">import</span>(<span class="st">"data/raw/data.dta"</span>)</span>
+<span id="cb46-5"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-6"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Exporter un objet R</span></span>
+<span id="cb46-7"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.csv"</span>)</span>
+<span id="cb46-8"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.rds"</span>)</span>
+<span id="cb46-9"><a aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(data, <span class="st">"data/processed/data.sav"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="importer-des-données-par-les-menus-de-rstudio" class="slide level2">
@@ -1169,7 +1174,7 @@ créé sur votre disque dur, dans lequel vous placerez&nbsp;:</p>
 <li>Ou exécutez dans la console&nbsp;:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div title="Astuce&nbsp;: Relancer complètement R">
 <div class="callout callout-tip callout-titled callout-style-default">

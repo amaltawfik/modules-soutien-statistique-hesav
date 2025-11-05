@@ -74,7 +74,7 @@
     "href": "01-intro_r_rstudio/index.html#objectifs-du-module",
     "title": "Introduction à R et RStudio",
     "section": "Objectifs du module",
-    "text": "Objectifs du module\n\nDécouvrir l’environnement R et RStudio\n\nConfigurations de base\nObjets, fonctions et packages\nCréer un premier script et exécuter des commandes de base\n\nComprendre la logique des scripts et du workflow reproductible\n\nGérer un projet R et importer des données"
+    "text": "Objectifs du module\n\nDécouvrir l’environnement R et RStudio\n\nConfigurations de base\nObjets, fonctions et packages\nCréer un premier script et exécuter des commandes de base\n\nComprendre la logique des scripts et du workflow reproductible\n\nGérer un projet R et importer des données\n\nLa présentation est disponible sur ce site : https://amaltawfik.github.io/modules-soutien-statistique-hesav/"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#pourquoi-apprendre-r",
@@ -137,7 +137,7 @@
     "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-général",
     "title": "Introduction à R et RStudio",
     "section": "Configurations de RStudio — Général",
-    "text": "Configurations de RStudio — Général\nMenu : Tools → Global Options → General\n\nDécocher : Restore .RData into workspace at startup\n→ pour ne pas restaurer automatiquement l’espace de travail au démarrage.\nChoisir : Save workspace to .RData on exit : Never\n→ pour ne jamais sauvegarder l’espace de travail à la fermeture.\nDécocher : Restore most recently opened project\n→ empêche RStudio d’ouvrir automatiquement le dernier projet utilisé.\nCela oblige à ouvrir manuellement le projet sur lequel on veut travailler.\nDécocher : Restore previously open source documents\n→ évite que RStudio recharge automatiquement les fichiers script ou RMarkdown ouverts lors de la dernière session, pour un démarrage totalement propre.\n\n\n\n\n\nObjectif\n\n\nRepartir d’un environnement vide à chaque session, et s’assurer que tout ce qui est important est contenu dans les scripts.\nCela force à relancer les scripts à chaque ouverture de RStudio et permet de vérifier que tout fonctionne correctement du début à la fin."
+    "text": "Configurations de RStudio — Général\nMenu : Tools → Global Options → General\n\nDécocher : Restore .RData into workspace at startup\n→ pour ne pas restaurer automatiquement l’espace de travail au démarrage.\nChoisir : Save workspace to .RData on exit : Never\n→ pour ne jamais sauvegarder l’espace de travail à la fermeture.\nDécocher : Restore most recently opened project\n→ empêche RStudio d’ouvrir automatiquement le dernier projet utilisé.\nCela oblige à ouvrir manuellement le projet sur lequel on veut travailler.\nDécocher : Restore previously open source documents\n→ évite que RStudio recharge automatiquement les fichiers script ou RMarkdown ouverts lors de la dernière session, pour un démarrage totalement propre.\n\n\n\n\n\nObjectif\n\n\nRepartir d’un environnement vide à chaque session, et s’assurer que tout ce qui est important est contenu dans les scripts.\n\nCela force à relancer les scripts à chaque ouverture de RStudio et permet de vérifier que tout fonctionne correctement du début à la fin."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-général-illustration",
@@ -214,7 +214,7 @@
     "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-affectation-et-opérateur--",
     "title": "Introduction à R et RStudio",
     "section": "Premiers pas dans R — Affectation et opérateur <-",
-    "text": "Premiers pas dans R — Affectation et opérateur &lt;-\nSaisir le texte suivant dans la console, puis appuyer sur ↵ Enter :\n\n\n[1] 13\n\n\nUtiliser l’opérateur d’assignation &lt;- pour créer un objet contenant le résultat de 4 * 2 et l’associer au nom x :\n\nx &lt;- 4 * 2\nx\n\n[1] 8\n\n\nPour insérer rapidement l’opérateur d’assignation &lt;- :\n\nAlt + - (Windows / Linux)\n\nOption + - (macOS)"
+    "text": "Premiers pas dans R — Affectation et opérateur &lt;-\nSaisir la commande suivante dans la console, puis appuyer sur ↵ Enter :\n\n4 + 9\n\n[1] 13\n\n\nUtiliser l’opérateur d’assignation &lt;- pour créer un objet contenant le résultat de 4 * 2 et l’associer au nom x :\n\nx &lt;- 4 * 2\nx\n\n[1] 8\n\n\nPour insérer rapidement l’opérateur d’assignation &lt;- :\n\nAlt + - (Windows / Linux)\n\nOption + - (macOS)"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-manipuler-des-vecteurs",
@@ -228,7 +228,7 @@
     "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-créer-et-nommer-des-objets",
     "title": "Introduction à R et RStudio",
     "section": "Premiers pas dans R — Créer et nommer des objets",
-    "text": "Premiers pas dans R — Créer et nommer des objets\nToutes les instructions R servant à créer des objets, appelées instructions d’affectation, ont la même forme :\n\nnom_objet &lt;- valeur\n\nOn peut lire cette expression comme :\n“Le nom de l’objet reçoit la valeur” ou “Stocker ce qu’il y a à droite de &lt;- dans un objet nommé à gauche”\n\nTous les objets créés apparaissent automatiquement dans le volet Environment de RStudio, d’où ils peuvent être visualisés ou supprimés.\n\n\n\n\n\n\n\nAvertissement\n\n\nLes noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles . et _, mais ne doivent pas commencer par un chiffre.\nR est sensible à la casse (x ≠ X). Évitez les accents et les majuscules dans les noms d’objets."
+    "text": "Premiers pas dans R — Créer et nommer des objets\nToutes les instructions R servant à créer des objets, appelées instructions d’affectation, ont la même forme :\n\nnom_objet &lt;- valeur\n\nOn peut lire cette expression comme :\n“Le nom de l’objet reçoit la valeur” ou “Stocker ce qu’il y a à droite de &lt;- dans un objet nommé à gauche”\n\nTous les objets créés apparaissent automatiquement dans le volet Environment de RStudio, d’où ils peuvent être visualisés ou supprimés.\n\n\n\n\n\n\n\nAvertissement\n\n\nLes noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles . et _, mais ne doivent pas commencer par un chiffre ni contenir d’espace.\nR est sensible à la casse (x ≠ X). Évitez les accents et les majuscules dans les noms d’objets."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-copier-modifier-et-supprimer-des-objets",
@@ -333,7 +333,7 @@
     "href": "01-intro_r_rstudio/index.html#lire-les-résultats-dans-la-console-ii",
     "title": "Introduction à R et RStudio",
     "section": "Lire les résultats dans la console II",
-    "text": "Lire les résultats dans la console II\nCeci explique aussi le [1] affiché lorsqu’il y a une seule valeur :\n\n\n[1] 8\n\n\nLe [1] n’est pas un résultat, mais un repère visuel : il indique simplement que la valeur affichée correspond au premier élément du vecteur ou du résultat."
+    "text": "Lire les résultats dans la console II\nCeci explique aussi le [1] affiché lorsqu’il y a une seule valeur :\n\nx &lt;- 8\nx\n\n[1] 8\n\n\nLe [1] n’est pas un résultat, mais un repère visuel : il indique simplement que la valeur affichée correspond au premier élément du vecteur ou du résultat."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#les-scripts",

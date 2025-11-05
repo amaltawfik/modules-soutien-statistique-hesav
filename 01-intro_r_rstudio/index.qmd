@@ -49,6 +49,9 @@ format:
 -   Comprendre la logique des scripts et du *workflow* reproductible\
 -   Gérer un projet R et importer des données
 
+La présentation est disponible sur ce site : [https://amaltawfik.github.io/modules-soutien-statistique-hesav/](https://amaltawfik.github.io/modules-soutien-statistique-hesav/)
+
+
 ## Pourquoi apprendre R ?
 
 -   R est un logiciel libre et open source distribué sous licence GPL
@@ -69,7 +72,7 @@ format:
 
 -   R est constitué de plusieurs packages de base, auxquels d’autres peuvent être ajoutés selon les besoins
 
-## Ressources clés pour l’écosystème R
+## Ressources clés pour l’écosystème R {.smaller}
 
 -   **Site officiel du projet R** : [r-project.org](https://www.r-project.org/)\
 -   **CRAN (Comprehensive R Archive Network)** — réseau de serveurs hébergeant les packages, la documentation et les binaires de R : [cloud.r-project.org](https://cloud.r-project.org/)\
@@ -146,6 +149,7 @@ Menu : **Tools → Global Options → General**
 
 ::: {.callout-tip title="Objectif" icon="false"}
 Repartir d’un environnement vide à chaque session, et s’assurer que tout ce qui est important est contenu dans les scripts.\
+
 Cela force à relancer les scripts à chaque ouverture de RStudio et permet de vérifier que tout fonctionne correctement du début à la fin.
 :::
 
@@ -153,7 +157,7 @@ Cela force à relancer les scripts à chaque ouverture de RStudio et permet de v
 
 ![](img/rstudio_options_general_basic.png){fig-align="center"}
 
-## Configurations de RStudio — Code Editing {.smaller}
+## Configurations de RStudio — Code Editing 
 
 Menu : **Tools → Global Options → Code → Editing**
 
@@ -255,9 +259,9 @@ C’est cette association à un nom qui permet ensuite de le retrouver et réuti
 
 ## Premiers pas dans R — Affectation et opérateur `<-`
 
-Saisir le texte suivant dans la console, puis appuyer sur <kbd>↵ Enter</kbd> :
+Saisir la commande suivante dans la console, puis appuyer sur <kbd>↵ Enter</kbd> :
 
-```{r}
+```{r, echo = TRUE}
 4 + 9
 ```
 
@@ -307,7 +311,7 @@ On peut lire cette expression comme :
 -   Tous les objets créés apparaissent automatiquement dans le volet **Environment** de RStudio, d’où ils peuvent être visualisés ou supprimés.
 
 ::: callout-warning
-Les noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles `.` et `_`, mais ne doivent pas commencer par un chiffre.
+Les noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles `.` et `_`, mais ne doivent pas commencer par un chiffre ni contenir d’espace.
 
 R est sensible à la casse (x ≠ X). Évitez les accents et les majuscules dans les noms d’objets.
 :::
@@ -522,9 +526,9 @@ Ainsi :
 
 Ceci explique aussi le \[1\] affiché lorsqu’il y a une seule valeur :
 
-```{r, echo = F}
-8
-
+```{r, echo = T}
+x <- 8
+x
 ```
 
 Le \[1\] n’est pas un résultat, mais un repère visuel : il indique simplement que la valeur affichée correspond au premier élément du vecteur ou du résultat.
