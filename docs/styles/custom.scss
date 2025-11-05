@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+body, p, li, a, table, th, td {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+}
+
+/* --- Boutons dans le tableau de planning --- */
+.table td {
+  vertical-align: middle; /* aligne bien les boutons au centre */
+}
+
+/* Boutons côte à côte, même taille */
+.table .btn {
+  display: inline-flex;       /* côte à côte */
+  align-items: center;        /* centre verticalement le texte */
+  justify-content: center;    /* centre horizontalement */
+  width: 45%;                 /* deux boutons tiennent sur la même ligne */
+  margin: 2px;                /* petit espace entre eux */
+  text-align: center;
+  white-space: nowrap;        /* empêche "Ouvrir" d'aller à la ligne */
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* --- Bouton "Ouvrir" --- */
+.btn-success {
+  background-color: #198754;
+  border-color: #198754;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+  border-color: #146c43;
+}
+
+/* --- Bouton "PDF" : rouge/bordeaux élégant --- */
+.btn-outline-secondary {
+  background-color: #b23a48;   /* rouge bordeaux doux pour le mode clair */
+  border-color: #b23a48;
+  color: #fff;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #912d38;
+  border-color: #912d38;
+  color: #fff;
+}
+
+/* --- Mode sombre --- */
+[data-bs-theme="dark"] .btn-success {
+  background-color: #2ecc71;  /* vert plus vif sur fond sombre */
+  border-color: #2ecc71;
+  color: #000;
+}
+
+[data-bs-theme="dark"] .btn-success:hover {
+  background-color: #27ae60;
+  border-color: #27ae60;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary {
+  background-color: #ff6b6b;   /* rouge clair lisible sur fond sombre */
+  border-color: #ff6b6b;
+  color: #000;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary:hover {
+  background-color: #ff5252;
+  border-color: #ff5252;
+  color: #fff;
+}
+
+
+/* --- Styles pour les blocs de code R et leurs sorties --- */
+
+/* Fond gris clair pour les sorties R (résultats dans la console) */
+.cell-output pre code {
+  background-color: #f6f6f6;   /* gris clair élégant */
+  border-left: 3px solid #ddd; /* fine barre grise sur le côté gauche */
+  padding: 0.6em 0.8em;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Fond légèrement différent pour le code R (les lignes echo = TRUE) */
+.cell-code pre code {
+  background-color: #fafafa;   /* presque blanc */
+  border-left: 3px solid #eaeaea;
+  padding: 0.6em 0.8em;
+  border-radius: 6px;
+  display: block;
+}
+
+
+/* --- Style pour le code inline (dans le texte) --- */
+code {
+  background-color: #f2f2f2;     /* fond gris clair doux */
+  color: #d63384;                /* rose/violet discret, comme dans le tidyverse site */
+  padding: 0.15em 0.35em;        /* espace intérieur équilibré */
+  border-radius: 4px;            /* coins légèrement arrondis */
+  font-size: 0.95em;             /* taille un peu réduite */
+  font-family: "Source Code Pro", monospace;  /* police cohérente */
+}
+
+/* --- Mode sombre : ajustement automatique --- */
+[data-bs-theme="dark"] code {
+  background-color: #333333;     /* gris foncé lisible sur fond sombre */
+  color: #ffb3d9;                /* rose clair pour le contraste */
+}

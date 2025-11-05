@@ -1,0 +1,555 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Modules de soutien statistique 2025–2026",
+    "section": "",
+    "text": "HORAIRE 12:00–13:00\nSalle G/OO/13\nOuvert à toutes et tous, sans inscription\n\n📅 Planning des modules\n\n\n\nJour\nDate\nModule\nPrésentation\n\n\n\n\nJeudi\n06.11.2025\nIntroduction à R et RStudio : premiers pas, bonnes pratiques et workflow\nOuvrirPDF\n\n\nJeudi\n15.01.2026\nNettoyage et manipulation des données avec R : introduction au tidyverse\nOuvrirPDF\n\n\nJeudi\n12.02.2026\nAnalyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation\nOuvrirPDF\n\n\nJeudi\n12.03.2026\nRégression linéaire\nOuvrirPDF\n\n\nJeudi\n23.04.2026\nAnalyses factorielles exploratoires (EFA) et construction d’échelles\nOuvrirPDF\n\n\nJeudi\n21.05.2026\nVisualisation des données avec ggplot2\nOuvrirPDF\n\n\nJeudi\n18.06.2026\nRégression logistique\nOuvrirPDF\n\n\n\n\n\n💡 Astuce PDF : dans chaque présentation, un bouton « Télécharger le PDF » ouvre le fichier index.pdf correspondant.\nPour générer ces PDF localement :\nquarto render &lt;dossier&gt;/index.qmd --to pdf\n(Chrome/Chromium nécessaire pour la conversion revealjs→PDF.)"
+  },
+  {
+    "objectID": "06-visualisation/index.html#objectifs",
+    "href": "06-visualisation/index.html#objectifs",
+    "title": "Visualisation des données avec ggplot2",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nÀ compléter selon le cours."
+  },
+  {
+    "objectID": "06-visualisation/index.html#plan",
+    "href": "06-visualisation/index.html#plan",
+    "title": "Visualisation des données avec ggplot2",
+    "section": "Plan",
+    "text": "Plan\n\n…\n…\n…"
+  },
+  {
+    "objectID": "06-visualisation/index.html#ressources",
+    "href": "06-visualisation/index.html#ressources",
+    "title": "Visualisation des données avec ggplot2",
+    "section": "Ressources",
+    "text": "Ressources\n\nDossier data/\nScript R/\nRéférences à ajouter"
+  },
+  {
+    "objectID": "04-regression_lineaire/index.html#objectifs",
+    "href": "04-regression_lineaire/index.html#objectifs",
+    "title": "Régression linéaire",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nÀ compléter selon le cours."
+  },
+  {
+    "objectID": "04-regression_lineaire/index.html#plan",
+    "href": "04-regression_lineaire/index.html#plan",
+    "title": "Régression linéaire",
+    "section": "Plan",
+    "text": "Plan\n\n…\n…\n…"
+  },
+  {
+    "objectID": "04-regression_lineaire/index.html#ressources",
+    "href": "04-regression_lineaire/index.html#ressources",
+    "title": "Régression linéaire",
+    "section": "Ressources",
+    "text": "Ressources\n\nDossier data/\nScript R/\nRéférences à ajouter"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#objectifs",
+    "href": "02-clean_manipulation/index.html#objectifs",
+    "title": "Nettoyage et manipulation des données avec R : introduction au tidyverse",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nÀ compléter selon le cours."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#plan",
+    "href": "02-clean_manipulation/index.html#plan",
+    "title": "Nettoyage et manipulation des données avec R : introduction au tidyverse",
+    "section": "Plan",
+    "text": "Plan\n\n…\n…\n…"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#ressources",
+    "href": "02-clean_manipulation/index.html#ressources",
+    "title": "Nettoyage et manipulation des données avec R : introduction au tidyverse",
+    "section": "Ressources",
+    "text": "Ressources\n\nDossier data/\nScript R/\nRéférences à ajouter"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#objectifs-du-module",
+    "href": "01-intro_r_rstudio/index.html#objectifs-du-module",
+    "title": "Introduction à R et RStudio",
+    "section": "Objectifs du module",
+    "text": "Objectifs du module\n\nDécouvrir l’environnement R et RStudio\n\nConfigurations de base\nObjets, fonctions et packages\nCréer un premier script et exécuter des commandes de base\n\nComprendre la logique des scripts et du workflow reproductible\n\nGérer un projet R et importer des données"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#pourquoi-apprendre-r",
+    "href": "01-intro_r_rstudio/index.html#pourquoi-apprendre-r",
+    "title": "Introduction à R et RStudio",
+    "section": "Pourquoi apprendre R ?",
+    "text": "Pourquoi apprendre R ?\n\nR est un logiciel libre et open source distribué sous licence GPL\nUn des langages de programmation les plus utilisés pour les analyses statistiques\nReproductibilité et transparence\nFonctionnalités infinies : tout le monde peut y contribuer et créer ses propres outils (fonctions et packages)\nGrande communauté et documentation"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#principes-de-r",
+    "href": "01-intro_r_rstudio/index.html#principes-de-r",
+    "title": "Introduction à R et RStudio",
+    "section": "Principes de R",
+    "text": "Principes de R\n\nR fonctionne à partir de lignes de commande et de scripts\nLes commandes R sont généralement simples à comprendre et ne nécessitent aucune expérience préalable en programmation pour débuter\nLes scripts offrent une réelle valeur ajoutée : ils peuvent être sauvegardés, modifiés, réutilisés et partagés très facilement\nR fonctionne avec des packages (extensions) qui sont un ensemble de fonctions qui étendent les fonctionnalités de R\nR est constitué de plusieurs packages de base, auxquels d’autres peuvent être ajoutés selon les besoins"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#ressources-clés-pour-lécosystème-r",
+    "href": "01-intro_r_rstudio/index.html#ressources-clés-pour-lécosystème-r",
+    "title": "Introduction à R et RStudio",
+    "section": "Ressources clés pour l’écosystème R",
+    "text": "Ressources clés pour l’écosystème R\n\nSite officiel du projet R : r-project.org\n\nCRAN (Comprehensive R Archive Network) — réseau de serveurs hébergeant les packages, la documentation et les binaires de R : cloud.r-project.org\n\nR-universe (rOpenSci) — plate-forme communautaire pour héberger et explorer des packages R : ropensci.org/r-universe\n\nMoteur de recherche R-universe — découvrir des packages R et leurs mainteneurs : r-universe.dev/search\n\nMETACRAN — moteur de recherche et visualisation des packages CRAN : r-pkg.org\n\nRseek — moteur de recherche spécialisé, ciblant la documentation, les blogs et les forums R : rseek.org\n\nSite du tidyverse — un ensemble cohérent de packages conçus pour la science des données avec R : tidyverse.org"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#rstudio-i",
+    "href": "01-intro_r_rstudio/index.html#rstudio-i",
+    "title": "Introduction à R et RStudio",
+    "section": "RStudio I",
+    "text": "RStudio I\n\nLogiciel qui facilite l’utilisation de R grâce à une interface simple et bien organisée.\nPermet de visualiser la console, les scripts, les graphiques, l’aide, les dossiers et le contenu de la mémoire de R (objets, graphiques, historique des commandes, etc.).\nOffre de nombreux outils intégrés : gestion de projets, exécution du code ligne par ligne et affichage des résultats.\n\n🔗 Liens utiles :\n\nSite officiel de RStudio / Posit\n\nDocumentation RStudio (guide de l’utilisateur)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#rstudio-ii",
+    "href": "01-intro_r_rstudio/index.html#rstudio-ii",
+    "title": "Introduction à R et RStudio",
+    "section": "RStudio II",
+    "text": "RStudio II\n\nPermet aussi de créer des rapports, des présentations, des sites web, des livres et des applications interactives grâce à des outils comme :\n\nQuarto\n\nR Markdown\n\nShiny\n\nL’apparence (thème, police, disposition des panneaux) et le comportement de RStudio peuvent être adaptés selon les préférences de l’utilisateur."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#interface-de-rstudio",
+    "href": "01-intro_r_rstudio/index.html#interface-de-rstudio",
+    "title": "Introduction à R et RStudio",
+    "section": "Interface de RStudio",
+    "text": "Interface de RStudio\nL’interface utilisateur de RStudio comporte 4 volets principaux\n\nSource : afficher et modifier divers fichiers liés au code, notamment les scripts R (.R, .rmd, .qmd, etc.)\n\nConsole : exécution des commandes\n\nEnvironment : variables et objets créés\n\nOutputs : Plots, Viewer et divers onglets utiles (Files, Packages, Help)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#les-quatre-volets-de-rstudio",
+    "href": "01-intro_r_rstudio/index.html#les-quatre-volets-de-rstudio",
+    "title": "Introduction à R et RStudio",
+    "section": "Les quatre volets de RStudio",
+    "text": "Les quatre volets de RStudio"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#personnaliser-lapparence-de-rstudio",
+    "href": "01-intro_r_rstudio/index.html#personnaliser-lapparence-de-rstudio",
+    "title": "Introduction à R et RStudio",
+    "section": "Personnaliser l’apparence de RStudio",
+    "text": "Personnaliser l’apparence de RStudio\nVous allez passer beaucoup de temps dans RStudio : personnalisez-le pour travailler plus confortablement !\nRessources :\n\nRStudio user Guide\nPane Layout\nThemes\nCommande palette"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-général",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-général",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Général",
+    "text": "Configurations de RStudio — Général\nMenu : Tools → Global Options → General\n\nDécocher : Restore .RData into workspace at startup\n→ pour ne pas restaurer automatiquement l’espace de travail au démarrage.\nChoisir : Save workspace to .RData on exit : Never\n→ pour ne jamais sauvegarder l’espace de travail à la fermeture.\nDécocher : Restore most recently opened project\n→ empêche RStudio d’ouvrir automatiquement le dernier projet utilisé.\nCela oblige à ouvrir manuellement le projet sur lequel on veut travailler.\nDécocher : Restore previously open source documents\n→ évite que RStudio recharge automatiquement les fichiers script ou RMarkdown ouverts lors de la dernière session, pour un démarrage totalement propre.\n\n\n\n\n\nObjectif\n\n\nRepartir d’un environnement vide à chaque session, et s’assurer que tout ce qui est important est contenu dans les scripts.\nCela force à relancer les scripts à chaque ouverture de RStudio et permet de vérifier que tout fonctionne correctement du début à la fin."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-général-illustration",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-général-illustration",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Général (illustration)",
+    "text": "Configurations de RStudio — Général (illustration)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-editing",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-editing",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Code Editing",
+    "text": "Configurations de RStudio — Code Editing\nMenu : Tools → Global Options → Code → Editing\n\nCocher : Use native pipe operator, |&gt;\n→ active la syntaxe de pipe native introduite dans R (R 4.1+).\nPermet d’utiliser |&gt; au lieu de %&gt;% du package magrittr.\nCocher : Insert matching parens/quotes\n→ insère automatiquement les parenthèses et guillemets fermants, limitant les erreurs de frappe.\nCocher : Soft-wrap R source files\n→ effectue le retour à la ligne automatique des lignes longues, ce qui évite le défilement horizontal.\n\n\n\n\n\nObjectif\n\n\nFaciliter l’édition du code, réduire les erreurs de syntaxe et adopter la syntaxe R moderne avec le pipe natif |&gt;."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-editing-illustration",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-editing-illustration",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Code Editing (illustration)",
+    "text": "Configurations de RStudio — Code Editing (illustration)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-display",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-display",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Code Display",
+    "text": "Configurations de RStudio — Code Display\nMenu : Tools → Global Options → Code → Display\n\nCocher : Show line numbers\n→ affiche le numéro de chaque ligne dans les scripts R et R Markdown, facilitant le repérage des erreurs et la navigation dans le code.\nCocher : Show margin\n→ affiche une ligne verticale (souvent à 80 caractères) pour favoriser un code lisible.\nLaisser cochée : Highlight selected line\n→ met en surbrillance la ligne active pour mieux repérer la position du curseur.\n\n\n\n\n\nObjectif\n\n\nAméliorer la lisibilité, la navigation et le repérage rapide des lignes de code."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-display-illustration",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-display-illustration",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Code Display (illustration)",
+    "text": "Configurations de RStudio — Code Display (illustration)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-formatting",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-formatting",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Code Formatting",
+    "text": "Configurations de RStudio — Code Formatting\nMenu : Tools → Global Options → Code → Formatting\n\nChoisir : R code formatting → styler\n→ sélectionne le package styler comme outil de formatage du code en appliquant automatiquement les conventions de style du tidyverse (indentation cohérente, espaces normalisés, code plus lisible).\nCocher : Format on save\n→ applique automatiquement le formatage à chaque sauvegarde de fichier, ce qui garantit un code toujours propre et uniforme, sans action manuelle.\n\n\n\n\n\nObjectif\n\n\nAssurer un code clair, cohérent et bien indenté grâce au formatage automatique géré par styler à chaque sauvegarde."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-formatting-illustration",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-formatting-illustration",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Code Formatting (illustration)",
+    "text": "Configurations de RStudio — Code Formatting (illustration)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-appearance",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-appearance",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Appearance",
+    "text": "Configurations de RStudio — Appearance\nMenu : Tools → Global Options → Appearance\n\nChoisir un thème clair ou sombre selon vos préférences visuelles\n→ facilite le confort de lecture, surtout lors de longues sessions de travail\nAjuster la police (ex. Fira Code, JetBrains Mono, Consolas) et sa taille\n→ pour une meilleure lisibilité du code\n\nDes thèmes personnalisés peuvent être installés :\n\nLe package rsthemes\n\nLe thème Dracula\n\nD’autres ici et là\nOu depuis Tools → Global Options → Appearance → Add…"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-appearance-illustration",
+    "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-appearance-illustration",
+    "title": "Introduction à R et RStudio",
+    "section": "Configurations de RStudio — Appearance (illustration)",
+    "text": "Configurations de RStudio — Appearance (illustration)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#tout-est-objet-dans-r",
+    "href": "01-intro_r_rstudio/index.html#tout-est-objet-dans-r",
+    "title": "Introduction à R et RStudio",
+    "section": "Tout est objet dans R",
+    "text": "Tout est objet dans R\nDans R, tout ce que vous manipulez est un objet :\n\ndes valeurs simples (x &lt;- 5),\ndes structures de données (vecteurs, data frames, listes…),\ndes fonctions,\net même des graphiques, modèles statistiques ou résultats d’analyse.\n\n\n\n\n\nÀ retenir\n\n\nDans R, tout ce que vous créez, importez ou calculez devient un objet stocké en mémoire, visible dans l’onglet Environment de RStudio — à condition de lui avoir donné un nom.\nC’est cette association à un nom qui permet ensuite de le retrouver et réutiliser."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-affectation-et-opérateur--",
+    "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-affectation-et-opérateur--",
+    "title": "Introduction à R et RStudio",
+    "section": "Premiers pas dans R — Affectation et opérateur <-",
+    "text": "Premiers pas dans R — Affectation et opérateur &lt;-\nSaisir le texte suivant dans la console, puis appuyer sur ↵ Enter :\n\n\n[1] 13\n\n\nUtiliser l’opérateur d’assignation &lt;- pour créer un objet contenant le résultat de 4 * 2 et l’associer au nom x :\n\nx &lt;- 4 * 2\nx\n\n[1] 8\n\n\nPour insérer rapidement l’opérateur d’assignation &lt;- :\n\nAlt + - (Windows / Linux)\n\nOption + - (macOS)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-manipuler-des-vecteurs",
+    "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-manipuler-des-vecteurs",
+    "title": "Introduction à R et RStudio",
+    "section": "Premiers pas dans R — Manipuler des vecteurs",
+    "text": "Premiers pas dans R — Manipuler des vecteurs\nAvec la fonction c() , on peut combiner plusieurs éléments séparés par une virgule :\n\nnotes &lt;- c(3, 2, 1, 4, 6)\nnotes\n\n[1] 3 2 1 4 6\n\n\nOn peut ensuite effectuer des calculs sur chacune de ces valeurs :\n\nnotes * 2\n\n[1]  6  4  2  8 12\n\nnotes - 1\n\n[1] 2 1 0 3 5\n\nnotes + x\n\n[1] 11 10  9 12 14"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-créer-et-nommer-des-objets",
+    "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-créer-et-nommer-des-objets",
+    "title": "Introduction à R et RStudio",
+    "section": "Premiers pas dans R — Créer et nommer des objets",
+    "text": "Premiers pas dans R — Créer et nommer des objets\nToutes les instructions R servant à créer des objets, appelées instructions d’affectation, ont la même forme :\n\nnom_objet &lt;- valeur\n\nOn peut lire cette expression comme :\n“Le nom de l’objet reçoit la valeur” ou “Stocker ce qu’il y a à droite de &lt;- dans un objet nommé à gauche”\n\nTous les objets créés apparaissent automatiquement dans le volet Environment de RStudio, d’où ils peuvent être visualisés ou supprimés.\n\n\n\n\n\n\n\nAvertissement\n\n\nLes noms d’objets peuvent contenir des lettres, des chiffres, ainsi que les symboles . et _, mais ne doivent pas commencer par un chiffre.\nR est sensible à la casse (x ≠ X). Évitez les accents et les majuscules dans les noms d’objets."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-copier-modifier-et-supprimer-des-objets",
+    "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-copier-modifier-et-supprimer-des-objets",
+    "title": "Introduction à R et RStudio",
+    "section": "Premiers pas dans R — Copier, modifier et supprimer des objets",
+    "text": "Premiers pas dans R — Copier, modifier et supprimer des objets\nOn peut copier un objet :\n\na &lt;- 2\nb &lt;- a\nb\n\n[1] 2\n\n\nLe modifier :\n\na &lt;- 7\na\n\n[1] 7\n\n\nL’effacer de l’environnement R avec la fonction rm() (remove()) :\n\nrm(a)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-utilisation-de-fonctions-i",
+    "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-utilisation-de-fonctions-i",
+    "title": "Introduction à R et RStudio",
+    "section": "Premiers pas dans R — Utilisation de fonctions I",
+    "text": "Premiers pas dans R — Utilisation de fonctions I\nUne fonction exécute une action à partir d’arguments placés entre parenthèses.\nVoici trois fonctions très utiles pour débuter :\n\ndata.frame() : crée un tableau de données (data frame).\n\nmean() : calcule la moyenne arithmétique.\n\nsd() : calcule l’écart-type (la dispersion autour de la moyenne)."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-utilisation-de-fonctions-ii",
+    "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-utilisation-de-fonctions-ii",
+    "title": "Introduction à R et RStudio",
+    "section": "Premiers pas dans R — Utilisation de fonctions II",
+    "text": "Premiers pas dans R — Utilisation de fonctions II\nOn va construire une table de données à l’aide de la fonction data.frame(), qui regroupe plusieurs variables dans un même objet.\nL’objet créé est nommé d (nom arbitraire), et contient trois variables, prenom (chaînes de caractère écrites entre guillemets), taille (en cm) et poids (en kg) :\n\nd &lt;- data.frame(\n  prenom = c(\"Anne\", \"Sophie\", \"Marc\", NA),\n  taille = c(160, 165, 170, 175),\n  poids  = c(55, 60, NA, 72)\n)\nd\n\n  prenom taille poids\n1   Anne    160    55\n2 Sophie    165    60\n3   Marc    170    NA\n4   &lt;NA&gt;    175    72"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#données-manquantes",
+    "href": "01-intro_r_rstudio/index.html#données-manquantes",
+    "title": "Introduction à R et RStudio",
+    "section": "Données manquantes",
+    "text": "Données manquantes\nNA (Not Available) indique une valeur manquante, qu’il s’agisse d’un nombre, d’une chaîne de caractère, etc.\n\n\n  prenom taille poids\n1   Anne    160    55\n2 Sophie    165    60\n3   Marc    170    NA\n4   &lt;NA&gt;    175    72\n\n\nIl existe aussi NaN (Not a Number), qui signale une valeur numérique indéfinie (ex. 0/0) :\n\n0 / 0\n\n[1] NaN"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-utilisation-de-fonctions-iii",
+    "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-utilisation-de-fonctions-iii",
+    "title": "Introduction à R et RStudio",
+    "section": "Premiers pas dans R — Utilisation de fonctions III",
+    "text": "Premiers pas dans R — Utilisation de fonctions III\nL’opérateur $ permet d’accéder à une colonne (une variable) d’un tableau de données (data frame) ou à un élément nommé d’une liste.\nAppliquons maintenant les fonctions mean() et sd() à la variable taille du data frame d :\n\nmean(d$taille)\n\n[1] 167.5\n\nsd(d$taille)\n\n[1] 6.454972\n\n\nd$taille signifie « la variable taille contenue dans d »."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-arguments-de-fonction",
+    "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-arguments-de-fonction",
+    "title": "Introduction à R et RStudio",
+    "section": "Premiers pas dans R — Arguments de fonction",
+    "text": "Premiers pas dans R — Arguments de fonction\nLes fonctions prennent en entrée des arguments et renvoient un résultat.\nVous pouvez spécifier les arguments ou utiliser leurs valeurs par défaut :\n\nmean(d$poids)\n\n[1] NA\n\nmean(d$poids, na.rm = TRUE)\n\n[1] 62.33333\n\n\n\nPour certaines fonctions comme mean(), median(), sd() ou min(), ajoutez l’argument na.rm = TRUE (NA remove) pour ignorer les valeurs manquantes.\nSinon, si la variable contient des NA, le résultat renvoyé par R sera NA (na.rm = FALSE par défaut).\nTRUE est une valeur logique interne à R qui signifie vrai."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#installer-des-packages",
+    "href": "01-intro_r_rstudio/index.html#installer-des-packages",
+    "title": "Introduction à R et RStudio",
+    "section": "Installer des packages",
+    "text": "Installer des packages\nPour installer un package depuis RStudio :\n\nOuvrir l’onglet Packages (dans le panneau inférieur droit).\n\nCliquer sur le bouton Install.\n\nDans la fenêtre qui s’ouvre, saisir le nom du package (ex. : spicy).\n\nCliquer sur Install pour lancer l’installation.\n\nOu en ligne de commande, avec la fonction install.packages() :\n\ninstall.packages(\"spicy\")"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#charger-des-packages",
+    "href": "01-intro_r_rstudio/index.html#charger-des-packages",
+    "title": "Introduction à R et RStudio",
+    "section": "Charger des packages",
+    "text": "Charger des packages\nUne fois installés, les packages doivent être chargés dans l’environnement R pour être utilisés avec la fonction library() :\n\nlibrary(spicy)\n\nLes packages installés doivent être chargés à chaque nouvelle session R."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#complétion-automatique-du-code",
+    "href": "01-intro_r_rstudio/index.html#complétion-automatique-du-code",
+    "title": "Introduction à R et RStudio",
+    "section": "Complétion automatique du code",
+    "text": "Complétion automatique du code\nL’environnement RStudio permet de compléter automatiquement le code avec la touche Tab ↹\n\nSaisissez les premières lettres d’une fonction, d’un objet ou d’un argument\n\nAppuyez sur Tab ↹ pour afficher les suggestions de complétion\n\nUtilisez ensuite les flèches ↑ et ↓ pour naviguer dans la liste\n\nValidez votre choix avec ↵ Enter ou continuez à taper\n\nExemple :\nTapez mea puis appuyez sur Tab ↹ → RStudio suggère mean().\n\nCommentaire pour l’oral :\nLa touche Tabulation (Tab) est essentielle dans RStudio.\nElle permet d’accélérer la saisie du code, d’éviter les fautes de frappe et d’explorer les fonctions disponibles sans avoir à tout mémoriser.\nPar exemple, si je tape mea puis Tab, RStudio me propose automatiquement mean() avec sa description.\nC’est un excellent moyen de découvrir les arguments et d’apprendre plus vite."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#complétion-pour-les-chemins-de-fichiers",
+    "href": "01-intro_r_rstudio/index.html#complétion-pour-les-chemins-de-fichiers",
+    "title": "Introduction à R et RStudio",
+    "section": "Complétion pour les chemins de fichiers",
+    "text": "Complétion pour les chemins de fichiers\nPour insérer un chemin d’accès à un fichier, placez le curseur entre les guillemets doubles (\"\") puis appuyez sur Tab ↹.\n\nRStudio affichera alors tous les dossiers et fichiers disponibles dans le répertoire de travail.\nVous pouvez naviguer avec les flèches ↑ ↓ ou la souris, ouvrir un dossier avec Tab ↹, et valider la sélection avec ↵ Enter.\n\nVous pouvez également accéder à des fichiers situés en dehors du répertoire actuel en commençant à taper le début de leur chemin d’accès (par exemple \"/Users/\" ou \"C:/\") et en plaçant le curseur entre / et \"puis en appuyant sur Tab ↹ ."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#obtenir-de-laide-dans-r",
+    "href": "01-intro_r_rstudio/index.html#obtenir-de-laide-dans-r",
+    "title": "Introduction à R et RStudio",
+    "section": "Obtenir de l’aide dans R",
+    "text": "Obtenir de l’aide dans R\n\nUtilisez ?fonction ou help(\"fonction\") pour accéder à la documentation d’une fonction.\n\nPour explorer un package complet : help(package=\"nom_du_package\").\n\nRecherchez des vignettes via browseVignettes() ou vignette(\"nom\") pour des guides illustrés.\n\nUtilisez des fonctions de recherche interne : apropos(), help.search() (alias ??) et RSiteSearch() pour explorer plus largement.\n\nConsultez le portail officiel : Getting Help with R — documentation, FAQ, mailing-lists, forums.\n\nUtilisez votre moteur de recherche favori"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#console",
+    "href": "01-intro_r_rstudio/index.html#console",
+    "title": "Introduction à R et RStudio",
+    "section": "Console",
+    "text": "Console\nLa ligne commençant par le caractère &gt; est appelée l’invite de commande (prompt en anglais).\nElle indique que R est prêt à recevoir une instruction :\n\nx &lt;- \"Hello\"\n&gt;\n\nDans la console, le signe + indique que R attend la suite du code, souvent à cause d’un \" ou ) manquant :\n\nx &lt;- \"Hello\n+\n\nAjouter le caractère oublié (puis ↵ Enter) ou appuyer sur Esc (Échap) pour annuler et recommencer."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#récupération-des-commandes-précédentes",
+    "href": "01-intro_r_rstudio/index.html#récupération-des-commandes-précédentes",
+    "title": "Introduction à R et RStudio",
+    "section": "Récupération des commandes précédentes",
+    "text": "Récupération des commandes précédentes\nLa console permet de rappeler les commandes précédentes à l’aide des flèches du clavier :\n\n↑ rappelle la ou les commandes précédentes\n\n↓ avance dans l’historique\n\nCtrl + ↑ (Windows / Linux) ou ⌘ + ↑ (macOS) ouvre tout l’historique pour parcourir la liste complète de vos commandes récentes"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#lire-les-résultats-dans-la-console-i",
+    "href": "01-intro_r_rstudio/index.html#lire-les-résultats-dans-la-console-i",
+    "title": "Introduction à R et RStudio",
+    "section": "Lire les résultats dans la console I",
+    "text": "Lire les résultats dans la console I\nQuand un objet contient beaucoup de valeurs, R les affiche sur plusieurs lignes dans la console. Par exemple, avec un vecteur de 40 nombres :\n\n\n [1] 185 169 168 157 191 197 179 180 181 159 195 182 163 183 196 162 192\n[18] 161 164 187 173 158 194 171 165 188 166 198 189 167 174 186 177 176\n[35] 172 190 175 193 199 160\n\n\nR ajoute un nombre entre crochets ([ ]) au début de chaque ligne. Ce nombre indique la position du premier élément affiché sur cette ligne dans le vecteur.\nAinsi :\n\nSur la deuxième ligne, [18] signifie que le premier nombre de cette ligne est le 18ᵉ élément du vecteur\nSur la dernière ligne, [35] signifie que le premier nombre affiché est le 35ᵉ"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#lire-les-résultats-dans-la-console-ii",
+    "href": "01-intro_r_rstudio/index.html#lire-les-résultats-dans-la-console-ii",
+    "title": "Introduction à R et RStudio",
+    "section": "Lire les résultats dans la console II",
+    "text": "Lire les résultats dans la console II\nCeci explique aussi le [1] affiché lorsqu’il y a une seule valeur :\n\n\n[1] 8\n\n\nLe [1] n’est pas un résultat, mais un repère visuel : il indique simplement que la valeur affichée correspond au premier élément du vecteur ou du résultat."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#les-scripts",
+    "href": "01-intro_r_rstudio/index.html#les-scripts",
+    "title": "Introduction à R et RStudio",
+    "section": "Les scripts",
+    "text": "Les scripts\n\nPlutôt que de saisir les commandes directement dans la console, on les regroupe dans des scripts R — de simples fichiers texte.\nCes scripts conservent une trace de toutes les opérations effectuées (importation, nettoyage, analyses, graphiques, etc.).\nIls deviennent ainsi le cœur du travail reproductible : il suffit de les rouvrir et de réexécuter leurs commandes pour recréer les mêmes résultats."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#créer-un-script",
+    "href": "01-intro_r_rstudio/index.html#créer-un-script",
+    "title": "Introduction à R et RStudio",
+    "section": "Créer un script",
+    "text": "Créer un script\n\nMenu File → New File → R Script\n\nUne nouvelle zone s’ouvre en haut à gauche de RStudio.\n\nEnregistrer le script via l’icône 💾 ou File → Save/Save as\n(les fichiers portent l’extension .R).\n\nDans un script, la touche ↵ Enter insère une nouvelle ligne, elle n’exécute pas le code (contrairement à la console)."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#insérer-des-commentaires-dans-un-script",
+    "href": "01-intro_r_rstudio/index.html#insérer-des-commentaires-dans-un-script",
+    "title": "Introduction à R et RStudio",
+    "section": "Insérer des commentaires dans un script",
+    "text": "Insérer des commentaires dans un script\n\nLes commentaires commencent par un ou plusieurs symboles #.\n\nR ignore tout ce qui suit sur la ligne.\n\nIls servent à expliquer, documenter et structurer les scripts.\n\n\nExemple :\n\n# Calcul d'une moyenne\nmean(1 + 5 + 9) # On peut ajouter ici un autre commentaire\n\n[1] 15\n\n\nPour insérer ou retirer rapidement un commentaire dans RStudio :\n\nCtrl + Shift + C (Windows / Linux)\n\n⌘ + Shift + C (macOS)\n\nCette commande est également accessible depuis le menu :\n\nCode → Comment/Uncomment Lines"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#créer-des-sections-dans-un-script",
+    "href": "01-intro_r_rstudio/index.html#créer-des-sections-dans-un-script",
+    "title": "Introduction à R et RStudio",
+    "section": "Créer des sections dans un script",
+    "text": "Créer des sections dans un script\nQuand un script devient long, il est utile de le structurer en sections pour faciliter la navigation et la lecture.\nPour créer une section dans RStudio (et des sous-sections), il suffit d’écrire un commentaire suivi d’au moins quatre tirets (-) :\n# Titre de la section ------------------------------------\n## Sous-section ------------------------------------------\n### Sous-sous-section ------------------------------------\nDans la marge gauche un triangle noir permet de plier ou déplier le contenu de la section.\nVoici un exemple de structure de script : ⬇️ Télécharger le modèle de script"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#afficher-la-table-des-matières-du-script",
+    "href": "01-intro_r_rstudio/index.html#afficher-la-table-des-matières-du-script",
+    "title": "Introduction à R et RStudio",
+    "section": "Afficher la table des matières du script",
+    "text": "Afficher la table des matières du script\n\nCliquer sur l’icône Outline (tout à droite de la barre d’outils du script), ou utiliser le raccourci :\n\nCtrl + Maj + O (Windows / Linux) \nCmd + Shift + O (macOS)\n\nRStudio affiche alors une table des matières interactive, mise à jour automatiquement, listant toutes les sections du script.\nLe symbole “#” sur fond orange, situé en bas de la fenêtre du script, donne également accès à la fonction Document Outline (table des matières) d’un simple clic."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#exécution-du-code",
+    "href": "01-intro_r_rstudio/index.html#exécution-du-code",
+    "title": "Introduction à R et RStudio",
+    "section": "Exécution du code",
+    "text": "Exécution du code\nDans un script R, pour exécuter une instruction :\n\nPlacez le curseur n’importe où sur la ligne du code.\n\nCliquez sur le bouton Run ou utilisez le raccourci clavier suivant :\n\nCtrl + ↵ Enter (Windows / Linux)\n\n⌘ + ↵ Enter (macOS)\n\n\nL’instruction est alors envoyée à la console et exécutée.\nSi une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.\nVous pouvez aussi sélectionner une partie du code (en surbrillance) et l’exécuter de la même manière, avec Run ou le raccourci clavier."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#workflow-flux-de-travail",
+    "href": "01-intro_r_rstudio/index.html#workflow-flux-de-travail",
+    "title": "Introduction à R et RStudio",
+    "section": "Workflow (flux de travail)",
+    "text": "Workflow (flux de travail)\nManière structurée et reproductible d’organiser son travail\n\nEviter le code spaghetti : un code désordonné, illisible et non structuré, difficile à réutiliser.\nTravail reproductible\nCollaboration facilitée\nApprentissage facilité"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#working-directory-répertoire-de-travail",
+    "href": "01-intro_r_rstudio/index.html#working-directory-répertoire-de-travail",
+    "title": "Introduction à R et RStudio",
+    "section": "Working directory (répertoire de travail)",
+    "text": "Working directory (répertoire de travail)\n\nC’est le dossier où R lit et enregistre les fichiers par défaut\nLe répertoire de travail utilisé par R est indiqué en haut du volet de la console RStudio\n\nOu exécuter la fonction getwd() :\n\n# Get the working directory\ngetwd()\n\n[1] \"C:/Users/at/switchdrive/HESAV/Modules R/Modules de soutien statistique/01-intro_r_rstudio\""
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#répertoire-de-travail-par-défaut-dans-rstudio",
+    "href": "01-intro_r_rstudio/index.html#répertoire-de-travail-par-défaut-dans-rstudio",
+    "title": "Introduction à R et RStudio",
+    "section": "Répertoire de travail par défaut dans RStudio",
+    "text": "Répertoire de travail par défaut dans RStudio\n\nRStudio démarre toujours dans le même dossier par défaut\nPour connaître cet emplacement, allez dans le menu : Tools → Global Options → General → Basic\nDossier par défaut utilisé par RStudio lorsqu’aucun projet n’est ouvert"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#définir-son-répertoire-de-travail-par-défaut-hors-projet",
+    "href": "01-intro_r_rstudio/index.html#définir-son-répertoire-de-travail-par-défaut-hors-projet",
+    "title": "Introduction à R et RStudio",
+    "section": "Définir son répertoire de travail par défaut (hors projet)",
+    "text": "Définir son répertoire de travail par défaut (hors projet)\n\nConseillé de rassembler tous vos fichiers au même endroit lorque vous ne travaillez pas dans un projet R\nDéfinir un répertoire de travail par défaut (working directory).\n\nExemple personnel :\n\nJ’ai crée un dossier structuré comme suit : Code → R → sandbox dans mon dossier Documents (~/Documents/Code/R/sandbox).\n\nVous pouvez le mettre sur votre Bureau (~/Desktop/Code/R/sandbox) ou ailleurs selon vos préférences.\n\nTous les fichiers sauvegardés (hors projet) seront automatiquement enregistrés dans ce dossier sandbox."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#les-projets-rstudio",
+    "href": "01-intro_r_rstudio/index.html#les-projets-rstudio",
+    "title": "Introduction à R et RStudio",
+    "section": "Les projets RStudio",
+    "text": "Les projets RStudio\n\nFonctionnalité de RStudio pour organiser son travail.\n\nRegroupe tous les éléments d’une analyse : données, scripts, résultats, figures, documentation.\nFacilite la gestion et la reproductibilité.\n\nObjectif : tout garder ensemble dans un seul dossier."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#quest-ce-quun-projet",
+    "href": "01-intro_r_rstudio/index.html#quest-ce-quun-projet",
+    "title": "Introduction à R et RStudio",
+    "section": "Qu’est-ce qu’un projet ?",
+    "text": "Qu’est-ce qu’un projet ?\nEn pratique, un projet RStudio correspond simplement à un dossier\ncréé sur votre disque dur, dans lequel vous placerez :\n\nles jeux de données (brutes et nettoyées),\n\nles scripts R,\n\nles documents (notes, rapports, etc.),\n\nles résultats et figures.\n\nRStudio reconnaît ce dossier comme un projet et l’ouvre dans une session dédiée, avec son propre environnement."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#pourquoi-utiliser-des-projets",
+    "href": "01-intro_r_rstudio/index.html#pourquoi-utiliser-des-projets",
+    "title": "Introduction à R et RStudio",
+    "section": "Pourquoi utiliser des projets ?",
+    "text": "Pourquoi utiliser des projets ?\nUtiliser les projets RStudio offre plusieurs avantages :\n\nR démarre automatiquement dans le dossier du projet, ce qui simplifie l’accès aux fichiers sans écrire de longs chemins d’accès.\n\nSi vous déplacez votre dossier, le projet continue de fonctionner.\n\nL’onglet Files (en bas à droite) permet de naviguer facilement dans le contenu du projet.\n\nVous pouvez changer de projet en un clic si vous travaillez sur plusieurs analyses."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#créer-un-projet-rstudio",
+    "href": "01-intro_r_rstudio/index.html#créer-un-projet-rstudio",
+    "title": "Introduction à R et RStudio",
+    "section": "Créer un projet RStudio",
+    "text": "Créer un projet RStudio\nPour créer un projet :\n\nMenu File → New Project…\n\nSelon la situation :\n\nNew Directory → créer un nouveau dossier vide\n\nExisting Directory → utiliser un dossier existant\n\nCliquez sur Create Project\n\nÀ la création (et à chaque ouverture du projet), RStudio lance une nouvelle session R et définit automatiquement le dossier du projet comme répertoire de travail (working directory)."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#gérer-ses-projets-au-quotidien",
+    "href": "01-intro_r_rstudio/index.html#gérer-ses-projets-au-quotidien",
+    "title": "Introduction à R et RStudio",
+    "section": "Gérer ses projets au quotidien",
+    "text": "Gérer ses projets au quotidien\nUne fois le projet créé :\n\nSon nom s’affiche en haut à droite de l’interface RStudio.\n\nCe menu déroulant permet de passer facilement d’un projet à l’autre.\n\nChaque projet conserve son historique, environnement et fichiers propres.\n\nPour rouvrir un projet, il suffit de double-cliquer sur le fichier .Rproj ou de passer par le menu File → Open Project… et de sélectionner le fichier .Rproj** : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.\n\n\n\n\n\n\n\n\nAstuce : un projet = un dossier = une analyse\n\n\nAdoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible.\n\n\n\n\nPour en savoir plus sur la gestion des projets : https://www.rstudio.com/ide/docs/using/projects"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#workflow-reproductible",
+    "href": "01-intro_r_rstudio/index.html#workflow-reproductible",
+    "title": "Introduction à R et RStudio",
+    "section": "Workflow reproductible",
+    "text": "Workflow reproductible\nStructure recommandée :\nmon_projet/\n├── data/\n│   ├── raw/        # données brutes\n│   └── processed/  # données nettoyées\n├── scripts/\n│   └── analyse.R\n│   └── clean_data.R\n├── outputs/\n│   ├── figures/\n│   └── tables/\n└── mon_projet.Rproj\n\n\n\n\nScript à télécharger pour créer l’arborescence d’un projet\n\n\nVous pouvez télécharger et exécuter le script suivant pour créer automatiquement la structure de base d’un projet R :\n⬇️ init_project.R\nImportant : exécutez ce script depuis le répertoire du projet (ou après avoir ouvert le projet .Rproj dans RStudio), afin que les dossiers soient créés au bon endroit."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#formats-et-extensions-des-fichiers-r",
+    "href": "01-intro_r_rstudio/index.html#formats-et-extensions-des-fichiers-r",
+    "title": "Introduction à R et RStudio",
+    "section": "Formats et extensions des fichiers R",
+    "text": "Formats et extensions des fichiers R\nFichiers de données\n\n.RData (ou raccourci .rda) : permet de stocker plusieurs objets R dans un même fichier.\n\n.rds : permet de sauvegarder un seul objet à la fois (préférable pour les workflows reproductibles).\n\nFichiers de code\n\n.R : contient des scripts R, c’est-à-dire du code exécutable.\n\nFichiers de projet\n\n.Rproj : utilisé par RStudio pour définir un projet R (répertoire de travail, options, historique, etc.)."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#importer-des-données-dans-r-trop-de-fonctions",
+    "href": "01-intro_r_rstudio/index.html#importer-des-données-dans-r-trop-de-fonctions",
+    "title": "Introduction à R et RStudio",
+    "section": "Importer des données dans R — Trop de fonctions !",
+    "text": "Importer des données dans R — Trop de fonctions !\nBeaucoup (trop) de packages et de fonctions différentes :\n\n# Fichiers R\nload(\"data/raw/data.rda\")\ndata &lt;- readRDS(\"data/raw/data.rds\")\n\n# Fichiers CSV\ndata &lt;- read.csv(\"data/raw/data.csv\")\ndata &lt;- readr::read_csv(\"data/raw/data.csv\")\n\n# Fichiers Excel\ndata &lt;- xlsx::read.xlsx(\"data/raw/data.xlsx\")\ndata &lt;- readxl::read_excel(\"data/raw/data.xlsx\")\n\n# Fichiers SPSS / Stata / SAS\ndata &lt;- haven::read_spss(\"data/raw/data.sav\")\ndata &lt;- haven::read_stata(\"data/raw/data.dta\")\ndata &lt;- haven::read_sas(\"data/raw/data.sas7bdat\")\n\n# etc."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#importer-et-exporter-des-données-avec-rio",
+    "href": "01-intro_r_rstudio/index.html#importer-et-exporter-des-données-avec-rio",
+    "title": "Introduction à R et RStudio",
+    "section": "Importer et exporter des données avec rio",
+    "text": "Importer et exporter des données avec rio\nLe package rio simplifie grandement l’importation et l’exportation de fichiers de données dans R.\nFonctions principales\n\nimport() → Lire un fichier\nexport() → Sauvegarder un objet R\n\nDe nombreux formats supportés : .csv, .xlsx, .rda, .sav, etc.\n\n# Importer différents formats\nimport(\"data/raw/data.xlsx\")\nimport(\"data/raw/data.rda\")\nimport(\"data/raw/data.dta\")\n\n# Exporter un objet R\nexport(data, \"data/processed/data.csv\")\nexport(data, \"data/processed/data.rds\")\nexport(data, \"data/processed/data.sav\")"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#importer-des-données-par-les-menus-de-rstudio",
+    "href": "01-intro_r_rstudio/index.html#importer-des-données-par-les-menus-de-rstudio",
+    "title": "Introduction à R et RStudio",
+    "section": "Importer des données par les menus de RStudio",
+    "text": "Importer des données par les menus de RStudio\nL’importation peut aussi se faire depuis le volet Environnement → Import Dataset :"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#nettoyage-de-lenvironnement",
+    "href": "01-intro_r_rstudio/index.html#nettoyage-de-lenvironnement",
+    "title": "Introduction à R et RStudio",
+    "section": "Nettoyage de l’environnement",
+    "text": "Nettoyage de l’environnement\nVidez votre Environnement comme si vous reveniez à ce projet après une longue pause.\nDeux solutions simples\n\nCliquez sur l’icône du balai 🧹 dans le panneau Environment pour tout effacer.\n\nOu exécutez dans la console :\n\n\nrm(list = ls())\n\n\n\n\n\n\n\n\nAstuce : Relancer complètement R\n\n\nVous pouvez aussi redémarrer la session R (Session → Restart R) : cela vide l’environnement et décharge tous les packages chargés.\nMéthode la plus sûre pour repartir sur une base propre."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#ressources-pour-apprendre-et-approfondir-r",
+    "href": "01-intro_r_rstudio/index.html#ressources-pour-apprendre-et-approfondir-r",
+    "title": "Introduction à R et RStudio",
+    "section": "Ressources pour apprendre et approfondir R",
+    "text": "Ressources pour apprendre et approfondir R\n\nIntroduction à R et au tidyverse : Très bonne introduction en français\nR for Data Science (2e) : Introduction complète et progressive à la science des données avec R\nAwesome R Learning Resources : Liste des packages/travaux/etc. géniaux dans R\nAdvanced R : Exploration approfondie du langage R\nThe Art of R Programming : Ouvrage de référence sur la programmation avancée et les bonnes pratiques en R (non disponible en libre accès)"
+  },
+  {
+    "objectID": "03-analyses_bivariees/index.html#objectifs",
+    "href": "03-analyses_bivariees/index.html#objectifs",
+    "title": "Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nÀ compléter selon le cours."
+  },
+  {
+    "objectID": "03-analyses_bivariees/index.html#plan",
+    "href": "03-analyses_bivariees/index.html#plan",
+    "title": "Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation",
+    "section": "Plan",
+    "text": "Plan\n\n…\n…\n…"
+  },
+  {
+    "objectID": "03-analyses_bivariees/index.html#ressources",
+    "href": "03-analyses_bivariees/index.html#ressources",
+    "title": "Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation",
+    "section": "Ressources",
+    "text": "Ressources\n\nDossier data/\nScript R/\nRéférences à ajouter"
+  },
+  {
+    "objectID": "05-efa_echelles/index.html#objectifs",
+    "href": "05-efa_echelles/index.html#objectifs",
+    "title": "Analyses factorielles exploratoires (EFA) et construction d’échelles",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nÀ compléter selon le cours."
+  },
+  {
+    "objectID": "05-efa_echelles/index.html#plan",
+    "href": "05-efa_echelles/index.html#plan",
+    "title": "Analyses factorielles exploratoires (EFA) et construction d’échelles",
+    "section": "Plan",
+    "text": "Plan\n\n…\n…\n…"
+  },
+  {
+    "objectID": "05-efa_echelles/index.html#ressources",
+    "href": "05-efa_echelles/index.html#ressources",
+    "title": "Analyses factorielles exploratoires (EFA) et construction d’échelles",
+    "section": "Ressources",
+    "text": "Ressources\n\nDossier data/\nScript R/\nRéférences à ajouter"
+  },
+  {
+    "objectID": "07-regression_logistique/index.html#objectifs",
+    "href": "07-regression_logistique/index.html#objectifs",
+    "title": "Régression logistique",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nÀ compléter selon le cours."
+  },
+  {
+    "objectID": "07-regression_logistique/index.html#plan",
+    "href": "07-regression_logistique/index.html#plan",
+    "title": "Régression logistique",
+    "section": "Plan",
+    "text": "Plan\n\n…\n…\n…"
+  },
+  {
+    "objectID": "07-regression_logistique/index.html#ressources",
+    "href": "07-regression_logistique/index.html#ressources",
+    "title": "Régression logistique",
+    "section": "Ressources",
+    "text": "Ressources\n\nDossier data/\nScript R/\nRéférences à ajouter"
+  }
+]
