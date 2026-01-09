@@ -1,6 +1,7 @@
 # Modules de soutien statistique 2025-2026
 
-Site Quarto avec 7 présentations reveal.js (mode clair/sombre) et boutons de téléchargement PDF.
+<https://amaltawfik.github.io/modules-soutien-statistique-hesav/>
+
 
 ## Rendu local
 

@@ -1,7 +1,44 @@
+# --- RStudio ---
 .Rproj.user
 .Rhistory
 .RData
+.Ruserdata
+
+# --- OS ---
 .DS_Store
 
+# --- Quarto freeze (ne JAMAIS committer) ---
+_freeze/
+
+# --- Quarto internal ---
 /.quarto/
 **/*.quarto_ipynb
+
+# --- Quarto HTML/PDF intermediates ---
+*_files/
+index_files/
+*_cache/
+
+# --- LaTeX temporary files ---
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.gz
+
+# --- Reveal.js artifacts (selon versions) ---
+revealjs/
+_revealjs/
+
+# --- Python / Jupyter (au cas où) ---
+.ipynb_checkpoints/
+__pycache__/
+
