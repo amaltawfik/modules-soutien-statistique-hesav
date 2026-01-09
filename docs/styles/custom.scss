@@ -25,14 +25,14 @@ body, p, li, a, table, th, td {
 
 /* --- Bouton "Ouvrir" --- */
 .btn-success {
-  background-color: #198754;
-  border-color: #198754;
+  background-color: #66b3ff;
+  border-color: #66b3ff;
   color: #fff;
 }
 
 .btn-success:hover {
-  background-color: #157347;
-  border-color: #146c43;
+  background-color: #66b3ff;
+  border-color: #66b3ff;
 }
 
 /* --- Bouton "PDF" : rouge/bordeaux élégant --- */
@@ -109,4 +109,14 @@ code {
 [data-bs-theme="dark"] code {
   background-color: #333333;     /* gris foncé lisible sur fond sombre */
   color: #ffb3d9;                /* rose clair pour le contraste */
+}
+
+
+
+[data-bs-theme="dark"] h1,
+[data-bs-theme="dark"] h2 {
+  background-color: #333333;
+  color: #fff !important;
+  padding: 0.35em 0.6em;
+  border-radius: 6px;
 }

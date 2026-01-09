@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Modules de soutien statistique 2025–2026",
     "section": "",
-    "text": "HORAIRE 12:00–13:00\nSalle G/OO/13\nOuvert à toutes et tous, sans inscription\n\n📅 Planning des modules\n\n\n\nJour\nDate\nModule\nPrésentation\n\n\n\n\nJeudi\n06.11.2025\nIntroduction à R et RStudio : premiers pas, bonnes pratiques et workflow\nOuvrirPDF\n\n\nJeudi\n15.01.2026\nNettoyage et manipulation des données avec R : introduction au tidyverse\nOuvrirPDF\n\n\nJeudi\n12.02.2026\nAnalyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation\nOuvrirPDF\n\n\nJeudi\n12.03.2026\nRégression linéaire\nOuvrirPDF\n\n\nJeudi\n23.04.2026\nAnalyses factorielles exploratoires (EFA) et construction d’échelles\nOuvrirPDF\n\n\nJeudi\n21.05.2026\nVisualisation des données avec ggplot2\nOuvrirPDF\n\n\nJeudi\n18.06.2026\nRégression logistique\nOuvrirPDF\n\n\n\n\n\n💡 Astuce PDF : dans chaque présentation, un bouton « Télécharger le PDF » ouvre le fichier index.pdf correspondant.\nPour générer ces PDF localement :\nquarto render &lt;dossier&gt;/index.qmd --to pdf\n(Chrome/Chromium nécessaire pour la conversion revealjs→PDF.)"
+    "text": "HORAIRE 12:00–13:45\nOuvert à toutes et tous, sans inscription\n\n📅 Planning des modules\n\n\n    \n\n    \n\n    \n    \n    \n      \n        \n        \n              \n                Jour\n                Date\n                Module\n                Salle\n                Présentation\n                Mise à jour\n              \n        \n        \n        \n                \n                  Jeudi\n                  06.11.2025\n                  Introduction à R et RStudio : premiers pas, bonnes pratiques et workflow\n                  G/OO/12\n                  Ouvrir PDF\n                  NA\n                \n                \n                  Jeudi\n                  15.01.2026\n                  Nettoyage et manipulation des données avec R : introduction au tidyverse\n                  G/OO/17\n                  Ouvrir PDF\n                  NA\n                \n                \n                  Jeudi\n                  12.02.2026\n                  Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation\n                  G/OO/12\n                  Ouvrir PDF\n                  NA\n                \n                \n                  Jeudi\n                  12.03.2026\n                  Régression linéaire\n                  G/ss/02\n                  Ouvrir PDF\n                  NA\n                \n                \n                  Jeudi\n                  23.04.2026\n                  Analyses factorielles exploratoires (EFA) et construction d’échelles\n                  G/OO/13\n                  Ouvrir PDF\n                  NA\n                \n                \n                  Jeudi\n                  21.05.2026\n                  Visualisation des données avec ggplot2\n                  G/OO/13\n                  Ouvrir PDF\n                  NA\n                \n                \n                  Jeudi\n                  18.06.2026\n                  Régression logistique\n                  G/OO/13\n                  Ouvrir PDF\n                  NA\n                \n        \n      \n    \n\n\n\nAstuce PDF : dans chaque présentation, un bouton « Télécharger le PDF » ouvre le fichier index.pdf correspondant.\nPour générer ces PDF localement :\nquarto render &lt;dossier&gt;/index.qmd --to pdf\n(Chrome/Chromium nécessaire pour la conversion revealjs→PDF.)"
   },
   {
     "objectID": "06-visualisation/index.html#objectifs",
@@ -49,25 +49,354 @@
     "text": "Ressources\n\nDossier data/\nScript R/\nRéférences à ajouter"
   },
   {
-    "objectID": "02-clean_manipulation/index.html#objectifs",
-    "href": "02-clean_manipulation/index.html#objectifs",
-    "title": "Nettoyage et manipulation des données avec R : introduction au tidyverse",
-    "section": "Objectifs",
-    "text": "Objectifs\n\nÀ compléter selon le cours."
-  },
-  {
     "objectID": "02-clean_manipulation/index.html#plan",
     "href": "02-clean_manipulation/index.html#plan",
-    "title": "Nettoyage et manipulation des données avec R : introduction au tidyverse",
+    "title": "Nettoyage et manipulation des données avec R",
     "section": "Plan",
-    "text": "Plan\n\n…\n…\n…"
+    "text": "Plan\n\nIntroduction au tidyverse\nStructure des données et principes tidy\nNettoyer le tableau de données (janitor)\nLe pipe : enchaîner les opérations\nManipulation des données avec dplyr : filter(), select(), arrange(), mutate(), summarise(), group_by()\nRésumés globaux vs par groupe\nRecoder des variables (ifelse(), case_when() et interfaces graphiques)"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#objectifs",
+    "href": "02-clean_manipulation/index.html#objectifs",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Objectifs",
+    "text": "Objectifs\n\nTransformer un fichier brut en un data.frame (ou tibble) propre et prêt pour l’analyse.\n\nPour y parvenir :\n\nIdentifier et corriger les problèmes courants dans les données brutes\nUtiliser les outils du tidyverse pour nettoyer les données\nStructurer vos données selon les principes tidy\nPréparer vos données pour l’analyse statistique"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#pourquoi-nettoyer-les-données",
+    "href": "02-clean_manipulation/index.html#pourquoi-nettoyer-les-données",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Pourquoi nettoyer les données ?",
+    "text": "Pourquoi nettoyer les données ?\n≈ 80% du temps est consacré à la préparation et au nettoyage des données, et seulement 20% à l’analyse.\nCe qu’on rencontre dans les données brutes :\n\nvaleurs manquantes (NA, cases vides)\ncodages incohérents (F, f, 1, 2, etc.)\nerreurs de saisie (99999 comme revenu)\ndoublons (individu présent plusieurs fois)\nclasses erronées (âge importé comme texte)\ncolonnes inutiles ou mal nommées"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#quest-ce-que-le-tidyverse",
+    "href": "02-clean_manipulation/index.html#quest-ce-que-le-tidyverse",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Qu’est-ce que le tidyverse ?",
+    "text": "Qu’est-ce que le tidyverse ?\nLe tidyverse est un ensemble cohérent de packages R dédiés à la science des données, conçu pour être :\n\nlisible\n\nexpressif\n\nreproductible\n\nintuitif\n\nIl repose sur une philosophie commune, une syntaxe uniforme et la structure tidy des données.\n\nInstallation en une fois : install.packages(\"tidyverse\")\nCharger le tidyverse : library(tidyverse)"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#les-packages-principaux-du-tidyverse",
+    "href": "02-clean_manipulation/index.html#les-packages-principaux-du-tidyverse",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Les packages principaux du tidyverse",
+    "text": "Les packages principaux du tidyverse\nLe tidyverse fournit des outils pour chaque étape du data workflow :\n\n\n\nÉtape\nPackages & utilités\n\n\n\n\nImporter\nreadr (CSV), readxl (Excel), haven (SPSS/Stata/SAS)\n\n\nManipuler\ndplyr : filtrer, trier, sélectionner, créer des variables\n\n\nRestructurer\ntidyr : pivoter (long ↔︎ wide), séparer, combiner\n\n\nVisualiser\nggplot2 : graphiques élégants et cohérents\n\n\nGérer les textes\nstringr : chaînes de caractères\n\n\nGérer les facteurs\nforcats : niveaux, réordonnements\n\n\nGérer les dates\nlubridate : dates, heures, durées\n\n\nTibble moderne\ntibble : version améliorée d’un data.frame\n\n\n\nTous ces packages partagent une syntaxe cohérente et fonctionnent parfaitement ensemble."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#structure-dun-tableau-de-données-variables-valeurs-et-observations",
+    "href": "02-clean_manipulation/index.html#structure-dun-tableau-de-données-variables-valeurs-et-observations",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Structure d’un tableau de données : variables, valeurs et observations",
+    "text": "Structure d’un tableau de données : variables, valeurs et observations\n\nUne variable représente une caractéristique mesurée (quantité, qualité, propriété).\nUne valeur est le résultat obtenu pour une variable lors d’une mesure.\nUne observation regroupe l’ensemble des valeurs mesurées dans les mêmes conditions (cas ou individu statistique).\nUn tableau de données rectangulaire associe chaque valeur à une variable (colonne) et à une observation (ligne).\n\n\n\n\nDans R, ce type de tableau est représenté par un data.frame et sa version modernisée est le tibble."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#données-tidy",
+    "href": "02-clean_manipulation/index.html#données-tidy",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Données tidy",
+    "text": "Données tidy\nTous les tableaux de données rectangulaires ne sont pas également faciles à utiliser pour l’analyse.\nPlusieurs tableaux peuvent représenter les mêmes données, mais seule une structure tidy est pleinement exploitable dans le tidyverse.\nLes données sont dites tidy (rangées) lorsque trois règles interdépendantes sont respectées :\n\nchaque variable correspond à une colonne\n\nchaque observation correspond à une ligne\n\nchaque valeur occupe une cellule et chaque cellule contient une seule valeur (pas de valeurs empilées du type “foot, basket, tennis”, ni de valeurs composites du type “23 kg”)"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#visualisation-de-la-structure-tidy",
+    "href": "02-clean_manipulation/index.html#visualisation-de-la-structure-tidy",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Visualisation de la structure tidy",
+    "text": "Visualisation de la structure tidy\n\n\n\n\n\nSource : https://r4ds.hadley.nz/data-tidy.html#fig-tidy-structure"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#en-pratique-que-change-la-structure-tidy",
+    "href": "02-clean_manipulation/index.html#en-pratique-que-change-la-structure-tidy",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "En pratique, que change la structure tidy ?",
+    "text": "En pratique, que change la structure tidy ?\nLorsque ces règles sont respectées :\n\nchaque unité d’observation est clairement identifiée\n\ndes unités d’observation différentes sont stockées dans des tables distinctes\n\nConséquence : on évite de mélanger individus, événements et mesures dans une même table.\n\n\n\nLes données tidy respectent une structure standardisée, conçue pour faciliter la manipulation, la visualisation et l’analyse avec les outils du tidyverse."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#les-tibbles",
+    "href": "02-clean_manipulation/index.html#les-tibbles",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Les tibbles",
+    "text": "Les tibbles\nDans le tidyverse, les données sont manipulées sous forme de tibble, une version moderne et améliorée de data.frame de R.\nLes tibbles sont :\n\nfournis par le package tibble (au cœur du tidyverse)\nacceptés par la plupart des fonctions du tidyverse\nretournés par défaut par dplyr, tidyr, ggplot2, etc.\n\n\n\n\nUn tibble est un data.frame plus strict, plus lisible et plus sûr."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#pourquoi-utiliser-des-tibbles",
+    "href": "02-clean_manipulation/index.html#pourquoi-utiliser-des-tibbles",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Pourquoi utiliser des tibbles ?",
+    "text": "Pourquoi utiliser des tibbles ?\nContrairement aux data.frames classiques, les tibbles :\n\nn’ont pas de noms de lignes (rownames)\nautorisent des noms de colonnes non standards (espaces, caractères spéciaux, nombres…) entourés avec des backticks (`)\ns’affichent intelligemment (aperçu des lignes, dimensions, types de variables)\npas de partial matching sur les noms de colonnes (si une table d contient une colonne qualif, d$qual ne retournera pas cette colonne)\navertissent lorsqu’une colonne n’existe pas\n\n\n\n\nIls font moins de choses automatiques mais signalent plus tôt les erreurs"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#compatibilité-de-tibble-et-data.frame",
+    "href": "02-clean_manipulation/index.html#compatibilité-de-tibble-et-data.frame",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Compatibilité de tibble et data.frame",
+    "text": "Compatibilité de tibble et data.frame\nUn tibble reste totalement compatible avec un data.frame :\n\nla plupart des fonctions du tidyverse acceptent un data.frame en entrée\nelles retournent généralement un tibble\n\n\nlibrary(tidyverse)\n\nhead(mtcars) # Affiche les 6 premières lignes (n = 6 par défaut)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#conversion-de-data.frame-en-tibble",
+    "href": "02-clean_manipulation/index.html#conversion-de-data.frame-en-tibble",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Conversion de data.frame en tibble",
+    "text": "Conversion de data.frame en tibble\nas_tibble() convertit un data.frame en tibble :\n\nles variables et leurs types sont conservés\nles rownames sont supprimés par défaut\n\n\nas_tibble(mtcars)\n\n# A tibble: 32 × 11\n     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1  21       6  160    110  3.9   2.62  16.5     0     1     4     4\n 2  21       6  160    110  3.9   2.88  17.0     0     1     4     4\n 3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1\n 4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1\n 5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2\n 6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1\n 7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4\n 8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2\n 9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2\n10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4\n# ℹ 22 more rows"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#convertir-les-noms-de-lignes-en-variables",
+    "href": "02-clean_manipulation/index.html#convertir-les-noms-de-lignes-en-variables",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Convertir les noms de lignes en variables",
+    "text": "Convertir les noms de lignes en variables\nIl est possible de transformer les rownames en colonne explicite en utilisant l’argument rownames :\n\nas_tibble(mtcars, rownames = \"car_names\")\n\n# A tibble: 32 × 12\n   car_names     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb\n   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 Mazda RX4    21       6  160    110  3.9   2.62  16.5     0     1     4     4\n 2 Mazda RX4 …  21       6  160    110  3.9   2.88  17.0     0     1     4     4\n 3 Datsun 710   22.8     4  108     93  3.85  2.32  18.6     1     1     4     1\n 4 Hornet 4 D…  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1\n 5 Hornet Spo…  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2\n 6 Valiant      18.1     6  225    105  2.76  3.46  20.2     1     0     3     1\n 7 Duster 360   14.3     8  360    245  3.21  3.57  15.8     0     0     3     4\n 8 Merc 240D    24.4     4  147.    62  3.69  3.19  20       1     0     4     2\n 9 Merc 230     22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2\n10 Merc 280     19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4\n# ℹ 22 more rows"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#nettoyer-les-noms-des-variables",
+    "href": "02-clean_manipulation/index.html#nettoyer-les-noms-des-variables",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Nettoyer les noms des variables",
+    "text": "Nettoyer les noms des variables\nLe package janitor fournit des outils simples pour nettoyer et standardiser les données.\nSouvent, les données importées contiennent des colonnes avec :\n\ndes espaces\n\ndes caractères spéciaux\n\ndes majuscules mélangées\n\ndes noms peu lisibles\n\nLa fonction clean_names() nettoie les noms de colonnes pour qu’ils soient propres, cohérents et faciles à manipuler."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#que-fait-clean_names",
+    "href": "02-clean_manipulation/index.html#que-fait-clean_names",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Que fait clean_names() ?",
+    "text": "Que fait clean_names() ?\nPar défaut, la fonction clean_names() du package janitor applique la convention de nommage snake case qui est la convention recommandée dans le tidyverse.\nElle transforme les noms de colonnes pour :\n\nêtre en minuscules\nremplacer les espaces et caractères spéciaux par des underscores (_)\néviter les noms invalides ou ambigus\nproduire des noms faciles à taper et cohérents"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#exemple",
+    "href": "02-clean_manipulation/index.html#exemple",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Exemple",
+    "text": "Exemple\n\nlibrary(janitor)\n\nd &lt;- tibble(\n  \"Nom Col 1\" = 1:3,\n  \"Âge (ans)\" = c(24, 30, 29),\n  \"Score (%)\" = c(80, 90, 85)\n)\nd\n\n# A tibble: 3 × 3\n  `Nom Col 1` `Âge (ans)` `Score (%)`\n        &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n1           1          24          80\n2           2          30          90\n3           3          29          85\n\nclean_names(d)\n\n# A tibble: 3 × 3\n  nom_col_1 age_ans score_percent\n      &lt;int&gt;   &lt;dbl&gt;         &lt;dbl&gt;\n1         1      24            80\n2         2      30            90\n3         3      29            85"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#autres-fonctions-utiles-de-nettoyage",
+    "href": "02-clean_manipulation/index.html#autres-fonctions-utiles-de-nettoyage",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Autres fonctions utiles de nettoyage",
+    "text": "Autres fonctions utiles de nettoyage\nPlusieurs autres fonctions du package janitor :\n\nremove_empty() supprime les lignes ou colonnes entièrement composées de NA.\nget_dupes() identifie les doublons sur une ou plusieurs variables.\n\nExemple\n\nd &lt;- tibble(\n  id    = c(1, 2, 2, NA),\n  nom   = c(\"Alice\", \"Bob\", \"Bob\", NA),\n  score = c(15, 10, 15, NA),\n  vide  = c(NA, NA, NA, NA))\nd\n\n# A tibble: 4 × 4\n     id nom   score vide \n  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;\n1     1 Alice    15 NA   \n2     2 Bob      10 NA   \n3     2 Bob      15 NA   \n4    NA &lt;NA&gt;     NA NA"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#exemples",
+    "href": "02-clean_manipulation/index.html#exemples",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Exemples",
+    "text": "Exemples\n\nremove_empty(d)\n\n# A tibble: 3 × 3\n     id nom   score\n  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;\n1     1 Alice    15\n2     2 Bob      10\n3     2 Bob      15\n\nremove_empty(d, which = \"cols\")\n\n# A tibble: 4 × 3\n     id nom   score\n  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;\n1     1 Alice    15\n2     2 Bob      10\n3     2 Bob      15\n4    NA &lt;NA&gt;     NA\n\nget_dupes(d, score)\n\n# A tibble: 2 × 5\n  score dupe_count    id nom   vide \n  &lt;dbl&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;\n1    15          2     1 Alice NA   \n2    15          2     2 Bob   NA   \n\nget_dupes(d, id, nom)\n\n# A tibble: 2 × 5\n     id nom   dupe_count score vide \n  &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt;\n1     2 Bob            2    10 NA   \n2     2 Bob            2    15 NA"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#le-pipe-enchaîner-les-opérations",
+    "href": "02-clean_manipulation/index.html#le-pipe-enchaîner-les-opérations",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Le pipe : enchaîner les opérations",
+    "text": "Le pipe : enchaîner les opérations\nLe pipe (|&gt; natif R ou %&gt;% du package magrittr) permet d’enchaîner plusieurs opérations dans l’ordre où on les lit.\nPrincipe : Ce qui se trouve à gauche du pipe est envoyé comme premier argument à la fonction à droite.\n\ndata |&gt; fonction1() |&gt; fonction2() |&gt; fonction3()\n\ndata |&gt; \n  fonction1() |&gt; \n  fonction2() |&gt; \n  fonction3()\n\n\n\n\n“Prends cet objet → puis applique cette transformation → puis cette autre → etc.”"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#pourquoi-utiliser-le-pipe",
+    "href": "02-clean_manipulation/index.html#pourquoi-utiliser-le-pipe",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Pourquoi utiliser le pipe ?",
+    "text": "Pourquoi utiliser le pipe ?\nExemple\n\nd &lt;- tibble(\n  id_etud = c(\"E001\", \"E002\", \"E003\", \"E004\"),\n  genre = factor(c(\"F\", \"H\", \"F\", \"H\")),\n  age = c(17, 20, 23, 19),\n  filiere = factor(c(\"Soins infirmiers\", \n                     \"Physiothérapie\", \n                     \"Soins infirmiers\", \n                     \"Ergothérapie\")),\n  abs_just = c(2, 4, 1, 3),\n  abs_non_just = c(0, 1, 2, 0),\n  revenu = c(6200, NA, NA, 4800)\n  )\nd\n\n# A tibble: 4 × 7\n  id_etud genre   age filiere          abs_just abs_non_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 E001    F        17 Soins infirmiers        2            0   6200\n2 E002    H        20 Physiothérapie          4            1     NA\n3 E003    F        23 Soins infirmiers        1            2     NA\n4 E004    H        19 Ergothérapie            3            0   4800"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#sans-pipe-deux-problèmes-courants",
+    "href": "02-clean_manipulation/index.html#sans-pipe-deux-problèmes-courants",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Sans pipe, deux problèmes courants",
+    "text": "Sans pipe, deux problèmes courants\n\n\n\nFonctions imbriquées (difficile à lire, ordre inversé) :\n\n\nd1 &lt;- select(\n  mutate(\n    filter(d, age &gt;= 18),\n    abs_total = abs_just + abs_non_just\n    ),\n  id_etud, genre, filiere, abs_total\n  )\nd1\n\n# A tibble: 3 × 4\n  id_etud genre filiere          abs_total\n  &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt;                &lt;dbl&gt;\n1 E002    H     Physiothérapie           5\n2 E003    F     Soins infirmiers         3\n3 E004    H     Ergothérapie             3\n\n\n\n\nObjets intermédiaires (répétitif, risque d’erreur) :\n\n\nd1 &lt;- filter(d, age &gt;= 18)\nd1 &lt;- mutate(d1, abs_total = abs_just + abs_non_just)\nd1 &lt;- select(d1, id_etud, genre, filiere, abs_total)\nd1\n\n# A tibble: 3 × 4\n  id_etud genre filiere          abs_total\n  &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt;                &lt;dbl&gt;\n1 E002    H     Physiothérapie           5\n2 E003    F     Soins infirmiers         3\n3 E004    H     Ergothérapie             3"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#le-pipe-lire-le-code-comme-une-phrase",
+    "href": "02-clean_manipulation/index.html#le-pipe-lire-le-code-comme-une-phrase",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Le pipe : lire le code comme une phrase",
+    "text": "Le pipe : lire le code comme une phrase\nAvec pipe, lisible de gauche à droite (et de haut en bas) :\n\nd1 &lt;- d |&gt;\n  filter(age &gt;= 18) |&gt;\n  mutate(abs_total = abs_just + abs_non_just) |&gt;\n  select(id_etud, genre, filiere, abs_total)\nd1\n\n# A tibble: 3 × 4\n  id_etud genre filiere          abs_total\n  &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt;                &lt;dbl&gt;\n1 E002    H     Physiothérapie           5\n2 E003    F     Soins infirmiers         3\n3 E004    H     Ergothérapie             3\n\n\n\n\n\n\nOn lit le code comme une phrase\n\n\n“Crée d1 en prenant d, en filtrant les personnes de 18 ans ou plus, en ajoutant une variable abs_total qui additionne les absences justifiées et non justifiées, puis en sélectionnant uniquement les variables id_etud, genre, filiere et abs_total.”"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#les-avantages-du-pipe",
+    "href": "02-clean_manipulation/index.html#les-avantages-du-pipe",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Les avantages du pipe",
+    "text": "Les avantages du pipe\nEnchaîner les opérations avec |&gt; (appelé pipeline) permet :\n\nLisibilité : le code se lit comme une phrase, dans l’ordre naturel\n\nModularité : facile d’ajouter ou retirer une étape\n\nDébogage : on peut tester étape par étape\n\nReproductibilité : chaque transformation est explicite\n\nÀ retenir :\n\nOn sauvegarde le résultat final dans un objet : resultat &lt;- donnees |&gt; ...\nLe pipe n’est pas qu’un outil syntaxique, c’est une façon de penser la transformation des données"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#manipuler-les-données-avec-dplyr",
+    "href": "02-clean_manipulation/index.html#manipuler-les-données-avec-dplyr",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Manipuler les données avec dplyr",
+    "text": "Manipuler les données avec dplyr\ndplyr est le package du tidyverse dédié à la manipulation de données. Il propose une syntaxe claire et cohérente, sous forme de verbes, pour transformer une ou plusieurs tables.\nLes principaux verbes de manipulation :\n\n\n\nAction sur les données\nVerbe de dplyr\n\n\n\n\nSélectionner des lignes (observations)\nfilter()\n\n\nSélectionner ou réordonner des colonnes (variables)\nselect()\n\n\nTrier les observations\narrange()\n\n\nCréer ou transformer des variables\nmutate()\n\n\nRésumer les données (par groupe)\nsummarise() + group_by()"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#sélectionner-des-lignes-observations-filter",
+    "href": "02-clean_manipulation/index.html#sélectionner-des-lignes-observations-filter",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Sélectionner des lignes (observations) — filter()",
+    "text": "Sélectionner des lignes (observations) — filter()\nLa fonction filter() permet de conserver uniquement les lignes qui satisfont une ou plusieurs conditions.\n\nElle agit sur les observations (lignes), pas sur les variables (colonnes).\n\nPrincipe\n\ndata |&gt; filter(condition)\n\n\nla condition doit être TRUE pour que la ligne soit conservée\nplusieurs conditions peuvent être combinées (&, |)\n\nExemple : conserver les personnes âgées de 18 ans ou plus\n\nd |&gt; filter(age &gt;= 18)"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#écrire-des-conditions-logiques",
+    "href": "02-clean_manipulation/index.html#écrire-des-conditions-logiques",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Écrire des conditions logiques",
+    "text": "Écrire des conditions logiques\nPour sélectionner des observations (créer des sous-ensembles) ou recoder des variables, on écrit des conditions logiques.\nUne condition est une expression logique dont le résultat est :\n\nTRUE = la ligne est conservée\nFALSE = la ligne est exclue\n\nLes conditions reposent sur :\n\ndes opérateurs de comparaison\ndes opérateurs logiques\n\n\n\n\nfilter() conserve uniquement les lignes pour lesquelles la condition est vraie."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#opérateurs-logiques-et-de-comparaison",
+    "href": "02-clean_manipulation/index.html#opérateurs-logiques-et-de-comparaison",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Opérateurs logiques et de comparaison",
+    "text": "Opérateurs logiques et de comparaison\n\n\nOpérateurs de comparaison\n\n\n\nOpérateur\nSignification\n\n\n\n\n==\négal à\n\n\n!=\ndifférent de\n\n\n&gt;\nstrictement supérieur à\n\n\n&lt;\nstrictement inférieur à\n\n\n&gt;=\nsupérieur ou égal à\n\n\n&lt;=\ninférieur ou égal à\n\n\n\n\nOpérateurs logiques\n\n\n\nOpérateur\nSignification\n\n\n\n\n&\nET logique\n\n\n|\nOU logique\n\n\n!\nnégation logique"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#exemples-de-conditions-logiques-avec-filter",
+    "href": "02-clean_manipulation/index.html#exemples-de-conditions-logiques-avec-filter",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Exemples de conditions logiques avec filter()",
+    "text": "Exemples de conditions logiques avec filter()\n\nd |&gt; filter(age &lt; 18)                                                # comparaison\n\n# A tibble: 1 × 7\n  id_etud genre   age filiere          abs_just abs_non_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 E001    F        17 Soins infirmiers        2            0   6200\n\nd |&gt; filter(genre == \"F\")                                            # égalité\n\n# A tibble: 2 × 7\n  id_etud genre   age filiere          abs_just abs_non_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 E001    F        17 Soins infirmiers        2            0   6200\n2 E003    F        23 Soins infirmiers        1            2     NA\n\nd |&gt; filter(abs_just &gt;= 4 & genre == \"H\")                            # ET\n\n# A tibble: 1 × 7\n  id_etud genre   age filiere        abs_just abs_non_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;             &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 E002    H        20 Physiothérapie        4            1     NA\n\nd |&gt; filter(filiere == \"Physiothérapie\" | filiere == \"Ergothérapie\") # OU\n\n# A tibble: 2 × 7\n  id_etud genre   age filiere        abs_just abs_non_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;             &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 E002    H        20 Physiothérapie        4            1     NA\n2 E004    H        19 Ergothérapie          3            0   4800\n\nd |&gt; filter(!is.na(revenu))                                          # valeurs non manquantes\n\n# A tibble: 2 × 7\n  id_etud genre   age filiere          abs_just abs_non_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 E001    F        17 Soins infirmiers        2            0   6200\n2 E004    H        19 Ergothérapie            3            0   4800"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#sélectionner-des-colonnes-variables-select",
+    "href": "02-clean_manipulation/index.html#sélectionner-des-colonnes-variables-select",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Sélectionner des colonnes (variables) — select()",
+    "text": "Sélectionner des colonnes (variables) — select()\nLa fonction select() permet de choisir, réordonner ou supprimer des variables (colonnes).\n\nElle agit sur les variables (colonnes), pas sur les observations (lignes).\n\nPrincipe\n\ndata |&gt; select(col1, col2, ...)\n\n\non indique les variables à conserver\nl’ordre d’écriture = ordre final des variables\n\nExemple : conserver uniquement les variables id_etudet genre.\n\nd |&gt; select(id_etud, genre)"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#sélectionner-une-plage-de-variables-select",
+    "href": "02-clean_manipulation/index.html#sélectionner-une-plage-de-variables-select",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Sélectionner une plage de variables — select()",
+    "text": "Sélectionner une plage de variables — select()\nSélectionner un ensemble de variables consécutives en utilisant : :\n\nd |&gt; select(genre:filiere)\n\n# A tibble: 4 × 3\n  genre   age filiere         \n  &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;           \n1 F        17 Soins infirmiers\n2 H        20 Physiothérapie  \n3 F        23 Soins infirmiers\n4 H        19 Ergothérapie    \n\n\ngenre:filiere sélectionne toutes les variables de genre à filiere incluses (selon leur ordre dans le tableau).\nQuand l’utiliser ?\n\nLorsque les variables se suivent dans le tableau\nPour éviter d’écrire une longue liste de noms de variables\n\n\n\n\nLa sélection par plage dépend de l’ordre des variables dans le tableau."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#réordonner-les-variables-colonnes-select",
+    "href": "02-clean_manipulation/index.html#réordonner-les-variables-colonnes-select",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Réordonner les variables (colonnes) — select()",
+    "text": "Réordonner les variables (colonnes) — select()\nselect() permet aussi de changer l’ordre des variables dans le tableau de données.\nExemple : placer revenu en première colonne, puis conserver toutes les autres avec everything().\n\nd |&gt; select(revenu, everything())\n\n# A tibble: 4 × 7\n  revenu id_etud genre   age filiere          abs_just abs_non_just\n   &lt;dbl&gt; &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;\n1   6200 E001    F        17 Soins infirmiers        2            0\n2     NA E002    H        20 Physiothérapie          4            1\n3     NA E003    F        23 Soins infirmiers        1            2\n4   4800 E004    H        19 Ergothérapie            3            0\n\n\nUtilités :\n\nMettre les variables clés au début du tableau de données\nFaciliter la lecture et la compréhension des données avant une analyse ou une exportation"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#sélecteurs-de-colonnes-helpers",
+    "href": "02-clean_manipulation/index.html#sélecteurs-de-colonnes-helpers",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Sélecteurs de colonnes (helpers)",
+    "text": "Sélecteurs de colonnes (helpers)\nselect() propose des sélecteurs (helpers) pour choisir plusieurs variables sans écrire leurs noms un par un. Ces fonctions sont fournies par le package tidyselect dont la liste est ici.\nExemples de sélecteurs : starts_with(), ends_with(), contains()\n\nd |&gt; select(starts_with(\"abs\"))   # commence par \"abs\"\n\n# A tibble: 4 × 2\n  abs_just abs_non_just\n     &lt;dbl&gt;        &lt;dbl&gt;\n1        2            0\n2        4            1\n3        1            2\n4        3            0\n\nd |&gt; select(ends_with(\"_just\"))   # se termine par \"_just\"\n\n# A tibble: 4 × 2\n  abs_just abs_non_just\n     &lt;dbl&gt;        &lt;dbl&gt;\n1        2            0\n2        4            1\n3        1            2\n4        3            0\n\nd |&gt; select(contains(\"age\"))      # contient \"age\"\n\n# A tibble: 4 × 1\n    age\n  &lt;dbl&gt;\n1    17\n2    20\n3    23\n4    19"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#supprimer-ou-renommer-des-variables",
+    "href": "02-clean_manipulation/index.html#supprimer-ou-renommer-des-variables",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Supprimer ou renommer des variables",
+    "text": "Supprimer ou renommer des variables\nSupprimer une variable avec - :\n\nd |&gt; select(-abs_non_just)        # supprimer \"abs_non_just\"\n\n# A tibble: 4 × 6\n  id_etud genre   age filiere          abs_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;  &lt;dbl&gt;\n1 E001    F        17 Soins infirmiers        2   6200\n2 E002    H        20 Physiothérapie          4     NA\n3 E003    F        23 Soins infirmiers        1     NA\n4 E004    H        19 Ergothérapie            3   4800\n\n\nRenommer des variables :\n\nd |&gt;\n  select(identifiant = id_etud,\n         sexe = genre,\n         revenu)\n\n# A tibble: 4 × 3\n  identifiant sexe  revenu\n  &lt;chr&gt;       &lt;fct&gt;  &lt;dbl&gt;\n1 E001        F       6200\n2 E002        H         NA\n3 E003        F         NA\n4 E004        H       4800"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#trier-les-observations-arrange",
+    "href": "02-clean_manipulation/index.html#trier-les-observations-arrange",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Trier les observations — arrange()",
+    "text": "Trier les observations — arrange()\nLa fonction arrange() permet de trier les lignes (observations) d’un tableau selon une ou plusieurs variables.\nElle change uniquement l’ordre des observations, sans modifier les valeurs.\nPrincipe\n\ndata |&gt; arrange(variable)\n\n\nle tri est croissant par défaut\nles valeurs manquantes (NA) sont placées à la fin\n\nExemple : trier les observations par âge croissant\n\nd |&gt; arrange(age)"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#trier-selon-plusieurs-variables-arrange",
+    "href": "02-clean_manipulation/index.html#trier-selon-plusieurs-variables-arrange",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Trier selon plusieurs variables — arrange()",
+    "text": "Trier selon plusieurs variables — arrange()\nIl est possible de trier selon plusieurs variables, dans l’ordre indiqué.\nExemple : trier d’abord par filiere, puis par age à l’intérieur de chaque filiere.\n\nd |&gt; arrange(filiere, age)\n\n# A tibble: 4 × 7\n  id_etud genre   age filiere          abs_just abs_non_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 E004    H        19 Ergothérapie            3            0   4800\n2 E002    H        20 Physiothérapie          4            1     NA\n3 E001    F        17 Soins infirmiers        2            0   6200\n4 E003    F        23 Soins infirmiers        1            2     NA\n\n\nPour trier en ordre décroissant, on utilise desc() :\n\nd |&gt; arrange(desc(revenu))\n\n# A tibble: 4 × 7\n  id_etud genre   age filiere          abs_just abs_non_just revenu\n  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 E001    F        17 Soins infirmiers        2            0   6200\n2 E004    H        19 Ergothérapie            3            0   4800\n3 E002    H        20 Physiothérapie          4            1     NA\n4 E003    F        23 Soins infirmiers        1            2     NA"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#créer-ou-transformer-des-variables-mutate",
+    "href": "02-clean_manipulation/index.html#créer-ou-transformer-des-variables-mutate",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Créer ou transformer des variables — mutate()",
+    "text": "Créer ou transformer des variables — mutate()\nLa fonction mutate() permet de :\n\ncréer de nouvelles variables\ntransformer/recoder des variables existantes\n\nElle ne modifie pas le nombre d’observations.\nPrincipe\n\ndata |&gt; mutate(nouvelle_variable = expression)\n\n\nla nouvelle variable est ajoutée au tableau\n\nExemple : créer une variable abs_total (total des absences)\n\nd |&gt; mutate(abs_total = abs_just + abs_non_just)"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#exemples-avec-mutate",
+    "href": "02-clean_manipulation/index.html#exemples-avec-mutate",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Exemples avec mutate()",
+    "text": "Exemples avec mutate()\n\nd &lt;- d |&gt;\n  mutate(\n    age2 = age^2,                           # transformation numérique (au carré)\n    majeur = age &gt;= 18,                     # indicateur logique TRUE / FALSE\n    age_plus_1 = age + 1,                   # création d’une nouvelle variable\n    abs_total = abs_just + abs_non_just,    # somme de deux variables\n    abs_dicho = as.integer(abs_total &gt; 3),  # indicateur binaire (1 si &gt; 3 absences, 0 sinon)\n    id_etud = as.factor(id_etud)            # transformation en facteur\n  )\n\n\nd \n\n\n\n# A tibble: 4 × 12\n  id_etud genre   age filiere          abs_just abs_non_just revenu  age2 majeur age_plus_1 abs_total abs_dicho\n  &lt;fct&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;\n1 E001    F        17 Soins infirmiers        2            0   6200   289 FALSE          18         2         0\n2 E002    H        20 Physiothérapie          4            1     NA   400 TRUE           21         5         1\n3 E003    F        23 Soins infirmiers        1            2     NA   529 TRUE           24         3         0\n4 E004    H        19 Ergothérapie            3            0   4800   361 TRUE           20         3         0\n\n\n\n\n\nDans mutate(), les variables sont créées de haut en bas : une variable nouvellement créée peut être réutilisée immédiatement."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#résumer-les-données-summarise",
+    "href": "02-clean_manipulation/index.html#résumer-les-données-summarise",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Résumer les données — summarise()",
+    "text": "Résumer les données — summarise()\nLa fonction summarise() permet de calculer des statistiques sur une ou plusieurs variables d’un tableau de données.\n\nElle retourne un nouveau tableau contenant uniquement les résumés spécifiés.\n\nPrincipe\n\ndata |&gt;\n  summarise(\n    nom_stat1 = expression1,\n    nom_stat2 = expression2\n  )\n\n\nChaque expression calcule une statistique\nLe résultat est un tibble réduit contenant les nouvelles variables"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#exemple-dutilisation-de-summarise",
+    "href": "02-clean_manipulation/index.html#exemple-dutilisation-de-summarise",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Exemple d’utilisation de summarise()",
+    "text": "Exemple d’utilisation de summarise()\nn() retourne le nombre d’observations (lignes)\nExemple : un tibble avec 3 variables résumé.\n\nd |&gt;\n  summarise(\n    n = n(),                               # nombre total d’observations\n    age_moyen = mean(age, na.rm = TRUE),   # moyenne (ignore les NA)\n    revenu_max = max(revenu, na.rm = TRUE) # maximum (ignore les NA)\n  )\n\n# A tibble: 1 × 3\n      n age_moyen revenu_max\n  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n1     4      19.8       6200\n\n\n\n\n\nsummarise() agrège les données : elle produit un ou des résumés statistiques."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#résumer-les-données-par-groupe",
+    "href": "02-clean_manipulation/index.html#résumer-les-données-par-groupe",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Résumer les données par groupe",
+    "text": "Résumer les données par groupe\ngroup_by() définit des groupes d’observations à partir d’une ou plusieurs variables et summarise() calcule des statistiques pour chaque groupe.\nPrincipe\n\ndata |&gt;\n  group_by(variable_groupe) |&gt;      # crée des groupes\n  summarise(nom_stat = expression)  # calcule une statistique par groupe\n\nExemple : un tibble avec 1 ligne par filière contenant les résumés.\n\nd |&gt;\n  group_by(filiere) |&gt;                    # crée un groupe par filière\n  summarise(\n    n = n(),                              # nombre d'observations par filière\n    age_moyen = mean(age, na.rm = TRUE)   # moyenne d'âge par filière (ignore les NA)\n  )\n\n# A tibble: 3 × 3\n  filiere              n age_moyen\n  &lt;fct&gt;            &lt;int&gt;     &lt;dbl&gt;\n1 Ergothérapie         1        19\n2 Physiothérapie       1        20\n3 Soins infirmiers     2        20"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#summarise-global-vs-par-groupe",
+    "href": "02-clean_manipulation/index.html#summarise-global-vs-par-groupe",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "summarise() : global vs par groupe",
+    "text": "summarise() : global vs par groupe\n\nSans group_by(), summarise() calcule une statistique globale : le résultat contient une seule ligne et une variable par statistique demandée.\nAvec group_by(), summarise() calcule une statistique par groupe : une ligne est produite pour chaque groupe et une variable par statistique demandée.\nLes fonctions comme mean(), sum(), min(), max(), sd(), median(), n() sont fréquemment utilisées dans summarise()."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#recoder-une-variable-ifelse",
+    "href": "02-clean_manipulation/index.html#recoder-une-variable-ifelse",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Recoder une variable — ifelse()",
+    "text": "Recoder une variable — ifelse()\nLa fonction ifelse() permet de créer ou recoder une variable en appliquant une condition simple.\nElle fonctionne comme un “si … alors … sinon …”.\nPrincipe\n\nifelse(condition, valeur_si_vrai, valeur_si_faux)\n\nExemples : créer une variable majeur (oui/non) et dichotomiser le revenu\n\nd |&gt;\n  mutate(\n    majeur = ifelse(age &gt;= 18, \"oui\", \"non\"),\n    rev_haut = ifelse(revenu &gt; 5000, 1, 0)\n    )\n\n# A tibble: 4 × 13\n  id_etud genre   age filiere          abs_just abs_non_just revenu  age2 majeur age_plus_1 abs_total abs_dicho rev_haut\n  &lt;fct&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;\n1 E001    F        17 Soins infirmiers        2            0   6200   289 non            18         2         0        1\n2 E002    H        20 Physiothérapie          4            1     NA   400 oui            21         5         1       NA\n3 E003    F        23 Soins infirmiers        1            2     NA   529 oui            24         3         0       NA\n4 E004    H        19 Ergothérapie            3            0   4800   361 oui            20         3         0        0"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#recoder-avec-ifelse-bonnes-pratiques",
+    "href": "02-clean_manipulation/index.html#recoder-avec-ifelse-bonnes-pratiques",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Recoder avec ifelse() — bonnes pratiques",
+    "text": "Recoder avec ifelse() — bonnes pratiques\n\n\n\n\nifelse() est adapté aux recodages binaires (2 catégories).\nLa condition de ifelse() peut utiliser plusieurs variables (ex. ifelse(age &gt;= 18 & genre == \"F\", ...)).\nIl est possible d’emboîter plusieurs ifelse(), mais cela devient vite illisible → utiliser case_when() pour plusieurs conditions."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#recodages-multiples-case_when",
+    "href": "02-clean_manipulation/index.html#recodages-multiples-case_when",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Recodages multiples — case_when()",
+    "text": "Recodages multiples — case_when()\nLa fonction case_when() est une version lisible de plusieurs ifelse en cascade et permet de recoder ou de créer une variable selon plusieurs conditions.\nPrincipe\n\ncase_when(\n  condition1 ~ valeur1,\n  condition2 ~ valeur2,\n  .default   = valeur_par_defaut # valeur utilisée si aucune condition n’est vraie \n)\n\n\n\n\n\nDans case_when(), les conditions sont testées une par une, de haut en bas.\nLa première condition vraie détermine la valeur renvoyée.\nL’argument .default = permet d’indiquer une valeur à utiliser si aucune condition n’est satisfaite (sinon .default = NULL).\nSans .default, toutes les valeurs qui ne correspondent à aucune condition deviennent NA.\nL’ordre des conditions est essentiel : toujours aller du plus spécifique → au plus général."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#recoder-une-variable-case_when",
+    "href": "02-clean_manipulation/index.html#recoder-une-variable-case_when",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Recoder une variable — case_when()",
+    "text": "Recoder une variable — case_when()\nRecoder les âges en classes\n\nd |&gt;\n  mutate(age_cat = case_when(\n    age &lt; 18 ~ \"&lt;18\",\n    age &gt;= 18 & age &lt; 30 ~ \"18-29\",\n    age &gt;= 30 ~ \"30+\",\n    .default = NA  # NA renvoyé si aucune condition n’est vraie\n    ))\n\n\n# Variante : gestion explicite des valeurs manquantes avec is.na()\nd |&gt;\n  mutate(age_cat = case_when(\n    is.na(age) ~ NA, # attribue NA si l'âge est manquant\n    age &lt; 18 ~ \"&lt;18\",\n    age &gt;= 18 & age &lt; 30 ~ \"18-29\",\n    .default = \"30+\" # toutes les autres situations (30 ans et +)\n  ))\n\n# A tibble: 4 × 13\n  id_etud genre   age filiere          abs_just abs_non_just revenu  age2 majeur age_plus_1 abs_total abs_dicho age_cat\n  &lt;fct&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;  \n1 E001    F        17 Soins infirmiers        2            0   6200   289 FALSE          18         2         0 &lt;18    \n2 E002    H        20 Physiothérapie          4            1     NA   400 TRUE           21         5         1 18-29  \n3 E003    F        23 Soins infirmiers        1            2     NA   529 TRUE           24         3         0 18-29  \n4 E004    H        19 Ergothérapie            3            0   4800   361 TRUE           20         3         0 18-29  \n\n\n\n\n\n\nis.na(x) teste si une valeur est manquante.\nElle renvoie TRUE si x est NA, et FALSE sinon.\nTrès utile pour recoder explicitement les valeurs manquantes dans case_when()."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#recoder-avec-plusieurs-variables-case_when",
+    "href": "02-clean_manipulation/index.html#recoder-avec-plusieurs-variables-case_when",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Recoder avec plusieurs variables — case_when()",
+    "text": "Recoder avec plusieurs variables — case_when()\nRecoder selon l’âge et le genre\n\nd |&gt;\n  mutate(age_genre = case_when(\n    age &gt;= 18 & genre == \"H\" ~ \"Homme majeur\",\n    age &lt; 18  & genre == \"H\" ~ \"Homme mineur\",\n    age &gt;= 18 & genre == \"F\" ~ \"Femme majeure\",\n    age &lt; 18  & genre == \"F\" ~ \"Femme mineure\",\n    .default = NA   # NA renvoyé si aucune condition n’est vraie\n  ))\n\n# A tibble: 4 × 13\n  id_etud genre   age filiere          abs_just abs_non_just revenu  age2 majeur age_plus_1 abs_total abs_dicho age_genre    \n  &lt;fct&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;        \n1 E001    F        17 Soins infirmiers        2            0   6200   289 FALSE          18         2         0 Femme mineure\n2 E002    H        20 Physiothérapie          4            1     NA   400 TRUE           21         5         1 Homme majeur \n3 E003    F        23 Soins infirmiers        1            2     NA   529 TRUE           24         3         0 Femme majeure\n4 E004    H        19 Ergothérapie            3            0   4800   361 TRUE           20         3         0 Homme majeur \n\n\n\n\n\n\ncase_when() permet de combiner plusieurs variables dans les conditions (ex. âge et genre)."
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#interfaces-graphiques-de-recodage",
+    "href": "02-clean_manipulation/index.html#interfaces-graphiques-de-recodage",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Interfaces graphiques de recodage",
+    "text": "Interfaces graphiques de recodage\nLe package questionr propose des interfaces graphiques (Addins) dans RStudio qui permettent de recoder les variables sans écrire de code.\n\nChaque Addin génère automatiquement le code R correspondant que vous pouvez ensuite exécuter dans votre script.\n\nDans RStudio : Addins → QUESTIONR →\n\nLevels recoding : recoder et regrouper des modalités d’une variable catégorielle, changer la classe d’une variable\nLevels ordering : réordonner les niveaux d’un facteur\nNumeric range dividing : découper une variable numérique en classes"
+  },
+  {
+    "objectID": "02-clean_manipulation/index.html#les-addins-interactifs-du-package-questionr",
+    "href": "02-clean_manipulation/index.html#les-addins-interactifs-du-package-questionr",
+    "title": "Nettoyage et manipulation des données avec R",
+    "section": "Les Addins interactifs du package questionr",
+    "text": "Les Addins interactifs du package questionr\n\n\n\nAddin (RStudio)\nFonction principale\nFonctions R équivalentes\n\n\n\n\nLevels recoding\nRegrouper / renommer les modalités d’un facteur ou d’un caractère\nfct_recode(), case_when()\n\n\nLevels ordering\nRéordonner manuellement les niveaux d’un facteur\nfct_relevel(), factor(..., levels = ...)\n\n\nNumeric range dividing\nDécouper une variable numérique en classes (catégories)\ncut(), case_when()\n\n\n\n\n\n\n\nChaque Addin génère automatiquement le code R reproduisant exactement la transformation choisie.\nVous devez ensuite exécuter ce code pour appliquer le recodage."
   },
   {
     "objectID": "02-clean_manipulation/index.html#ressources",
     "href": "02-clean_manipulation/index.html#ressources",
-    "title": "Nettoyage et manipulation des données avec R : introduction au tidyverse",
+    "title": "Nettoyage et manipulation des données avec R",
     "section": "Ressources",
-    "text": "Ressources\n\nDossier data/\nScript R/\nRéférences à ajouter"
+    "text": "Ressources\n\nSite du tidyverse\nIntroduction à R et au tidyverse"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#objectifs-du-module",
@@ -95,7 +424,7 @@
     "href": "01-intro_r_rstudio/index.html#ressources-clés-pour-lécosystème-r",
     "title": "Introduction à R et RStudio",
     "section": "Ressources clés pour l’écosystème R",
-    "text": "Ressources clés pour l’écosystème R\n\nSite officiel du projet R : r-project.org\n\nCRAN (Comprehensive R Archive Network) — réseau de serveurs hébergeant les packages, la documentation et les binaires de R : cloud.r-project.org\n\nR-universe (rOpenSci) — plate-forme communautaire pour héberger et explorer des packages R : ropensci.org/r-universe\n\nMoteur de recherche R-universe — découvrir des packages R et leurs mainteneurs : r-universe.dev/search\n\nMETACRAN — moteur de recherche et visualisation des packages CRAN : r-pkg.org\n\nRseek — moteur de recherche spécialisé, ciblant la documentation, les blogs et les forums R : rseek.org\n\nSite du tidyverse — un ensemble cohérent de packages conçus pour la science des données avec R : tidyverse.org"
+    "text": "Ressources clés pour l’écosystème R\n\nSite officiel du projet R : r-project.org\n\nCRAN (Comprehensive R Archive Network) — réseau de serveurs hébergeant les packages, la documentation et les binaires de R : cloud.r-project.org\n\nR-universe (rOpenSci) — plate-forme communautaire pour héberger et explorer des packages R : ropensci.org/r-universe\n\nMoteur de recherche R-universe — découvrir des packages R et leurs mainteneurs : r-universe.dev/search\n\nMETACRAN — moteur de recherche et visualisation des packages CRAN : r-pkg.org\n\nRseek — moteur de recherche spécialisé, ciblant la documentation, les blogs\nrdrr.io — moteur de recherche pratique pour consulter rapidement la documentation R, les fonctions, les exemples et le code source des packages CRAN/Bioconductor : rdrr.io/r/\nSite du tidyverse — un ensemble cohérent de packages conçus pour la science des données avec R : tidyverse.org"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#rstudio-i",
@@ -165,7 +494,7 @@
     "href": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-display",
     "title": "Introduction à R et RStudio",
     "section": "Configurations de RStudio — Code Display",
-    "text": "Configurations de RStudio — Code Display\nMenu : Tools → Global Options → Code → Display\n\nCocher : Show line numbers\n→ affiche le numéro de chaque ligne dans les scripts R et R Markdown, facilitant le repérage des erreurs et la navigation dans le code.\nCocher : Show margin\n→ affiche une ligne verticale (souvent à 80 caractères) pour favoriser un code lisible.\nLaisser cochée : Highlight selected line\n→ met en surbrillance la ligne active pour mieux repérer la position du curseur.\n\n\n\n\n\nObjectif\n\n\nAméliorer la lisibilité, la navigation et le repérage rapide des lignes de code."
+    "text": "Configurations de RStudio — Code Display\nMenu : Tools → Global Options → Code → Display\n\nCocher : Show line numbers\n→ affiche le numéro de chaque ligne dans les scripts R et R Markdown, facilitant le repérage des erreurs et la navigation dans le code.\nCocher : Show margin\n→ affiche une ligne verticale (par défaut à 80 caractères) pour favoriser un code lisible.\nLaisser cochée : Highlight selected line\n→ met en surbrillance la ligne active pour mieux repérer la position du curseur.\n\n\n\n\n\nObjectif\n\n\nAméliorer la lisibilité, la navigation et le repérage rapide des lignes de code."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#configurations-de-rstudio-code-display-illustration",
@@ -207,7 +536,7 @@
     "href": "01-intro_r_rstudio/index.html#tout-est-objet-dans-r",
     "title": "Introduction à R et RStudio",
     "section": "Tout est objet dans R",
-    "text": "Tout est objet dans R\nDans R, tout ce que vous manipulez est un objet :\n\ndes valeurs simples (x &lt;- 5),\ndes structures de données (vecteurs, data frames, listes…),\ndes fonctions,\net même des graphiques, modèles statistiques ou résultats d’analyse.\n\n\n\n\n\nÀ retenir\n\n\nDans R, tout ce que vous créez, importez ou calculez devient un objet stocké en mémoire, visible dans l’onglet Environment de RStudio — à condition de lui avoir donné un nom.\nC’est cette association à un nom qui permet ensuite de le retrouver et réutiliser."
+    "text": "Tout est objet dans R\nDans R, tout ce que vous manipulez est un objet :\n\ndes valeurs simples (x &lt;- 5),\ndes structures de données (vecteurs, data frames, listes…),\ndes fonctions,\net même des graphiques, modèles statistiques ou résultats d’analyse.\n\n\n\n\n\nÀ retenir\n\n\nDans R, tout ce que vous créez, importez ou calculez devient un objet stocké en mémoire, visible dans l’onglet Environment de RStudio — à condition de lui avoir donné un nom.\nC’est cette association à un nom qui permet ensuite de le retrouver et de le réutiliser."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-affectation-et-opérateur--",
@@ -263,14 +592,14 @@
     "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-utilisation-de-fonctions-iii",
     "title": "Introduction à R et RStudio",
     "section": "Premiers pas dans R — Utilisation de fonctions III",
-    "text": "Premiers pas dans R — Utilisation de fonctions III\nL’opérateur $ permet d’accéder à une colonne (une variable) d’un tableau de données (data frame) ou à un élément nommé d’une liste.\nAppliquons maintenant les fonctions mean() et sd() à la variable taille du data frame d :\n\nmean(d$taille)\n\n[1] 167.5\n\nsd(d$taille)\n\n[1] 6.454972\n\n\nd$taille signifie « la variable taille contenue dans d »."
+    "text": "Premiers pas dans R — Utilisation de fonctions III\nL’opérateur $ permet d’accéder à une colonne (une variable) d’un tableau de données (data frame) ou à un élément nommé d’une liste.\nAppliquons maintenant les fonctions mean() et sd() à la variable taille du data frame d :\n\nmean(d$taille)\n\n[1] 167.5\n\nsd(d$taille)\n\n[1] 6.454972\n\n\nd$taille signifie “la variable taille contenue dans d”."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-arguments-de-fonction",
     "href": "01-intro_r_rstudio/index.html#premiers-pas-dans-r-arguments-de-fonction",
     "title": "Introduction à R et RStudio",
     "section": "Premiers pas dans R — Arguments de fonction",
-    "text": "Premiers pas dans R — Arguments de fonction\nLes fonctions prennent en entrée des arguments et renvoient un résultat.\nVous pouvez spécifier les arguments ou utiliser leurs valeurs par défaut :\n\nmean(d$poids)\n\n[1] NA\n\nmean(d$poids, na.rm = TRUE)\n\n[1] 62.33333\n\n\n\nPour certaines fonctions comme mean(), median(), sd() ou min(), ajoutez l’argument na.rm = TRUE (NA remove) pour ignorer les valeurs manquantes.\nSinon, si la variable contient des NA, le résultat renvoyé par R sera NA (na.rm = FALSE par défaut).\nTRUE est une valeur logique interne à R qui signifie vrai."
+    "text": "Premiers pas dans R — Arguments de fonction\nLes fonctions prennent en entrée des arguments et renvoient un résultat.\nVous pouvez spécifier les arguments ou utiliser leurs valeurs par défaut :\n\nmean(d$poids)\n\n[1] NA\n\nmean(d$poids, na.rm = TRUE)\n\n[1] 62.33333\n\n\n\nPour certaines fonctions comme mean(), median(), sd(), min() ou max(), ajoutez l’argument na.rm = TRUE (NA remove) pour ignorer les valeurs manquantes (na.rm = FALSE par défaut).\nSinon, si la variable contient des NA, le résultat renvoyé par R sera NA.\nTRUE est une valeur logique interne à R qui signifie vrai."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#installer-des-packages",
@@ -305,7 +634,7 @@
     "href": "01-intro_r_rstudio/index.html#obtenir-de-laide-dans-r",
     "title": "Introduction à R et RStudio",
     "section": "Obtenir de l’aide dans R",
-    "text": "Obtenir de l’aide dans R\n\nUtilisez ?fonction ou help(\"fonction\") pour accéder à la documentation d’une fonction.\n\nPour explorer un package complet : help(package=\"nom_du_package\").\n\nRecherchez des vignettes via browseVignettes() ou vignette(\"nom\") pour des guides illustrés.\n\nUtilisez des fonctions de recherche interne : apropos(), help.search() (alias ??) et RSiteSearch() pour explorer plus largement.\n\nConsultez le portail officiel : Getting Help with R — documentation, FAQ, mailing-lists, forums.\n\nUtilisez votre moteur de recherche favori"
+    "text": "Obtenir de l’aide dans R\n\nUtilisez ?fonction ou help(\"fonction\") pour accéder à la documentation d’une fonction.\n\nPour explorer un package complet : help(package=\"nom_du_package\").\n\nRecherchez des vignettes via browseVignettes() ou vignette(\"nom\") pour des guides illustrés.\n\nUtilisez des fonctions de recherche interne : apropos(), help.search() (alias ??) et RSiteSearch() pour explorer plus largement.\n\nConsultez le portail officiel : Getting Help with R — documentation, FAQ, mailing-lists, forums.\n\nUtilisez votre moteur de recherche favori."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#console",
@@ -354,14 +683,14 @@
     "href": "01-intro_r_rstudio/index.html#insérer-des-commentaires-dans-un-script",
     "title": "Introduction à R et RStudio",
     "section": "Insérer des commentaires dans un script",
-    "text": "Insérer des commentaires dans un script\n\nLes commentaires commencent par un ou plusieurs symboles #.\n\nR ignore tout ce qui suit sur la ligne.\n\nIls servent à expliquer, documenter et structurer les scripts.\n\n\nExemple :\n\n\n[1] 15\n\n\nPour insérer ou retirer rapidement un commentaire dans RStudio :\n\nCtrl + Shift + C (Windows / Linux) ou ⌘ + Shift + C (macOS)\n\nCette commande est également accessible depuis le menu :\n\nCode → Comment/Uncomment Lines"
+    "text": "Insérer des commentaires dans un script\n\nLes commentaires commencent par un ou plusieurs symboles #.\n\nR ignore tout ce qui suit sur la ligne.\n\nIls servent à expliquer, documenter et structurer les scripts.\n\n\nExemple :\n\n# Calcul d'une moyenne\nmean(c(1, 5, 9)) # On peut ajouter ici un autre commentaire\n\n[1] 5\n\n\nPour insérer ou retirer rapidement un commentaire dans RStudio :\n\nCtrl + Shift + C (Windows / Linux) ou ⌘ + Shift + C (macOS)\n\nCette commande est également accessible depuis le menu :\n\nCode → Comment/Uncomment Lines"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#créer-des-sections-dans-un-script",
     "href": "01-intro_r_rstudio/index.html#créer-des-sections-dans-un-script",
     "title": "Introduction à R et RStudio",
     "section": "Créer des sections dans un script",
-    "text": "Créer des sections dans un script\nQuand un script devient long, il est utile de le structurer en sections pour faciliter la navigation et la lecture.\nPour créer une section dans RStudio (et des sous-sections), il suffit d’écrire un commentaire suivi d’au moins quatre tirets (-) :\n# Titre de la section ------------------------------------\n## Sous-section ------------------------------------------\n### Sous-sous-section ------------------------------------\nDans la marge gauche un triangle noir permet de plier ou déplier le contenu de la section.\nVoici un exemple de structure de script : ⬇️ Télécharger le modèle de script"
+    "text": "Créer des sections dans un script\nQuand un script devient long, il est utile de le structurer en sections pour faciliter la navigation et la lecture.\nPour créer une section dans RStudio (et des sous-sections), il suffit d’écrire un commentaire suivi d’au moins quatre tirets (-) :\n# Titre de la section ------------------------------------\n## Sous-section ------------------------------------------\n### Sous-sous-section ------------------------------------\nDans la marge gauche un triangle noir permet de plier ou déplier le contenu de la section.\nVoici un exemple de structure de script : ⬇️ Télécharger le modèle de script"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#afficher-la-table-des-matières-du-script",
@@ -382,7 +711,7 @@
     "href": "01-intro_r_rstudio/index.html#workflow-flux-de-travail",
     "title": "Introduction à R et RStudio",
     "section": "Workflow (flux de travail)",
-    "text": "Workflow (flux de travail)\nManière structurée et reproductible d’organiser son travail\n\nEviter le code spaghetti : un code désordonné, illisible et non structuré, difficile à réutiliser.\nTravail reproductible\nCollaboration facilitée\nApprentissage facilité"
+    "text": "Workflow (flux de travail)\nManière structurée et reproductible d’organiser son travail\n\nEviter le code spaghetti : un code désordonné, illisible et non structuré, difficile à réutilisers\nTravail reproductible\nCollaboration facilitée\nApprentissage facilité"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#working-directory-répertoire-de-travail",
@@ -403,7 +732,7 @@
     "href": "01-intro_r_rstudio/index.html#définir-son-répertoire-de-travail-par-défaut-hors-projet",
     "title": "Introduction à R et RStudio",
     "section": "Définir son répertoire de travail par défaut (hors projet)",
-    "text": "Définir son répertoire de travail par défaut (hors projet)\n\nConseillé de rassembler tous vos fichiers au même endroit lorque vous ne travaillez pas dans un projet R\nDéfinir un répertoire de travail par défaut (working directory).\n\nExemple personnel :\n\nJ’ai créé un dossier structuré comme suit : Code → R → sandbox dans mon dossier Documents (~/Documents/Code/R/sandbox).\n\nVous pouvez le mettre sur votre Bureau (~/Desktop/Code/R/sandbox) ou ailleurs selon vos préférences.\n\nTous les fichiers sauvegardés (hors projet) seront automatiquement enregistrés dans ce dossier sandbox."
+    "text": "Définir son répertoire de travail par défaut (hors projet)\n\nConseillé de rassembler tous vos fichiers au même endroit lorsque vous ne travaillez pas dans un projet R.\nDéfinir un répertoire de travail par défaut (working directory).\n\nExemple personnel :\n\nJ’ai créé un dossier structuré comme suit : Code → R → sandbox dans mon dossier Documents (~/Documents/Code/R/sandbox).\n\nVous pouvez le mettre sur votre Bureau (~/Desktop/Code/R/sandbox) ou ailleurs selon vos préférences.\n\nTous les fichiers sauvegardés (hors projet) seront automatiquement enregistrés dans ce dossier sandbox."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#les-projets-rstudio",
@@ -438,7 +767,7 @@
     "href": "01-intro_r_rstudio/index.html#gérer-ses-projets-au-quotidien",
     "title": "Introduction à R et RStudio",
     "section": "Gérer ses projets au quotidien",
-    "text": "Gérer ses projets au quotidien\nUne fois le projet créé :\n\nSon nom s’affiche en haut à droite de l’interface RStudio.\n\nCe menu déroulant permet de passer facilement d’un projet à l’autre.\n\nChaque projet conserve son historique, environnement et fichiers propres.\n\nPour rouvrir un projet, il suffit de double-cliquer sur le fichier .Rproj ou de passer par le menu File → Open Project… et de sélectionner le fichier .Rproj : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.\n\n\n\n\n\n\n\n\nAstuce : un projet = un dossier = une analyse\n\n\nAdoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible."
+    "text": "Gérer ses projets au quotidien\nUne fois le projet créé :\n\nSon nom s’affiche en haut à droite de l’interface RStudio.\n\nCe menu déroulant permet de passer facilement d’un projet à l’autre.\n\nChaque projet conserve son historique, son environnement et ses fichiers propres.\n\nPour rouvrir un projet, il suffit de double-cliquer sur le fichier .Rproj ou de passer par le menu File → Open Project… et de sélectionner le fichier .Rproj : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.\n\n\n\n\n\n\n\n\nAstuce : un projet RStudio = une analyse\n\n\nTravaillez toujours dans un projet RStudio dédié afin de garantir une analyse claire, isolée et reproductible."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#workflow-reproductible",
@@ -459,14 +788,14 @@
     "href": "01-intro_r_rstudio/index.html#importer-des-données-dans-r-trop-de-fonctions",
     "title": "Introduction à R et RStudio",
     "section": "Importer des données dans R — Trop de fonctions !",
-    "text": "Importer des données dans R — Trop de fonctions !\nBeaucoup (trop) de packages et de fonctions différentes :\n\n# Fichiers R\nload(\"data/raw/data.rda\")\ndata &lt;- readRDS(\"data/raw/data.rds\")\n\n# Fichiers CSV\ndata &lt;- read.csv(\"data/raw/data.csv\")\ndata &lt;- readr::read_csv(\"data/raw/data.csv\")\n\n# Fichiers Excel\ndata &lt;- xlsx::read.xlsx(\"data/raw/data.xlsx\")\ndata &lt;- readxl::read_excel(\"data/raw/data.xlsx\")\n\n# Fichiers SPSS / Stata / SAS\ndata &lt;- haven::read_spss(\"data/raw/data.sav\")\ndata &lt;- haven::read_stata(\"data/raw/data.dta\")\ndata &lt;- haven::read_sas(\"data/raw/data.sas7bdat\")\n\n# etc."
+    "text": "Importer des données dans R — Trop de fonctions !\nBeaucoup (trop) de packages et de fonctions différentes :\n\n# Fichiers R\nload(\"data/raw/data.rda\")\nd &lt;- readRDS(\"data/raw/data.rds\")\n\n# Fichiers CSV\nd &lt;- read.csv(\"data/raw/data.csv\")\nd &lt;- readr::read_csv(\"data/raw/data.csv\")\n\n# Fichiers Excel\nd &lt;- xlsx::read.xlsx(\"data/raw/data.xlsx\")\nd &lt;- readxl::read_excel(\"data/raw/data.xlsx\")\n\n# Fichiers SPSS / Stata / SAS\nd &lt;- haven::read_spss(\"data/raw/data.sav\")\nd &lt;- haven::read_stata(\"data/raw/data.dta\")\nd &lt;- haven::read_sas(\"data/raw/data.sas7bdat\")\n\n# etc."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#importer-et-exporter-des-données-avec-rio",
     "href": "01-intro_r_rstudio/index.html#importer-et-exporter-des-données-avec-rio",
     "title": "Introduction à R et RStudio",
     "section": "Importer et exporter des données avec rio",
-    "text": "Importer et exporter des données avec rio\nLe package rio simplifie grandement l’importation et l’exportation de fichiers de données dans R avec deux fonctions principales :\n\nimport() → Lire un fichier\nexport() → Sauvegarder un objet R\n\nDe nombreux formats supportés : .csv, .xlsx, .rda, .sav, etc.\n\n# Importer différents formats\nimport(\"data/raw/data.xlsx\")\nimport(\"data/raw/data.rda\")\nimport(\"data/raw/data.dta\")\n\n# Exporter un objet R\nexport(data, \"data/processed/data.csv\")\nexport(data, \"data/processed/data.rds\")\nexport(data, \"data/processed/data.sav\")"
+    "text": "Importer et exporter des données avec rio\nLe package rio simplifie grandement l’importation et l’exportation de fichiers de données dans R avec deux fonctions principales :\n\nimport() → Lire un fichier\nexport() → Sauvegarder un objet R\n\nDe nombreux formats supportés : .csv, .xlsx, .rda, .sav, etc.\n\n# Importer différents formats\nd &lt;- import(\"data/raw/data.xlsx\")\nd &lt;- import(\"data/raw/data.rda\")\nd &lt;- import(\"data/raw/data.dta\")\n\n# Exporter un objet R\nexport(data, \"data/processed/data.csv\")\nexport(data, \"data/processed/data.rds\")\nexport(data, \"data/processed/data.sav\")"
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#importer-des-données-par-les-menus-de-rstudio",
@@ -474,6 +803,104 @@
     "title": "Introduction à R et RStudio",
     "section": "Importer des données par les menus de RStudio",
     "text": "Importer des données par les menus de RStudio\nL’importation peut aussi se faire depuis le volet Environnement → Import Dataset :"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#les-classes-dobjets-en-r",
+    "href": "01-intro_r_rstudio/index.html#les-classes-dobjets-en-r",
+    "title": "Introduction à R et RStudio",
+    "section": "Les classes d’objets en R",
+    "text": "Les classes d’objets en R\n\nChaque objet appartient à une classe qui détermine son comportement et son affichage.\nLa fonction class() permet de vérifier la classe d’un objet ou d’une variable (colonne) contenue dans un tableau de données :\n\n\nclass(1L)\n\n[1] \"integer\"\n\nclass(3.14)\n\n[1] \"numeric\"\n\nclass(\"bonjour\")\n\n[1] \"character\"\n\nclass(TRUE)\n\n[1] \"logical\"\n\n\n\nLa classe indique à R quel type de données il manipule et comment les traiter."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#les-classes-les-plus-courantes",
+    "href": "01-intro_r_rstudio/index.html#les-classes-les-plus-courantes",
+    "title": "Introduction à R et RStudio",
+    "section": "Les classes les plus courantes",
+    "text": "Les classes les plus courantes\n\n\n\nClasse\nExemple\nDescription\n\n\n\n\n\"numeric\"\n3.14\nNombre réel\n\n\n\"integer\"\n1L\nNombre entier\n\n\n\"character\"\n\"texte\"\nChaîne de caractères\n\n\n\"logical\"\nTRUE, FALSE\nValeur logique\n\n\n\"factor\"\nfactor(\"Université\")\nFacteur (variable catégorielle)\n\n\n\"Date\"\nas.Date(\"2025-11-07\")\nDate\n\n\n\"data.frame\"\ndata.frame(x = 1:3)\nTableau de données classique\n\n\n\"tbl_df\"\ntibble(x= 1:3)\nTableau de données moderne du package tibble\n\n\n\"list\"\nlist(a = 1, b = \"x\")\nListe d’objets variés"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#une-variable-un-objet-avec-sa-classe",
+    "href": "01-intro_r_rstudio/index.html#une-variable-un-objet-avec-sa-classe",
+    "title": "Introduction à R et RStudio",
+    "section": "Une variable = un objet avec sa classe",
+    "text": "Une variable = un objet avec sa classe\n\nUne variable (colonne) d’un data.frame (ex.: d$age) est elle-même un objet et a sa classe propre :\n\n\nd &lt;- data.frame(\n  prenom = c(\"Anne\", \"Sophie\", \"Marc\", NA),\n  genre = c(\"Femme\", \"Femme\", \"Homme\", \"Homme\"),\n  education = factor(c(\"Secondaire\", NA, \"HES\", \"Université\")),\n  age  = c(55, 32, NA, 72))\nd\n\n  prenom genre  education age\n1   Anne Femme Secondaire  55\n2 Sophie Femme       &lt;NA&gt;  32\n3   Marc Homme        HES  NA\n4   &lt;NA&gt; Homme Université  72\n\n\n\n\n\nclass(d) \n\n[1] \"data.frame\"\n\nclass(d$prenom)\n\n[1] \"character\"\n\nclass(d$genre)\n\n[1] \"character\"\n\n\n\n\nclass(d$education) \n\n[1] \"factor\"\n\nclass(d$age) \n\n[1] \"numeric\""
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#pourquoi-cest-important",
+    "href": "01-intro_r_rstudio/index.html#pourquoi-cest-important",
+    "title": "Introduction à R et RStudio",
+    "section": "Pourquoi c’est important",
+    "text": "Pourquoi c’est important\n\nCertaines fonctions s’adaptent à la classe : summary(), plot(), print() ne donnent pas les mêmes résultats selon l’objet :\n\n\nsummary(d$prenom)\n\n   Length     Class      Mode \n        4 character character \n\nsummary(d$education)\n\n       HES Secondaire Université       NA's \n         1          1          1          1 \n\nsummary(d$age) \n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's \n   32.0    43.5    55.0    53.0    63.5    72.0       1 \n\n\nDans R, la classe d’un objet détermine comment R le comprend, comment il l’affiche et quelles fonctions peuvent être utilisées dessus."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#modifier-la-classe-dun-objet",
+    "href": "01-intro_r_rstudio/index.html#modifier-la-classe-dun-objet",
+    "title": "Introduction à R et RStudio",
+    "section": "Modifier la classe d’un objet",
+    "text": "Modifier la classe d’un objet\n\nPour modifier la classe, on utilise les fonctions de conversion as.&lt;class&gt;().\n\nPrincipales fonctions de conversion :\n\n\n\nFonction\nEffet\n\n\n\n\nas.numeric()\nConvertit en nombre\n\n\nas.character()\nConvertit en texte\n\n\nas.logical()\nConvertit en logique (TRUE / FALSE)\n\n\nas.factor()\nConvertit en facteur\n\n\nas.Date()\nConvertit en date\n\n\nas_tibble()\nConvertit en tibble\n\n\n\n→ Vérifier la classe après transformation pour s’assurer du bon résultat."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#exemple-modifier-la-classe-dun-objet",
+    "href": "01-intro_r_rstudio/index.html#exemple-modifier-la-classe-dun-objet",
+    "title": "Introduction à R et RStudio",
+    "section": "Exemple : modifier la classe d’un objet",
+    "text": "Exemple : modifier la classe d’un objet\n\nlibrary(tibble)\n\n# Convertir un data.frame en tibble\nd &lt;- as_tibble(d)\nd\n\n# A tibble: 4 × 4\n  prenom genre education    age\n  &lt;chr&gt;  &lt;chr&gt; &lt;fct&gt;      &lt;dbl&gt;\n1 Anne   Femme Secondaire    55\n2 Sophie Femme &lt;NA&gt;          32\n3 Marc   Homme HES           NA\n4 &lt;NA&gt;   Homme Université    72\n\nclass(d)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n# Modifier la classe d'une colonne/variable\nd$genre  &lt;- as.factor(d$genre)\nclass(d$genre)\n\n[1] \"factor\""
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#héritage-multiple-un-objet-plusieurs-classes",
+    "href": "01-intro_r_rstudio/index.html#héritage-multiple-un-objet-plusieurs-classes",
+    "title": "Introduction à R et RStudio",
+    "section": "Héritage multiple : un objet, plusieurs classes",
+    "text": "Héritage multiple : un objet, plusieurs classes\n\nEn R, un même objet peut avoir plusieurs classes en même temps.\n\nCela lui permet d’hériter de différents comportements (affichage, résumé, manipulation, etc.).\n(R regarde les classes dans l’ordre pour choisir quelle méthode utiliser.) Exemple :\n\n\nlibrary(tibble)\nclass(d)\n\n[1] \"data.frame\"\n\nx &lt;- as_tibble(d)\nclass(x)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\nLe tibble possède plusieurs classes (“tbl_df”, “tbl”, “data.frame”), ce qui lui permet d’hériter à la fois de l’affichage amélioré des tibbles et de la compatibilité totale avec les fonctions traditionnelles pour les data frames."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#classe-vs-type-interne",
+    "href": "01-intro_r_rstudio/index.html#classe-vs-type-interne",
+    "title": "Introduction à R et RStudio",
+    "section": "Classe vs type interne",
+    "text": "Classe vs type interne\nEn R, un objet possède deux niveaux :\n\nune classe → décrit comment R doit se comporter avec l’objet (affichage, méthodes, fonctions adaptées, etc.)\nun type interne → décrit comment l’objet est stocké en mémoire\n    ┌──────────────────────────────┐\n    │            CLASSE            │\n    │  (comportement externe)      │\n    │  - affichage                 │\n    │  - méthodes (summary, print) │\n    │  - conversions (as.*)        │\n    └──────────────▲───────────────┘\n                   │\n    ┌──────────────┴──────────────┐\n    │         TYPE INTERNE        │\n    │      (structure mémoire)    │\n    │  Principaux types :         │\n    │   \"double\", \"integer\",      │\n    │   \"logical\", \"character\",   │\n    │   \"list\"                    │\n    └─────────────────────────────┘"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#exemples-classe-vs-type-interne",
+    "href": "01-intro_r_rstudio/index.html#exemples-classe-vs-type-interne",
+    "title": "Introduction à R et RStudio",
+    "section": "Exemples : classe vs type interne",
+    "text": "Exemples : classe vs type interne\nLa fonction class() indique le comportement externe (affichage, etc.).\nLa fonction typeof() indique le type interne de l’objet (comment il est réellement stocké en mémoire).\n\n\n\nclass(3.14)      \n\n[1] \"numeric\"\n\nclass(3L)\n\n[1] \"integer\"\n\nclass(as.Date(\"2024-01-01\")) \n\n[1] \"Date\"\n\nclass(factor(\"A\"))\n\n[1] \"factor\"\n\nclass(ordered(\"A\"))\n\n[1] \"ordered\" \"factor\" \n\nclass(\"awz\")   \n\n[1] \"character\"\n\n\n\n\ntypeof(3.14)     \n\n[1] \"double\"\n\ntypeof(3L) \n\n[1] \"integer\"\n\ntypeof(as.Date(\"2024-01-01\"))\n\n[1] \"double\"\n\ntypeof(factor(\"A\"))\n\n[1] \"integer\"\n\ntypeof(ordered(\"A\"))\n\n[1] \"integer\"\n\ntypeof(\"awz\")   \n\n[1] \"character\""
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#les-data-frames",
+    "href": "01-intro_r_rstudio/index.html#les-data-frames",
+    "title": "Introduction à R et RStudio",
+    "section": "Les data frames",
+    "text": "Les data frames\n\nLe data frame occupe une place centrale dans l’usage de R : c’est la structure privilégiée pour organiser, explorer et analyser les données.\nUn data frame est un tableau de données rectangulaire :\n\nColonnes = variables\nLignes = observations\n\nToutes les colonnes (variables) :\n\nont la même longueur (le même nombre de lignes)\npossèdent un nom unique\n\nC’est un objet bidimensionnel :\n\nncol() renvoie le nombre de colonnes\n\nnrow() renvoie le nombre de lignes\n\ndim() renvoie les dimensions sous forme (lignes, colonnes)"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#explorer-la-structure-dun-data-frame",
+    "href": "01-intro_r_rstudio/index.html#explorer-la-structure-dun-data-frame",
+    "title": "Introduction à R et RStudio",
+    "section": "Explorer la structure d’un data frame",
+    "text": "Explorer la structure d’un data frame\n\nnames() affiche les noms des variables (colonnes).\nstr() renvoie un aperçu détaillé de la structure du data frame :\n\nliste des variables\n\ntype de chaque variable\n\npremières valeurs observées\n\npermet de comprendre rapidement la structure du data frame\n\n\n\ndim(d)\n\n[1] 4 4\n\nnames(d)\n\n[1] \"prenom\"    \"genre\"     \"education\" \"age\"      \n\nstr(d)\n\n'data.frame':   4 obs. of  4 variables:\n $ prenom   : chr  \"Anne\" \"Sophie\" \"Marc\" NA\n $ genre    : Factor w/ 2 levels \"Femme\",\"Homme\": 1 1 2 2\n $ education: Factor w/ 3 levels \"HES\",\"Secondaire\",..: 2 NA 1 3\n $ age      : num  55 32 NA 72"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#sélection-dune-variable",
+    "href": "01-intro_r_rstudio/index.html#sélection-dune-variable",
+    "title": "Introduction à R et RStudio",
+    "section": "Sélection d’une variable",
+    "text": "Sélection d’une variable\n\nL’opérateur $ et les doubles crochets [[ ]] permettent de sélectionner une colonne (variable) d’un data frame.\nAppuyez sur Tab ↹ pour afficher et sélectionner les variables disponibles.\n\n\nd$prenom\n\n[1] \"Anne\"   \"Sophie\" \"Marc\"   NA      \n\nd[[\"prenom\"]]\n\n[1] \"Anne\"   \"Sophie\" \"Marc\"   NA"
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#sélection-par-indexation",
+    "href": "01-intro_r_rstudio/index.html#sélection-par-indexation",
+    "title": "Introduction à R et RStudio",
+    "section": "Sélection par indexation",
+    "text": "Sélection par indexation\nPour les objets bidimensionnels (2D) comme les data frames,\nles crochets [ , ] permettent d’accéder aux données, par une indexation bidimensionnelle (lignes et colonnes) :\n\nSyntaxe : df[i, j]\n\ndf : data frame\ni : lignes\n\nj : colonnes\n\nLes coordonnées correspondent aux positions (1ère ligne, 2ème ligne, etc., et 1ère colonne, 2ème colonne, etc.).\n\nLes colonnes (variables) peuvent également être sélectionnées par leur nom."
+  },
+  {
+    "objectID": "01-intro_r_rstudio/index.html#exemples-de-sélection-par-indexation",
+    "href": "01-intro_r_rstudio/index.html#exemples-de-sélection-par-indexation",
+    "title": "Introduction à R et RStudio",
+    "section": "Exemples de sélection par indexation",
+    "text": "Exemples de sélection par indexation\n\n\n\nd\n\n  prenom genre  education age\n1   Anne Femme Secondaire  55\n2 Sophie Femme       &lt;NA&gt;  32\n3   Marc Homme        HES  NA\n4   &lt;NA&gt; Homme Université  72\n\n# Première ligne, quatrième colonne\nd[1, 4]                    \n\n[1] 55\n\n# Toutes les lignes, première colonne\nd[, 1]  \n\n[1] \"Anne\"   \"Sophie\" \"Marc\"   NA      \n\n# Troisième ligne, toutes les colonnes\nd[3, ]                     \n\n  prenom genre education age\n3   Marc Homme       HES  NA\n\n\n\n\n# Lignes 2 à 4, variable \"prenom\"\nd[2:4, \"prenom\"]       \n\n[1] \"Sophie\" \"Marc\"   NA      \n\n# Lignes 1, 3 et 5, variable \"genre\"\nd[c(1,3), \"genre\"]  \n\n[1] Femme Homme\nLevels: Femme Homme\n\n# Lignes 2 à 4, variables \"prenom\" et \"genre\"\nd[2:4, c(\"prenom\", \"genre\")] \n\n  prenom genre\n2 Sophie Femme\n3   Marc Homme\n4   &lt;NA&gt; Homme\n\n# Sélection des lignes où `age` est supérieur à 35\nd[d$age &gt; 35, ]            \n\n   prenom genre  education age\n1    Anne Femme Secondaire  55\nNA   &lt;NA&gt;  &lt;NA&gt;       &lt;NA&gt;  NA\n4    &lt;NA&gt; Homme Université  72\n\n\n\n\nLors d’une indexation logique en base R, les valeurs NA dans la condition produisent des lignes NA dans le résultat."
   },
   {
     "objectID": "01-intro_r_rstudio/index.html#effacer-les-objets-de-lenvironnement",

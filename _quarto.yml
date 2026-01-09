@@ -62,3 +62,6 @@ format:
       link-color: "#2e2e2e"
       link-decoration: underline dotted
     css: styles/custom.scss
+
+execute:
+  enabled: true

@@ -1,6 +1,11 @@
 ---
 title: "Modules de soutien statistique 2025--2026"
 format: html
+execute:
+  enabled: true
+  echo: false
+  warning: false
+  message: false
 author:
     - name: "Amal Tawfik"
       orcid: "0009-0006-2422-1555"
@@ -12,26 +17,93 @@ author:
       email: "amal.tawfik@hesav.ch"
 ---
 
-HORAIRE 12:00--13:00\
-Salle G/OO/13 \
+<style>
+/* --- Forcer tinytable à occuper 100% de la largeur --- */
+.tinytable-container,
+table.tinytable {
+  width: 100% !important;
+}
+
+/* --- Harmoniser les boutons (même largeur + côte à côte) --- */
+.tinytable a.btn {
+  min-width: 100px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+</style>
+
+
+
+HORAIRE 12:00--13:45\
 Ouvert à toutes et tous, sans inscription
 
 # 📅 Planning des modules
 
-| Jour | Date | Module | Présentation |
-|------|------|---------|--------------|
-| Jeudi | 06.11.2025 | Introduction à R et RStudio : premiers pas, bonnes pratiques et *workflow* | <a href="./01-intro_r_rstudio/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./pdf/01-intro_r_rstudio.pdf" class="btn btn-outline-secondary btn-sm" target="_blank">PDF</a> |
-| Jeudi | 15.01.2026 | Nettoyage et manipulation des données avec R : introduction au [tidyverse](https://tidyverse.tidyverse.org/) | <a href="./tidyverse/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./tidyverse/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
-| Jeudi | 12.02.2026 | Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation | <a href="./analyses-bivariees/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./analyses-bivariees/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
-| Jeudi | 12.03.2026 | Régression linéaire | <a href="./regression-lineaire/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./regression-lineaire/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
-| Jeudi | 23.04.2026 | Analyses factorielles exploratoires (EFA) et construction d’échelles | <a href="./efa-construction/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./efa-construction/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
-| Jeudi | 21.05.2026 | Visualisation des données avec [ggplot2](https://ggplot2.tidyverse.org/) | <a href="./ggplot2/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./ggplot2/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
-| Jeudi | 18.06.2026 | Régression logistique | <a href="./regression-logistique/index.html" class="btn btn-success btn-sm">Ouvrir</a><a href="./regression-logistique/index.pdf" class="btn btn-outline-secondary btn-sm">PDF</a> |
+```{r}
+#| results: asis
+#| 
+library(dplyr)
+library(purrr)
+library(htmltools)
+library(reactable)
+library(tinytable)
+
+
+modules <- tibble(
+  Jour = "Jeudi",
+  Date = c(
+    "06.11.2025","15.01.2026","12.02.2026",
+    "12.03.2026","23.04.2026","21.05.2026","18.06.2026"
+  ),
+  Module = c(
+    "Introduction à R et RStudio : premiers pas, bonnes pratiques et <em>workflow</em>",
+    "Nettoyage et manipulation des données avec R&nbsp;: introduction au <a href='https://tidyverse.tidyverse.org/' target='_blank'>tidyverse</a>",
+    "Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation",
+    "Régression linéaire",
+    "Analyses factorielles exploratoires (EFA) et construction d’échelles",
+    "Visualisation des données avec <a href='https://ggplot2.tidyverse.org/' target='_blank'>ggplot2</a>",
+    "Régression logistique"
+  ),
+  Salle = c("G/OO/12","G/OO/17","G/OO/12","G/ss/02","G/OO/13","G/OO/13","G/OO/13"),
+  Dossier = c(
+    "01-intro_r_rstudio",
+    "02-clean_manipulation",
+    "03-analyses_bivariees",
+    "04-regression_lineaire",
+    "05-efa_echelles",
+    "06-visualisation",
+    "07-regression_logistique"
+  )
+) %>%
+  mutate(
+    Présentation = map_chr(Dossier, ~
+      paste0(
+        "<a href='./", .x, "/index.html' class='btn btn-success btn-sm' target='_blank'>Ouvrir</a> ",
+        "<a href='./pdf/", .x, ".pdf' class='btn btn-outline-secondary btn-sm' target='_blank'>PDF</a>"
+      )
+    ),
+    `Mise à jour` = format(
+      file.info(paste0("docs/", Dossier, "/index.html"))$mtime,
+      "%d.%m.%Y"
+    )
+  ) %>%
+  select(-Dossier)   # ← SUPPRESSION ICI
+
+
+tt(modules, theme = "grid") |> 
+  style_tt(i = 0, bold = TRUE)
+
+
+
+```
+
 
 
 ------------------------------------------------------------------------
 
-> 💡 Astuce PDF : dans chaque présentation, un bouton **« Télécharger le PDF »** ouvre le fichier `index.pdf` correspondant.\
+> Astuce PDF : dans chaque présentation, un bouton **« Télécharger le PDF »** ouvre le fichier `index.pdf` correspondant.\
 > Pour générer ces PDF localement :
 >
 > ``` bash
