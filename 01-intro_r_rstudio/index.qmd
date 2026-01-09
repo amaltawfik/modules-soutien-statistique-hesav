@@ -40,7 +40,6 @@ format:
     link-external-newwindow: true
 ---
 
-
 ## Objectifs du module
 
 -   Découvrir l’environnement R et RStudio\
@@ -50,8 +49,7 @@ format:
 -   Comprendre la logique des scripts et du *workflow* reproductible\
 -   Gérer un projet R et importer des données
 
-La présentation est disponible sur ce site : [https://amaltawfik.github.io/modules-soutien-statistique-hesav/](https://amaltawfik.github.io/modules-soutien-statistique-hesav/)
-
+La présentation est disponible sur ce site : <https://amaltawfik.github.io/modules-soutien-statistique-hesav/>
 
 ## Pourquoi apprendre R ?
 
@@ -76,11 +74,19 @@ La présentation est disponible sur ce site : [https://amaltawfik.github.io/modu
 ## Ressources clés pour l’écosystème R {.smaller}
 
 -   **Site officiel du projet R** : [r-project.org](https://www.r-project.org/)\
+
 -   **CRAN (Comprehensive R Archive Network)** — réseau de serveurs hébergeant les packages, la documentation et les binaires de R : [cloud.r-project.org](https://cloud.r-project.org/)\
+
 -   **R-universe (rOpenSci)** — plate-forme communautaire pour héberger et explorer des packages R : [ropensci.org/r-universe](https://ropensci.org/r-universe/)\
+
 -   **Moteur de recherche R-universe** — découvrir des packages R et leurs mainteneurs : [r-universe.dev/search](https://r-universe.dev/search)\
+
 -   **METACRAN** — moteur de recherche et visualisation des packages CRAN : [r-pkg.org](https://www.r-pkg.org/)\
--   **Rseek** — moteur de recherche spécialisé, ciblant la documentation, les blogs et les forums R : [rseek.org](https://rseek.org/)\
+
+-   **Rseek** — moteur de recherche spécialisé, ciblant la documentation, les blogs
+
+-   **rdrr.io** — moteur de recherche pratique pour consulter rapidement la documentation R, les fonctions, les exemples et le code source des packages CRAN/Bioconductor : [rdrr.io/r/](https://rdrr.io/r/)
+
 -   **Site du tidyverse** — un ensemble cohérent de packages conçus pour la science des données avec R : [tidyverse.org](https://www.tidyverse.org/)
 
 ## RStudio I
@@ -164,7 +170,7 @@ Menu : **Tools → Global Options → Code → Editing**
 
 -   Cocher : *Use native pipe operator, \|\>*\
     → active la syntaxe de pipe native introduite dans R (R 4.1+).\
-    Permet d’utiliser [`|>`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/pipeOp.html) au lieu de [`%>%`](https://magrittr.tidyverse.org/reference/pipe.html) du package [magrittr](https://magrittr.tidyverse.org/index.html).
+    Permet d’utiliser [`|>`](https://rdrr.io/r/base/pipeOp.html) au lieu de [`%>%`](https://magrittr.tidyverse.org/reference/pipe.html) du package [magrittr](https://magrittr.tidyverse.org/index.html).
 
 -   Cocher : *Insert matching parens/quotes*\
     → insère automatiquement les parenthèses et guillemets fermants, limitant les erreurs de frappe.
@@ -173,7 +179,7 @@ Menu : **Tools → Global Options → Code → Editing**
     → effectue le retour à la ligne automatique des lignes longues, ce qui évite le défilement horizontal.
 
 ::: {.callout-tip title="Objectif" icon="false"}
-Faciliter l’édition du code, réduire les erreurs de syntaxe et adopter la syntaxe R moderne avec le pipe natif `|>`.
+Faciliter l’édition du code, réduire les erreurs de syntaxe et adopter la syntaxe R moderne avec le pipe natif [`|>`](https://rdrr.io/r/base/pipeOp.html).
 :::
 
 ## Configurations de RStudio — Code Editing (illustration)
@@ -188,7 +194,7 @@ Menu : **Tools → Global Options → Code → Display**
     → affiche le numéro de chaque ligne dans les scripts R et R Markdown, facilitant le repérage des erreurs et la navigation dans le code.
 
 -   Cocher : *Show margin*\
-    → affiche une ligne verticale (souvent à 80 caractères) pour favoriser un code lisible.
+    → affiche une ligne verticale (par défaut à 80 caractères) pour favoriser un code lisible.
 
 -   Laisser cochée : *Highlight selected line*\
     → met en surbrillance la ligne active pour mieux repérer la position du curseur.
@@ -255,7 +261,7 @@ Dans R, tout ce que vous manipulez est un objet :
 ::: {.callout-tip title="À retenir" icon="false"}
 Dans R, tout ce que vous créez, importez ou calculez devient un objet stocké en mémoire, visible dans l’onglet **Environment** de RStudio — à condition de lui avoir donné un nom.
 
-C’est cette association à un nom qui permet ensuite de le retrouver et réutiliser.
+C’est cette association à un nom qui permet ensuite de le retrouver et de le réutiliser.
 :::
 
 ## Premiers pas dans R — Affectation et opérateur `<-`
@@ -280,7 +286,7 @@ Pour insérer rapidement l’opérateur d’assignation `<-` :
 
 ## Premiers pas dans R — Manipuler des vecteurs
 
-Avec la fonction [`c()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/c.html) , on peut **c**ombiner plusieurs éléments séparés par une virgule :
+Avec la fonction [`c()`](https://rdrr.io/r/base/c.html) , on peut **c**ombiner plusieurs éléments séparés par une virgule :
 
 ```{r, echo = TRUE}
 notes <- c(3, 2, 1, 4, 6)
@@ -332,7 +338,7 @@ a <- 7
 a
 ```
 
-L’effacer de l’environnement R avec la fonction [`rm()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rm.html) ([`remove()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rm.html)) :
+L’effacer de l’environnement R avec la fonction [`rm()`](https://rdrr.io/r/base/rm.html) ([`remove()`](https://rdrr.io/r/base/rm.html)) :
 
 ```{r, echo = TRUE}
 rm(a)
@@ -344,13 +350,13 @@ Une fonction exécute une action à partir d’arguments placés entre parenthè
 
 Voici trois fonctions très utiles pour débuter :
 
--   [`data.frame()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/data.frame.html) : crée un tableau de données (*data frame*).\
--   [`mean()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html) : calcule la moyenne arithmétique.\
--   [`sd()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/sd.html) : calcule l’écart-type (la dispersion autour de la moyenne).
+-   [`data.frame()`](https://rdrr.io/r/base/data.frame.html) : crée un tableau de données (*data frame*).\
+-   [`mean()`](https://rdrr.io/r/base/mean.html) : calcule la moyenne arithmétique.\
+-   [`sd()`](https://rdrr.io/r/stats/sd.html) : calcule l’écart-type (la dispersion autour de la moyenne).
 
 ## Premiers pas dans R — Utilisation de fonctions II
 
-On va construire une table de données à l’aide de la fonction [`data.frame()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/data.frame.html), qui regroupe plusieurs variables dans un même objet.
+On va construire une table de données à l’aide de la fonction [`data.frame()`](https://rdrr.io/r/base/data.frame.html), qui regroupe plusieurs variables dans un même objet.
 
 L’objet créé est nommé `d` (nom arbitraire), et contient trois variables, `prenom` (chaînes de caractère écrites entre guillemets), `taille` (en cm) et `poids` (en kg) :
 
@@ -365,13 +371,13 @@ d
 
 ## Données manquantes
 
-`NA` (*Not Available*) indique une valeur manquante, qu’il s’agisse d’un nombre, d’une chaîne de caractère, etc.
+[`NA`](https://rdrr.io/r/base/NA.html) (*Not Available*) indique une valeur manquante, qu’il s’agisse d’un nombre, d’une chaîne de caractère, etc.
 
 ```{r, echo = F}
 d
 ```
 
-Il existe aussi `NaN` (*Not a Number*), qui signale une valeur numérique indéfinie (ex. 0/0) :
+Il existe aussi [`NaN`](https://rdrr.io/r/base/is.finite.html) (*Not a Number*), qui signale une valeur numérique indéfinie (ex. 0/0) :
 
 ```{r, echo = T}
 0 / 0
@@ -379,9 +385,9 @@ Il existe aussi `NaN` (*Not a Number*), qui signale une valeur numérique indéf
 
 ## Premiers pas dans R — Utilisation de fonctions III
 
-L’opérateur [`$`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html) permet d’accéder à une colonne (une variable) d’un tableau de données (*data frame*) ou à un élément nommé d’une liste.
+L’opérateur [`$`](https://rdrr.io/r/base/Syntax.html) permet d’accéder à une colonne (une variable) d’un tableau de données (*data frame*) ou à un élément nommé d’une liste.
 
-Appliquons maintenant les fonctions [`mean()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/mean.html) et [`sd()`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/sd.html) à la variable `taille` du *data frame* `d` :
+Appliquons maintenant les fonctions [`mean()`](https://rdrr.io/r/base/mean.html) et [`sd()`](https://rdrr.io/r/stats/sd.html) à la variable `taille` du *data frame* `d` :
 
 ```{r echo=TRUE}
 mean(d$taille)
@@ -389,7 +395,7 @@ sd(d$taille)
 
 ```
 
-`d$taille` signifie « la variable taille contenue dans `d` ».
+`d$taille` signifie "la variable taille contenue dans `d`".
 
 ## Premiers pas dans R — Arguments de fonction
 
@@ -403,9 +409,9 @@ mean(d$poids, na.rm = TRUE)
 
 ```
 
--   Pour certaines fonctions comme `mean()`, `median()`, `sd()` ou `min()`, ajoutez l’argument `na.rm = TRUE` (*NA remove*) pour ignorer les valeurs manquantes.
+-   Pour certaines fonctions comme [`mean()`](https://rdrr.io/r/base/mean.html), [`median()`](https://rdrr.io/r/stats/median.html), [`sd()`](https://rdrr.io/r/stats/sd.html), [`min()`](https://rdrr.io/r/base/Extremes.html) ou [`max()`](https://rdrr.io/r/base/Extremes.html), ajoutez l’argument `na.rm = TRUE` (*NA remove*) pour ignorer les valeurs manquantes (`na.rm = FALSE` par défaut).
 
--   Sinon, si la variable contient des `NA`, le résultat renvoyé par R sera `NA` (`na.rm = FALSE` par défaut).
+-   Sinon, si la variable contient des `NA`, le résultat renvoyé par R sera `NA`.
 
 -   `TRUE` est une valeur logique interne à R qui signifie vrai.
 
@@ -418,7 +424,7 @@ Pour installer un package depuis RStudio :
 3.  Dans la fenêtre qui s’ouvre, saisir le *nom du package* (ex. : *spicy*).\
 4.  Cliquer sur **Install** pour lancer l’installation.
 
-Ou en ligne de commande, avec la fonction [`install.packages()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/install.packages.html) :
+Ou en ligne de commande, avec la fonction [`install.packages()`](https://rdrr.io/r/utils/install.packages.html) :
 
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("spicy")
@@ -426,7 +432,7 @@ install.packages("spicy")
 
 ## Charger des packages
 
-Une fois installés, les packages doivent être chargés dans l’environnement R pour être utilisés avec la fonction [`library()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/library.html) :
+Une fois installés, les packages doivent être chargés dans l’environnement R pour être utilisés avec la fonction [`library()`](https://rdrr.io/r/base/library.html) :
 
 ```{r, echo=TRUE, eval=FALSE}
 library(spicy)
@@ -466,12 +472,12 @@ Vous pouvez également accéder à des fichiers situés en dehors du répertoire
 
 ## Obtenir de l’aide dans R
 
--   Utilisez [`?fonction`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/help.html) ou [`help("fonction")`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/help.html) pour accéder à la documentation d’une fonction.\
+-   Utilisez [`?fonction`](https://rdrr.io/r/utils/help.html) ou [`help("fonction")`](https://rdrr.io/r/utils/help.html) pour accéder à la documentation d’une fonction.\
 -   Pour explorer un package complet : `help(package="nom_du_package")`.\
--   Recherchez des vignettes via [`browseVignettes()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/browseVignettes.html) ou [`vignette("nom")`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/vignette.html) pour des guides illustrés.\
--   Utilisez des fonctions de recherche interne : [`apropos()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/apropos.html), [`help.search()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/help.search.html) (alias [`??`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/help.search.html)) et [`RSiteSearch()`](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/RSiteSearch.html) pour explorer plus largement.\
+-   Recherchez des vignettes via [`browseVignettes()`](https://rdrr.io/r/utils/browseVignettes.html) ou [`vignette("nom")`](https://rdrr.io/r/utils/vignette.html) pour des guides illustrés.\
+-   Utilisez des fonctions de recherche interne : [`apropos()`](https://rdrr.io/r/utils/apropos.html), [`help.search()`](https://rdrr.io/r/utils/help.search.html) (alias [`??`](https://rdrr.io/r/utils/help.search.html)) et [`RSiteSearch()`](https://rdrr.io/r/utils/RSiteSearch.html) pour explorer plus largement.\
 -   Consultez le portail officiel : [Getting Help with R](https://www.r-project.org/help.html) — documentation, FAQ, mailing-lists, forums.\
--   Utilisez votre moteur de recherche favori
+-   Utilisez votre moteur de recherche favori.
 
 ## Console
 
@@ -549,7 +555,6 @@ Le \[1\] n’est pas un résultat, mais un repère visuel : il indique simpleme
 
 Dans un script, la touche <kbd>↵ Enter</kbd> insère une nouvelle ligne, elle n’exécute pas le code (contrairement à la console).
 
-
 ## Insérer des commentaires dans un script
 
 -   Les commentaires commencent par un ou plusieurs symboles `#`.\
@@ -558,9 +563,9 @@ Dans un script, la touche <kbd>↵ Enter</kbd> insère une nouvelle ligne, elle 
 
 Exemple :
 
-```{r, echo = F}
+```{r, echo = T}
 # Calcul d'une moyenne
-mean(1 + 5 + 9) # On peut ajouter ici un autre commentaire
+mean(c(1, 5, 9)) # On peut ajouter ici un autre commentaire
 ```
 
 Pour insérer ou retirer rapidement un commentaire dans RStudio :
@@ -570,7 +575,6 @@ Pour insérer ou retirer rapidement un commentaire dans RStudio :
 Cette commande est également accessible depuis le menu :
 
 -   Code → Comment/Uncomment Lines
-
 
 ## Créer des sections dans un script
 
@@ -586,7 +590,7 @@ Pour créer une section dans RStudio (et des sous-sections), il suffit d’écri
 
 Dans la marge gauche un triangle noir permet de plier ou déplier le contenu de la section.
 
-Voici un exemple de structure de script : [⬇️ Télécharger le modèle de script](script_template.R)
+Voici un exemple de structure de script : <a href="script_template.R" download>⬇️ Télécharger le modèle de script</a>
 
 ## Afficher la table des matières du script
 
@@ -610,7 +614,7 @@ Dans un script R, pour exécuter une instruction :
     -   <kbd>Ctrl</kbd> + <kbd>↵ Enter</kbd> (Windows / Linux)\
     -   <kbd>⌘</kbd> + <kbd>↵ Enter</kbd> (macOS)
 
-L’instruction est alors envoyée à la console et exécutée.  
+L’instruction est alors envoyée à la console et exécutée.
 
 -   Si une fonction ou un bloc de code s’étend sur plusieurs lignes du script, RStudio exécute automatiquement l’ensemble du bloc complet.
 
@@ -620,7 +624,7 @@ L’instruction est alors envoyée à la console et exécutée.
 
 Manière structurée et reproductible d’organiser son travail
 
--   Eviter le code spaghetti : un code désordonné, illisible et non structuré, difficile à réutiliser.
+-   Eviter le code spaghetti : un code désordonné, illisible et non structuré, difficile à réutilisers
 -   Travail reproductible
 -   Collaboration facilitée
 -   Apprentissage facilité
@@ -631,7 +635,7 @@ Manière structurée et reproductible d’organiser son travail
 
 -   Le répertoire de travail utilisé par R est indiqué en haut du volet de la console RStudio
 
-Ou exécuter la fonction [`getwd()`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/getwd.html) :
+Ou exécuter la fonction [`getwd()`](https://rdrr.io/r/base/getwd.html) :
 
 ```{r, echo = TRUE, eval=T}
 # Get the working directory
@@ -650,7 +654,7 @@ getwd()
 
 ## Définir son répertoire de travail par défaut (hors projet)
 
--   Conseillé de rassembler tous vos fichiers au même endroit lorque vous ne travaillez pas dans un projet R
+-   Conseillé de rassembler tous vos fichiers au même endroit lorsque vous ne travaillez pas dans un projet R.
 
 -   Définir un répertoire de travail par défaut (*working directory*).
 
@@ -708,14 +712,12 @@ Une fois le projet créé :
 
 -   Son nom s’affiche en haut à droite de l’interface RStudio.\
 -   Ce menu déroulant permet de passer facilement d’un projet à l’autre.\
--   Chaque projet conserve son historique, environnement et fichiers propres.\
+-   Chaque projet conserve son historique, son environnement et ses fichiers propres.\
 -   Pour rouvrir un projet, il suffit de **double-cliquer sur le fichier `.Rproj`** ou de passer par le menu **File → Open Project…** et de sélectionner le fichier `.Rproj` : RStudio s’ouvre automatiquement dans une nouvelle session dédiée à ce projet.
 
-::: {.callout-tip title="Astuce : un projet = un dossier = une analyse"}
-Adoptez dès le départ la bonne habitude : un dossier par projet — clair, isolé, reproductible.
+::: {.callout-tip title="Astuce : un projet RStudio = une analyse"}
+Travaillez toujours dans un projet RStudio dédié afin de garantir une analyse claire, isolée et reproductible.
 :::
-
-
 
 ## *Workflow* reproductible
 
@@ -738,9 +740,9 @@ mon_projet/
 ::: {.callout-tip title="Script à télécharger pour créer l'arborescence d'un projet" icon="false"}
 Vous pouvez télécharger et exécuter le script suivant pour créer automatiquement la structure de base d’un projet R :
 
-[⬇️  init_project.R](init_project.R)
+<a href="init_project.R" download>⬇️ init_project.R</a>
 
-**Important :** exécutez ce script <span style="color:red">**depuis le répertoire du projet**</span> (ou après avoir ouvert le projet `.Rproj` dans RStudio), afin que les dossiers soient créés au bon endroit.
+**Important :** exécutez ce script [**depuis le répertoire du projet**]{style="color:red"} (ou après avoir ouvert le projet `.Rproj` dans RStudio), afin que les dossiers soient créés au bon endroit.
 :::
 
 ## Formats et extensions des fichiers R
@@ -765,20 +767,20 @@ Beaucoup (trop) de packages et de fonctions différentes :
 ```{r, echo = TRUE, eval=FALSE}
 # Fichiers R
 load("data/raw/data.rda")
-data <- readRDS("data/raw/data.rds")
+d <- readRDS("data/raw/data.rds")
 
 # Fichiers CSV
-data <- read.csv("data/raw/data.csv")
-data <- readr::read_csv("data/raw/data.csv")
+d <- read.csv("data/raw/data.csv")
+d <- readr::read_csv("data/raw/data.csv")
 
 # Fichiers Excel
-data <- xlsx::read.xlsx("data/raw/data.xlsx")
-data <- readxl::read_excel("data/raw/data.xlsx")
+d <- xlsx::read.xlsx("data/raw/data.xlsx")
+d <- readxl::read_excel("data/raw/data.xlsx")
 
 # Fichiers SPSS / Stata / SAS
-data <- haven::read_spss("data/raw/data.sav")
-data <- haven::read_stata("data/raw/data.dta")
-data <- haven::read_sas("data/raw/data.sas7bdat")
+d <- haven::read_spss("data/raw/data.sav")
+d <- haven::read_stata("data/raw/data.dta")
+d <- haven::read_sas("data/raw/data.sas7bdat")
 
 # etc.
 
@@ -795,14 +797,15 @@ De nombreux [formats supportés](https://gesistsa.github.io/rio/index.html#suppo
 
 ```{r, echo = TRUE, eval=FALSE}
 # Importer différents formats
-import("data/raw/data.xlsx")
-import("data/raw/data.rda")
-import("data/raw/data.dta")
+d <- import("data/raw/data.xlsx")
+d <- import("data/raw/data.rda")
+d <- import("data/raw/data.dta")
 
 # Exporter un objet R
 export(data, "data/processed/data.csv")
 export(data, "data/processed/data.rds")
 export(data, "data/processed/data.sav")
+
 ```
 
 ## Importer des données par les menus de RStudio
@@ -811,6 +814,285 @@ L’importation peut aussi se faire depuis le volet **Environnement → Import D
 
 ![](img/import_data.png){width="40%" fig-align="center"}
 
+## Les classes d’objets en R
+
+-   Chaque objet appartient à une **classe** qui détermine son comportement et son affichage.
+
+-   La fonction [`class()`](https://rdrr.io/r/base/class.html) permet de vérifier la classe d’un objet ou d’une variable (colonne) contenue dans un tableau de données :
+
+```{r, echo = TRUE}
+class(1L)
+class(3.14)
+class("bonjour")
+class(TRUE)
+```
+
+-   La classe indique à R quel type de données il manipule et comment les traiter.
+
+## Les classes les plus courantes
+
+| Classe | Exemple | Description |
+|------------------|-------------------------|-----------------------------|
+| `"numeric"` | `3.14` | Nombre réel |
+| `"integer"` | `1L` | Nombre entier |
+| `"character"` | `"texte"` | Chaîne de caractères |
+| `"logical"` | `TRUE`, `FALSE` | Valeur logique |
+| `"factor"` | `factor("Université")` | Facteur (variable catégorielle) |
+| `"Date"` | `as.Date("2025-11-07")` | Date |
+| `"data.frame"` | `data.frame(x = 1:3)` | Tableau de données classique |
+| `"tbl_df"` | `tibble(x= 1:3)` | Tableau de données moderne du package [`tibble`](https://tibble.tidyverse.org/) |
+| `"list"` | `list(a = 1, b = "x")` | Liste d’objets variés |
+
+## Une variable = un objet avec sa classe
+
+-   Une variable (colonne) d'un [`data.frame`](https://rdrr.io/r/base/data.frame.html) (ex.: `d$age`) est elle-même un objet et a sa classe propre :
+
+```{r, echo = TRUE}
+d <- data.frame(
+  prenom = c("Anne", "Sophie", "Marc", NA),
+  genre = c("Femme", "Femme", "Homme", "Homme"),
+  education = factor(c("Secondaire", NA, "HES", "Université")),
+  age  = c(55, 32, NA, 72))
+d
+
+```
+
+::::: columns
+::: {.column width="50%"}
+```{r, echo = TRUE}
+class(d) 
+class(d$prenom)
+class(d$genre)
+
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo = TRUE}
+class(d$education) 
+class(d$age) 
+
+```
+:::
+:::::
+
+## Pourquoi c’est important
+
+-   Certaines fonctions s’adaptent à la classe : [`summary()`](https://rdrr.io/r/base/summary.html), [`plot()`](https://rdrr.io/r/base/plot.html), [`print()`](https://rdrr.io/r/base/print.html) ne donnent pas les mêmes résultats selon l’objet :
+
+```{r, echo = TRUE}
+summary(d$prenom)
+summary(d$education)
+summary(d$age) 
+
+```
+
+Dans R, la classe d’un objet détermine comment R le comprend, comment il l’affiche et quelles fonctions peuvent être utilisées dessus.
+
+## Modifier la classe d’un objet
+
+-   Pour modifier la classe, on utilise les fonctions de conversion `as.<class>()`.
+
+Principales fonctions de conversion :
+
+| Fonction | Effet |
+|-----------------------|-------------------------------------------------|
+| [`as.numeric()`](https://rdrr.io/r/base/numeric.html) | Convertit en nombre |
+| [`as.character()`](https://rdrr.io/r/base/character.html) | Convertit en texte |
+| [`as.logical()`](https://rdrr.io/r/base/logical.html) | Convertit en logique (`TRUE` / `FALSE`) |
+| [`as.factor()`](https://rdrr.io/r/base/factor.html) | Convertit en facteur |
+| [`as.Date()`](https://rdrr.io/r/base/Date.html) | Convertit en date |
+| [`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html) | Convertit en [`tibble`](https://tibble.tidyverse.org/) |
+
+→ Vérifier la classe après transformation pour s’assurer du bon résultat.
+
+## Exemple : modifier la classe d’un objet
+
+```{r, echo = TRUE}
+library(tibble)
+
+# Convertir un data.frame en tibble
+d <- as_tibble(d)
+d
+class(d)
+
+# Modifier la classe d'une colonne/variable
+d$genre  <- as.factor(d$genre)
+class(d$genre)
+
+
+```
+
+## Héritage multiple : un objet, plusieurs classes
+
+-   En R, un même objet peut avoir plusieurs classes en même temps.\
+-   Cela lui permet d’hériter de différents comportements (affichage, résumé, manipulation, etc.).
+-   *(R regarde les classes dans l’ordre pour choisir quelle méthode utiliser.)* Exemple :
+
+```{r, echo = F}
+d <- as.data.frame(d)
+
+```
+
+```{r, echo = TRUE}
+library(tibble)
+class(d)
+x <- as_tibble(d)
+class(x)
+
+```
+
+Le [`tibble`](https://tibble.tidyverse.org/index.html) possède plusieurs classes ("tbl_df", "tbl", "data.frame"), ce qui lui permet d’hériter à la fois de l’affichage amélioré des *tibbles* et de la compatibilité totale avec les fonctions traditionnelles pour les *data frames*.
+
+## Classe vs type interne
+
+En R, un objet possède deux niveaux :
+
+-   une classe → décrit comment R doit se comporter avec l’objet (affichage, méthodes, fonctions adaptées, etc.)
+
+-   un type interne → décrit comment l’objet est stocké en mémoire
+
+    ```         
+        ┌──────────────────────────────┐
+        │            CLASSE            │
+        │  (comportement externe)      │
+        │  - affichage                 │
+        │  - méthodes (summary, print) │
+        │  - conversions (as.*)        │
+        └──────────────▲───────────────┘
+                       │
+        ┌──────────────┴──────────────┐
+        │         TYPE INTERNE        │
+        │      (structure mémoire)    │
+        │  Principaux types :         │
+        │   "double", "integer",      │
+        │   "logical", "character",   │
+        │   "list"                    │
+        └─────────────────────────────┘
+    ```
+
+## Exemples : classe vs type interne
+
+La fonction `class()` indique **le comportement externe** (affichage, etc.).
+
+La fonction [`typeof()`](https://rdrr.io/r/base/typeof.html) indique **le type interne** de l’objet (comment il est réellement stocké en mémoire).
+
+::::: columns
+::: {.column width="50%"}
+```{r, echo = TRUE}
+class(3.14)      
+class(3L)
+class(as.Date("2024-01-01")) 
+class(factor("A"))
+class(ordered("A"))
+class("awz")   
+
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo = TRUE}
+typeof(3.14)     
+typeof(3L) 
+typeof(as.Date("2024-01-01"))
+typeof(factor("A"))
+typeof(ordered("A"))
+typeof("awz")   
+
+```
+:::
+:::::
+
+## Les *data frames*
+
+-   Le *data frame* occupe une place centrale dans l’usage de R : c’est la structure privilégiée pour organiser, explorer et analyser les données.
+-   Un data frame est un **tableau de données rectangulaire** :
+    -   Colonnes = variables
+    -   Lignes = observations
+-   Toutes les colonnes (variables) :
+    -   ont la même longueur (le même nombre de lignes)
+    -   possèdent un nom unique
+-   C’est un objet **bidimensionnel** :
+    -   [`ncol()`](https://rdrr.io/r/base/nrow.html) renvoie le nombre de colonnes\
+    -   [`nrow()`](https://rdrr.io/r/base/nrow.html) renvoie le nombre de lignes\
+    -   [`dim()`](https://rdrr.io/r/base/dim.html) renvoie les dimensions sous forme (lignes, colonnes)
+
+## Explorer la structure d’un *data frame*
+
+-   [`names()`](https://rdrr.io/r/base/names.html) affiche les noms des variables (colonnes).
+-   [`str()`](https://rdrr.io/r/utils/str.html) renvoie un aperçu détaillé de la structure du *data frame* :
+    -   liste des variables\
+    -   type de chaque variable\
+    -   premières valeurs observées\
+    -   permet de comprendre rapidement la structure du *data frame*
+
+```{r, echo = TRUE}
+dim(d)
+names(d)
+str(d)
+```
+
+## Sélection d'une variable
+
+-   L’opérateur `$` et les doubles crochets `[[ ]]` permettent de sélectionner une colonne (variable) d’un *data frame*.
+-   Appuyez sur <kbd>Tab ↹</kbd> pour afficher et sélectionner les variables disponibles.
+
+```{r, echo = TRUE}
+d$prenom
+d[["prenom"]]
+
+```
+
+## Sélection par indexation
+
+Pour les objets bidimensionnels (2D) comme les *data frames*,\
+les crochets `[ , ]` permettent d’accéder aux données, par une indexation bidimensionnelle (lignes et colonnes) :
+
+-   Syntaxe : `df[i, j]`
+    -   `df` : data frame
+    -   `i` : lignes\
+    -   `j` : colonnes
+-   Les coordonnées correspondent aux **positions** (1^ère^ ligne, 2^ème^ ligne, etc., et 1^ère^ colonne, 2^ème^ colonne, etc.).\
+-   Les colonnes (variables) peuvent également être sélectionnées par leur nom.
+
+## Exemples de sélection par indexation
+
+::::: columns
+::: {.column width="50%"}
+```{r, echo = TRUE}
+d
+
+# Première ligne, quatrième colonne
+d[1, 4]                    
+
+# Toutes les lignes, première colonne
+d[, 1]  
+
+# Troisième ligne, toutes les colonnes
+d[3, ]                     
+
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo = TRUE}
+# Lignes 2 à 4, variable "prenom"
+d[2:4, "prenom"]       
+
+# Lignes 1, 3 et 5, variable "genre"
+d[c(1,3), "genre"]  
+
+# Lignes 2 à 4, variables "prenom" et "genre"
+d[2:4, c("prenom", "genre")] 
+
+# Sélection des lignes où `age` est supérieur à 35
+d[d$age > 35, ]            
+```
+:::
+:::::
+
+-   Lors d’une indexation logique en base R, les valeurs `NA` dans la condition produisent des lignes `NA` dans le résultat.
+
 
 ## Effacer les objets de l’environnement
 
@@ -818,7 +1100,7 @@ Videz votre **Environnement** comme si vous reveniez à ce projet après une lon
 
 ### Deux solutions simples
 
--   Cliquez sur l’icône du **balai 🧹** dans le panneau **Environment** pour tout effacer.\
+-   Cliquez sur l’icône du balai 🧹 dans le panneau **Environment** pour tout effacer.\
 -   Ou exécutez dans la console :
 
 ```{r, eval=FALSE, echo=TRUE}
@@ -826,9 +1108,9 @@ rm(list = ls())
 ```
 
 ::: {.callout-tip title="Astuce : Relancer complètement R"}
-Vous pouvez aussi redémarrer la session R à l’aide du menu **Session → Restart R**. Cette action vide l’environnement **et** décharge tous les packages chargés.  
+Vous pouvez aussi redémarrer la session R à l’aide du menu **Session → Restart R**. Cette action vide l’environnement **et** décharge tous les packages chargés.
 
-Raccourci clavier : <kbd style="font-size: 0.8em;">Ctrl</kbd> + <kbd style="font-size: 0.8em;">Shift</kbd> + <kbd style="font-size: 0.8em;">F10</kbd> (Windows / Linux) ou <kbd style="font-size: 0.8em;">Cmd</kbd> + <kbd style="font-size: 0.8em;">Shift</kbd> + <kbd style="font-size: 0.8em;">F10</kbd> (macOS)  
+Raccourci clavier : <kbd style="font-size: 0.8em;">Ctrl</kbd> + <kbd style="font-size: 0.8em;">Shift</kbd> + <kbd style="font-size: 0.8em;">F10</kbd> (Windows / Linux) ou <kbd style="font-size: 0.8em;">Cmd</kbd> + <kbd style="font-size: 0.8em;">Shift</kbd> + <kbd style="font-size: 0.8em;">F10</kbd> (macOS)
 
 Méthode la plus sûre pour repartir sur une base propre.
 :::
