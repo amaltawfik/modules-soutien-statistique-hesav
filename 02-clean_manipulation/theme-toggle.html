@@ -1,0 +1,40 @@
+<script>
+(function () {
+  function addToggle() {
+    const reveal = document.querySelector(".reveal");
+    if (!reveal) return;
+
+    const btn = document.createElement("button");
+    btn.textContent = "🌗";
+    btn.title = "Mode clair / sombre";
+
+    btn.style.position = "fixed";
+    btn.style.top = "12px";
+    btn.style.left = "12px";
+    btn.style.zIndex = "99999";   // plus haut que clean-revealjs
+    btn.style.background = "transparent";
+    btn.style.border = "none";
+    btn.style.cursor = "pointer";
+    btn.style.fontSize = "1.2em";
+    btn.style.padding = "4px";
+    btn.style.pointerEvents = "auto";
+
+    btn.onclick = () => {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-bs-theme") || "light";
+      html.setAttribute(
+        "data-bs-theme",
+        current === "light" ? "dark" : "light"
+      );
+    };
+
+    reveal.appendChild(btn);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", addToggle);
+  } else {
+    addToggle();
+  }
+})();
+</script>

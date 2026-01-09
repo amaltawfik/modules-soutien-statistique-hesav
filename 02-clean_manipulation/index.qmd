@@ -1,36 +1,1058 @@
 ---
-title: "Nettoyage et manipulation des données avec R : introduction au tidyverse"
-subtitle: "Importation, transformation et nettoyage des données"
+title: "Nettoyage et manipulation des données avec R"
+subtitle: "Introduction au tidyverse"
+author:
+  - name: "Amal Tawfik"
+    orcid: "0009-0006-2422-1555"
+    email: "amal.tawfik@hesav.ch"
+    affiliations: "HESAV Haute École de Santé - Vaud (HES-SO)"
+date: "15 janvier 2026"
+lang: fr
+execute:
+  freeze: auto
+lightbox: true
 format:
-  revealjs:
-    theme: [simple, dark]
+  clean-revealjs:
+    # Apparence et logo
+    logo: images/logo_hesav_black.png
+    css: nicecustom.scss
+    revealjs:
+      controls: true
+      theme-toggle: true
+    # Navigation
+    menu:
+      side: left
+    # Numéros et date
     slide-number: true
-    toc: true
+    date-format: long
+    # Math / code / interactivité
+    html-math-method: mathjax
+    preview-links: auto
+    chalkboard:
+      buttons: true
+      theme: whiteboard
+    code-line-numbers: false
+    code-overflow: scroll
     transition: fade
----
-
-<div style="text-align:right; margin-top:-1em">
-<a href="index.pdf" target="_blank" class="btn btn-outline-secondary">📄 Télécharger le PDF</a>
-</div>
-
----
-
-## Objectifs
-
-- À compléter selon le cours.
-
+    link-external-newwindow: true
+editor: 
+  markdown: 
+    wrap: 80
 ---
 
 ## Plan
 
-1. …
-2. …
-3. …
+- Introduction au [`tidyverse`](https://tidyverse.org/)
+- Structure des données et principes *tidy*
+- Nettoyer le tableau de données ([`janitor`](https://sfirke.github.io/janitor/))
+- Le *pipe* : enchaîner les opérations
+- Manipulation des données avec [`dplyr`](https://dplyr.tidyverse.org/) : [`filter()`](https://dplyr.tidyverse.org/reference/filter.html), [`select()`](https://dplyr.tidyverse.org/reference/select.html), [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html), [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html), [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html), [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
+- Résumés globaux vs par groupe
+- Recoder des variables ([`ifelse()`](https://rdrr.io/r/base/ifelse.html), [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html) et interfaces graphiques)
 
----
+
+## Objectifs
+
+-   Transformer un fichier brut en un
+    [`data.frame`](https://rdrr.io/r/base/data.frame.html) (ou
+    [`tibble`](https://tibble.tidyverse.org/)) propre et prêt pour l’analyse.
+
+Pour y parvenir :
+
+-   Identifier et corriger les problèmes courants dans les données brutes
+-   Utiliser les outils du [`tidyverse`](https://tidyverse.org/) pour nettoyer
+    les données
+-   Structurer vos données selon les principes *tidy*
+-   Préparer vos données pour l'analyse statistique
+
+## Pourquoi nettoyer les données ?
+
+**≈ 80%** du temps est consacré à la préparation et au nettoyage des données, et
+seulement 20% à l’analyse.
+
+Ce qu’on rencontre dans les données brutes :
+
+-   valeurs manquantes ([`NA`](https://rdrr.io/r/base/NA.html), cases vides)
+
+-   codages incohérents (`F`, `f`, `1`, `2`, etc.)
+
+-   erreurs de saisie (`99999` comme revenu)
+
+-   doublons (individu présent plusieurs fois)
+
+-   classes erronées (âge importé comme texte)
+
+-   colonnes inutiles ou mal nommées
+
+## Qu’est-ce que le *tidyverse* ?
+
+Le [`tidyverse`](https://tidyverse.org/) est un ensemble cohérent de packages R
+dédiés à la *science des données*, conçu pour être :
+
+-   lisible\
+-   expressif\
+-   reproductible\
+-   intuitif
+
+Il repose sur une philosophie commune, une syntaxe uniforme et la structure
+*tidy* des données.
+
+-   Installation en une fois : `install.packages("tidyverse")`
+-   Charger le tidyverse : `library(tidyverse)`
+
+## Les packages principaux du *tidyverse*
+
+Le [`tidyverse`](https://tidyverse.org/) fournit des outils pour chaque étape du
+*data workflow* :
+
+| Étape | Packages & utilités |
+|---------------------|-----------------------------------------------------------|
+| Importer | [`readr`](https://readr.tidyverse.org/) (CSV), [`readxl`](https://readxl.tidyverse.org/) (Excel), [`haven`](https://haven.tidyverse.org/) (SPSS/Stata/SAS) |
+| Manipuler | [`dplyr`](https://dplyr.tidyverse.org/) : filtrer, trier, sélectionner, créer des variables |
+| Restructurer | [`tidyr`](https://tidyr.tidyverse.org/) : pivoter (long ↔ wide), séparer, combiner |
+| Visualiser | [`ggplot2`](https://ggplot2.tidyverse.org/) : graphiques élégants et cohérents |
+| Gérer les textes | [`stringr`](https://stringr.tidyverse.org/) : chaînes de caractères |
+| Gérer les facteurs | [`forcats`](https://forcats.tidyverse.org/) : niveaux, réordonnements |
+| Gérer les dates | [`lubridate`](https://lubridate.tidyverse.org/) : dates, heures, durées |
+| Tibble moderne | [`tibble`](https://tibble.tidyverse.org/) : version améliorée d'un `data.frame` |
+
+Tous ces packages partagent une syntaxe cohérente et fonctionnent parfaitement
+ensemble.
+
+## Structure d’un tableau de données : variables, valeurs et observations
+
+-   Une **variable** représente une caractéristique mesurée (quantité, qualité,
+    propriété).
+
+-   Une **valeur** est le résultat obtenu pour une variable lors d’une mesure.
+
+-   Une **observation** regroupe l’ensemble des valeurs mesurées dans les mêmes
+    conditions (cas ou individu statistique).
+
+-   Un **tableau de données rectangulaire** associe chaque valeur à une variable
+    (colonne) et à une observation (ligne).
+
+::: {.callout-tip appearance="simple" icon="false"}
+Dans R, ce type de tableau est représenté par un [`data.frame`](https://rdrr.io/r/base/data.frame.html) et sa version
+modernisée est le [`tibble`](https://tibble.tidyverse.org/).
+:::
+
+## Données *tidy*
+
+Tous les tableaux de données rectangulaires ne sont pas également faciles à
+utiliser pour l’analyse.
+
+Plusieurs tableaux peuvent représenter les mêmes données, mais seule une
+structure *tidy* est pleinement exploitable dans le
+[`tidyverse`](https://tidyverse.org/).
+
+Les données sont dites *tidy* (rangées) lorsque trois règles interdépendantes
+sont respectées :
+
+-   chaque variable correspond à une colonne\
+-   chaque observation correspond à une ligne\
+-   chaque valeur occupe une cellule et chaque cellule contient une seule valeur
+    (pas de valeurs empilées du type "foot, basket, tennis", ni de valeurs
+    composites du type "23 kg")
+
+## Visualisation de la structure *tidy*
+
+![](images/tidy-1.png){fig-align="center"}
+
+*Source :* [https://r4ds.hadley.nz/data-tidy.html#fig-tidy-structure](https://r4ds.hadley.nz/data-tidy.html#fig-tidy-structure)
+
+## En pratique, que change la structure *tidy* ?
+
+Lorsque ces règles sont respectées :
+
+-   chaque unité d’observation est clairement identifiée\
+-   des unités d’observation différentes sont stockées dans des tables distinctes
+
+Conséquence : on évite de mélanger individus, événements et mesures dans une même table.
+
+::: {.callout-tip appearance="simple" icon="false"}
+Les données *tidy* respectent une structure standardisée, conçue pour faciliter la manipulation, la visualisation et l’analyse avec les outils du [`tidyverse`](https://tidyverse.org/).
+:::
+
+## Les *tibbles*
+
+Dans le [`tidyverse`](https://tidyverse.org/), les données sont manipulées sous
+forme de [`tibble`](https://tibble.tidyverse.org/), une version moderne et
+améliorée de [`data.frame`](https://rdrr.io/r/base/data.frame.html) de R.
+
+Les [`tibbles`](https://tibble.tidyverse.org/) sont :
+
+-   fournis par le package [`tibble`](https://tibble.tidyverse.org/) (au cœur du
+    [`tidyverse`](https://tidyverse.org/))
+-   acceptés par la plupart des fonctions du
+    [`tidyverse`](https://tidyverse.org/)
+-   retournés par défaut par [`dplyr`](https://dplyr.tidyverse.org/),
+    [`tidyr`](https://tidyr.tidyverse.org/),
+    [`ggplot2`](https://ggplot2.tidyverse.org/), etc.
+
+::: {.callout-tip appearance="simple" icon="false"}
+Un [`tibble`](https://tibble.tidyverse.org/) est un
+[`data.frame`](https://rdrr.io/r/base/data.frame.html) plus strict, plus lisible
+et plus sûr.
+:::
+
+## Pourquoi utiliser des *tibbles* ?
+
+Contrairement aux [`data.frames`](https://rdrr.io/r/base/data.frame.html)
+classiques, les [`tibbles`](https://tibble.tidyverse.org/) :
+
+-   n’ont pas de noms de lignes (`rownames`)
+-   autorisent des noms de colonnes non standards (espaces, caractères spéciaux,
+    nombres…) entourés avec des backticks (`` ` ``)
+-   s’affichent intelligemment (aperçu des lignes, dimensions, types de
+    variables)
+-   pas de *partial matching* sur les noms de colonnes (si une table `d`
+    contient une colonne `qualif`, `d$qual` ne retournera pas cette colonne)
+-   avertissent lorsqu’une colonne n’existe pas
+
+::: {.callout-tip appearance="simple" icon="false"}
+Ils font moins de choses automatiques mais signalent plus tôt les erreurs
+:::
+
+## Compatibilité de `tibble` et `data.frame`
+
+Un [`tibble`](https://tibble.tidyverse.org/) reste totalement compatible
+avec un [`data.frame`](https://rdrr.io/r/base/data.frame.html) :
+
+-   la plupart des fonctions du tidyverse acceptent un
+    [`data.frame`](https://rdrr.io/r/base/data.frame.html) en entrée
+-   elles retournent généralement un [`tibble`](https://tibble.tidyverse.org/)
+
+```{r, echo = T}
+library(tidyverse)
+
+head(mtcars) # Affiche les 6 premières lignes (n = 6 par défaut)
+
+```
+
+## Conversion de `data.frame` en `tibble`
+
+[`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html) convertit
+un [`data.frame`](https://rdrr.io/r/base/data.frame.html) en
+[`tibble`](https://tibble.tidyverse.org/) :
+
+-   les variables et leurs types sont conservés
+-   les `rownames` sont supprimés par défaut
+
+```{r}
+#| echo: true
+#| message: true
+as_tibble(mtcars)
+```
+
+## Convertir les noms de lignes en variables
+
+Il est possible de transformer les `rownames` en colonne explicite en utilisant
+l’argument `rownames` :
+
+```{r}
+#| echo: true
+#| message: true
+#| warning: true
+#| attr.output: 'style="font-size: 0.5em;"'
+as_tibble(mtcars, rownames = "car_names")
+```
+
+## Nettoyer les noms des variables
+
+Le package [`janitor`](https://sfirke.github.io/janitor/) fournit des outils
+simples pour nettoyer et standardiser les données.
+
+Souvent, les données importées contiennent des colonnes avec :
+
+-   des espaces\
+-   des caractères spéciaux\
+-   des majuscules mélangées\
+-   des noms peu lisibles
+
+La fonction
+[`clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html)
+nettoie les noms de colonnes pour qu’ils soient propres, cohérents et faciles à
+manipuler.
+
+## Que fait `clean_names()` ?
+
+Par défaut, la fonction
+[`clean_names()`](https://sfirke.github.io/janitor/reference/clean_names.html)
+du package [`janitor`](https://sfirke.github.io/janitor/) applique la convention
+de nommage *snake case* qui est la convention recommandée dans le [tidyverse](https://style.tidyverse.org/syntax.html).
+
+Elle transforme les noms de colonnes pour :
+
+-   être en minuscules
+-   remplacer les espaces et caractères spéciaux par des *underscores* (`_`)
+-   éviter les noms invalides ou ambigus
+-   produire des noms faciles à taper et cohérents
+
+## Exemple
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.8em;"'
+#| attr.output: 'style="font-size: 0.5em;"'
+library(janitor)
+
+d <- tibble(
+  "Nom Col 1" = 1:3,
+  "Âge (ans)" = c(24, 30, 29),
+  "Score (%)" = c(80, 90, 85)
+)
+d
+clean_names(d)
+
+```
+
+## Autres fonctions utiles de nettoyage
+
+Plusieurs autres fonctions du package [`janitor`](https://sfirke.github.io/janitor/) :
+
+-   [`remove_empty()`](https://sfirke.github.io/janitor/reference/remove_empty.html)
+    supprime les lignes ou colonnes entièrement composées de `NA`.
+
+-   [`get_dupes()`](https://sfirke.github.io/janitor/reference/get_dupes.html)
+    identifie les doublons sur une ou plusieurs variables.
+
+Exemple
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.4em;"'
+
+d <- tibble(
+  id    = c(1, 2, 2, NA),
+  nom   = c("Alice", "Bob", "Bob", NA),
+  score = c(15, 10, 15, NA),
+  vide  = c(NA, NA, NA, NA))
+d
+
+```
+
+## Exemples
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.4em;"'
+
+remove_empty(d)
+remove_empty(d, which = "cols")
+get_dupes(d, score)
+get_dupes(d, id, nom)
+
+```
+
+## Le *pipe* : enchaîner les opérations
+
+Le *pipe* ([`|>`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/pipeOp.html) natif R ou [`%>%`](https://magrittr.tidyverse.org/reference/pipe.html) du package [`magrittr`](https://magrittr.tidyverse.org/index.html)) permet d'enchaîner plusieurs opérations dans l'ordre où on les lit.
+
+**Principe :** Ce qui se trouve **à gauche** du pipe est envoyé comme premier argument à la fonction **à droite**.
+
+```{r}
+#| echo: true
+#| eval: false
+data |> fonction1() |> fonction2() |> fonction3()
+
+data |> 
+  fonction1() |> 
+  fonction2() |> 
+  fonction3()
+```
+
+::: {.callout-tip appearance="simple" icon="false"}
+"Prends cet objet → puis applique cette transformation → puis cette autre → etc."
+:::
+
+## Pourquoi utiliser le *pipe* ?
+
+Exemple
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.4em;"'
+d <- tibble(
+  id_etud = c("E001", "E002", "E003", "E004"),
+  genre = factor(c("F", "H", "F", "H")),
+  age = c(17, 20, 23, 19),
+  filiere = factor(c("Soins infirmiers", 
+                     "Physiothérapie", 
+                     "Soins infirmiers", 
+                     "Ergothérapie")),
+  abs_just = c(2, 4, 1, 3),
+  abs_non_just = c(0, 1, 2, 0),
+  revenu = c(6200, NA, NA, 4800)
+  )
+d
+
+```
+
+## Sans *pipe*, deux problèmes courants
+
+:::: {.columns}
+
+::: {.column width="50%"}
+1.  Fonctions imbriquées (difficile à lire, ordre inversé) :
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.4em;"'
+d1 <- select(
+  mutate(
+    filter(d, age >= 18),
+    abs_total = abs_just + abs_non_just
+    ),
+  id_etud, genre, filiere, abs_total
+  )
+d1
+
+```
+
+:::
+
+::: {.column width="50%"}
+
+2.  Objets intermédiaires (répétitif, risque d'erreur) :
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.4em;"'
+d1 <- filter(d, age >= 18)
+d1 <- mutate(d1, abs_total = abs_just + abs_non_just)
+d1 <- select(d1, id_etud, genre, filiere, abs_total)
+d1
+
+
+```
+
+:::
+
+::::
+
+
+## Le *pipe* : lire le code comme une phrase
+
+Avec *pipe*, lisible de gauche à droite (et de haut en bas) :
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.4em;"'
+d1 <- d |>
+  filter(age >= 18) |>
+  mutate(abs_total = abs_just + abs_non_just) |>
+  select(id_etud, genre, filiere, abs_total)
+d1
+```
+
+::: {.callout-tip title="On lit le code comme une phrase" icon="false"}
+"Crée `d1` en prenant `d`, en filtrant les personnes de 18 ans ou plus, en ajoutant une variable `abs_total` qui additionne les absences justifiées et non justifiées, puis en sélectionnant uniquement les variables `id_etud`, `genre`, `filiere` et `abs_total`."
+:::
+
+
+## Les avantages du *pipe*
+
+Enchaîner les opérations avec [`|>`](https://stat.ethz.ch/R-manual/R-devel/library/base/html/pipeOp.html) (appelé *pipeline*) permet :
+
+-   Lisibilité : le code se lit comme une phrase, dans l’ordre naturel\
+-   Modularité : facile d’ajouter ou retirer une étape\
+-   Débogage : on peut tester étape par étape\
+-   Reproductibilité : chaque transformation est explicite
+
+**À retenir :**
+
+-   On sauvegarde le résultat final dans un objet : `resultat <- donnees |> ...`
+-   Le *pipe* n’est pas qu’un outil syntaxique, c’est une façon de penser la transformation des données
+
+
+## Manipuler les données avec `dplyr`
+
+[`dplyr`](https://dplyr.tidyverse.org/) est le package du [`tidyverse`](https://tidyverse.org/) dédié à la manipulation de données. Il propose une syntaxe claire et cohérente, sous forme de **verbes**, pour transformer une ou plusieurs tables.
+
+Les principaux verbes de manipulation :
+
+| Action sur les données | Verbe de [`dplyr`](https://dplyr.tidyverse.org/) |
+|------------------------|--------------------|
+| Sélectionner des lignes (observations) | [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) |
+| Sélectionner ou réordonner des colonnes (variables) | [`select()`](https://dplyr.tidyverse.org/reference/select.html) |
+| Trier les observations | [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) |
+| Créer ou transformer des variables | [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) |
+| Résumer les données (par groupe) | [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) + [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) |
+
+
+
+## Sélectionner des lignes (observations) — `filter()`
+
+La fonction [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) permet de conserver uniquement les lignes qui satisfont une ou plusieurs conditions.
+
+- Elle agit sur les observations (lignes), pas sur les variables (colonnes).
+
+
+**Principe**
+
+```{r}
+#| echo: true
+#| eval: false
+data |> filter(condition)
+```
+
+- la condition doit être `TRUE` pour que la ligne soit conservée
+- plusieurs conditions peuvent être combinées (`&`, `|`)
+
+Exemple : conserver les personnes âgées de 18 ans ou plus
+
+```{r}
+#| echo: true
+#| eval: false
+d |> filter(age >= 18)
+```
+
+
+## Écrire des conditions logiques
+
+Pour sélectionner des observations (créer des sous-ensembles) ou recoder des variables, on écrit des **conditions logiques**.
+
+Une condition est une expression logique dont le résultat est :
+
+- `TRUE` = la ligne est conservée
+
+- `FALSE` = la ligne est exclue
+
+Les conditions reposent sur :
+
+- des opérateurs de comparaison
+
+- des opérateurs logiques
+
+::: {.callout-tip appearance="simple" icon="false"}
+[`filter()`](https://dplyr.tidyverse.org/reference/filter.html) conserve uniquement les lignes pour lesquelles la condition est vraie.
+:::
+
+## Opérateurs logiques et de comparaison
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+
+*Opérateurs de comparaison*
+
+| Opérateur | Signification           |
+| --------- | ----------------------- |
+| `==`      | égal à                  |
+| `!=`      | différent de            |
+| `>`       | strictement supérieur à |
+| `<`       | strictement inférieur à |
+| `>=`      | supérieur ou égal à     |
+| `<=`      | inférieur ou égal à     |
+
+:::
+
+::: {.column width="50%"}
+
+*Opérateurs logiques*
+
+| Opérateur | Signification    |
+| --------- | ---------------- |
+| `&`       | ET logique       |
+| `|`      | OU logique       |
+| `!`       | négation logique |
+
+:::
+
+::::
+
+
+
+## Exemples de conditions logiques avec `filter()`
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.3em;"'
+d |> filter(age < 18)                                                # comparaison
+d |> filter(genre == "F")                                            # égalité
+d |> filter(abs_just >= 4 & genre == "H")                            # ET
+d |> filter(filiere == "Physiothérapie" | filiere == "Ergothérapie") # OU
+d |> filter(!is.na(revenu))                                          # valeurs non manquantes
+```
+
+## Sélectionner des colonnes (variables) — `select()`
+
+La fonction [`select()`](https://dplyr.tidyverse.org/reference/select.html) permet de choisir, réordonner ou supprimer des variables (colonnes).
+
+- Elle agit sur les variables (colonnes), pas sur les observations (lignes).
+
+
+**Principe**
+
+```{r}
+#| echo: true
+#| eval: false
+data |> select(col1, col2, ...)
+```
+
+- on indique les variables à conserver
+- l’ordre d’écriture = ordre final des variables
+
+Exemple : conserver uniquement les variables `id_etud`et `genre`.
+
+```{r}
+#| echo: true
+#| eval: false
+d |> select(id_etud, genre)
+```
+
+
+## Sélectionner une plage de variables — `select()`
+
+Sélectionner un ensemble de variables consécutives en utilisant `:` :
+
+```{r}
+#| echo: true
+#| eval: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.3em;"'
+d |> select(genre:filiere)
+```
+
+`genre:filiere` sélectionne toutes les variables de `genre` à `filiere` incluses (selon leur ordre dans le tableau).
+
+
+Quand l’utiliser ?
+
+- Lorsque les variables se suivent dans le tableau
+- Pour éviter d’écrire une longue liste de noms de variables
+
+::: {.callout-warning appearance="simple" icon="false"}
+La sélection par plage dépend de l’ordre des variables dans le tableau.
+:::
+
+
+## Réordonner les variables (colonnes) — `select()`
+
+[`select()`](https://dplyr.tidyverse.org/reference/select.html) permet aussi de changer l’ordre des variables dans le tableau de données.
+
+Exemple : placer `revenu` en première colonne, puis conserver toutes les autres avec [`everything()`](https://tidyselect.r-lib.org/reference/everything.html).
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.35em;"'
+d |> select(revenu, everything())
+```
+
+
+Utilités :
+
+- Mettre les variables clés au début du tableau de données
+- Faciliter la lecture et la compréhension des données avant une analyse ou une exportation
+
+
+## Sélecteurs de colonnes (*helpers*)
+
+[`select()`](https://dplyr.tidyverse.org/reference/select.html) propose des **sélecteurs** (*helpers*) pour choisir plusieurs variables sans écrire leurs noms un par un. Ces fonctions sont fournies par le package
+[`tidyselect`](https://tidyselect.r-lib.org/index.html) dont la liste est [ici](https://tidyselect.r-lib.org/reference/language.html).
+
+
+Exemples de sélecteurs : [`starts_with()`](https://tidyselect.r-lib.org/reference/starts_with.html), [`ends_with()`](https://tidyselect.r-lib.org/reference/starts_with.html), [`contains()`](https://tidyselect.r-lib.org/reference/starts_with.html)
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.5em;"'
+#| attr.output: 'style="font-size: 0.3em;"'
+d |> select(starts_with("abs"))   # commence par "abs"
+d |> select(ends_with("_just"))   # se termine par "_just"
+d |> select(contains("age"))      # contient "age"
+```
+
+
+## Supprimer ou renommer des variables
+
+Supprimer une variable avec `-` :
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.35em;"'
+d |> select(-abs_non_just)        # supprimer "abs_non_just"
+```
+
+Renommer des variables :
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.35em;"'
+d |>
+  select(identifiant = id_etud,
+         sexe = genre,
+         revenu)
+```
+
+
+
+## Trier les observations — `arrange()`
+
+La fonction [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) permet de trier les lignes (observations) d’un tableau selon une ou plusieurs variables.
+
+Elle change uniquement l’ordre des observations, sans modifier les valeurs.
+
+Principe
+
+```{r}
+#| echo: true
+#| eval: false
+data |> arrange(variable)
+```
+
+- le tri est croissant par défaut
+- les valeurs manquantes (`NA`) sont placées à la fin
+
+Exemple : trier les observations par âge croissant
+```{r}
+#| echo: true
+#| eval: false
+d |> arrange(age)
+```
+
+
+## Trier selon plusieurs variables — `arrange()`
+
+Il est possible de trier selon plusieurs variables, dans l’ordre indiqué.
+
+Exemple : trier d’abord par `filiere`, puis par `age` à l’intérieur de chaque `filiere`.
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.35em;"'
+d |> arrange(filiere, age)
+```
+
+Pour trier en ordre décroissant, on utilise [`desc()`](https://dplyr.tidyverse.org/reference/desc.html) :
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.35em;"'
+d |> arrange(desc(revenu))
+```
+
+## Créer ou transformer des variables — `mutate()`
+
+La fonction [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) permet de :
+
+- créer de nouvelles variables
+- transformer/recoder des variables existantes
+
+Elle ne modifie pas le nombre d’observations.
+
+Principe
+```{r}
+#| echo: true
+#| eval: false
+data |> mutate(nouvelle_variable = expression)
+```
+
+- la nouvelle variable est ajoutée au tableau
+
+Exemple : créer une variable `abs_total` (total des absences)
+
+```{r}
+#| echo: true
+#| eval: false
+#| attr.source: 'style="font-size: 0.6em;"'
+d |> mutate(abs_total = abs_just + abs_non_just)
+```
+
+## Exemples avec `mutate()`
+
+```{r}
+#| echo: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.3em;"'
+d <- d |>
+  mutate(
+    age2 = age^2,                           # transformation numérique (au carré)
+    majeur = age >= 18,                     # indicateur logique TRUE / FALSE
+    age_plus_1 = age + 1,                   # création d’une nouvelle variable
+    abs_total = abs_just + abs_non_just,    # somme de deux variables
+    abs_dicho = as.integer(abs_total > 3),  # indicateur binaire (1 si > 3 absences, 0 sinon)
+    id_etud = as.factor(id_etud)            # transformation en facteur
+  )
+
+```
+
+```{r}
+#| echo: true
+#| eval: false
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.3em;"'
+d 
+
+```
+
+```{r}
+#| echo: false
+#| eval: true
+#| attr.source: 'style="font-size: 0.6em;"'
+#| attr.output: 'style="font-size: 0.35em;"'
+options(width = 500)
+options(pillar.width = 500)
+
+print(d, width = 500)
+
+
+```
+
+::: {.callout-tip appearance="simple" icon="false"}
+Dans [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html), les variables sont créées de haut en bas : une variable nouvellement créée peut être réutilisée immédiatement.
+:::
+
+
+## Résumer les données — `summarise()`
+
+La fonction [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) permet de calculer des statistiques sur une ou plusieurs variables d’un tableau de données.
+
+- Elle retourne un nouveau tableau contenant uniquement les résumés spécifiés.
+
+Principe
+```{r}
+#| echo: true
+#| eval: false
+data |>
+  summarise(
+    nom_stat1 = expression1,
+    nom_stat2 = expression2
+  )
+```
+
+- Chaque `expression` calcule une statistique
+- Le résultat est un *tibble* réduit contenant les nouvelles variables
+
+## Exemple d’utilisation de `summarise()`
+
+[`n()`](https://dplyr.tidyverse.org/reference/context.html) retourne le nombre d'observations (lignes) 
+
+Exemple : un *tibble* avec 3 variables résumé.
+```{r}
+#| echo: true
+#| eval: true
+d |>
+  summarise(
+    n = n(),                               # nombre total d’observations
+    age_moyen = mean(age, na.rm = TRUE),   # moyenne (ignore les NA)
+    revenu_max = max(revenu, na.rm = TRUE) # maximum (ignore les NA)
+  )
+```
+
+
+::: {.callout-tip appearance="simple" icon="false"}
+[`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) agrège les données : elle produit un ou des résumés statistiques.
+:::
+
+
+## Résumer les données par groupe
+
+[`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) définit des groupes d’observations à partir d’une ou plusieurs variables et [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) calcule des statistiques pour chaque groupe.
+
+Principe
+```{r}
+#| echo: true
+#| eval: false
+#| attr.source: 'style="font-size: 0.55em;"'
+data |>
+  group_by(variable_groupe) |>      # crée des groupes
+  summarise(nom_stat = expression)  # calcule une statistique par groupe
+
+```
+
+Exemple : un *tibble* avec 1 ligne par filière contenant les résumés.
+```{r}
+#| echo: true
+#| eval: true
+#| attr.source: 'style="font-size: 0.55em;"'
+#| attr.output: 'style="font-size: 0.35em;"'
+d |>
+  group_by(filiere) |>                    # crée un groupe par filière
+  summarise(
+    n = n(),                              # nombre d'observations par filière
+    age_moyen = mean(age, na.rm = TRUE)   # moyenne d'âge par filière (ignore les NA)
+  )
+```
+
+
+
+## `summarise()` : global vs par groupe
+
+
+- Sans [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html), [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) calcule une statistique globale : le résultat contient une seule ligne et une variable par statistique demandée.
+
+- Avec [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html), [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) calcule une statistique par groupe : une ligne est produite pour chaque groupe et une variable par statistique demandée.
+
+- Les fonctions comme [`mean()`](https://rdrr.io/r/base/mean.html), [`sum()`](https://rdrr.io/r/base/sum.html), [`min()`](https://rdrr.io/r/base/Extremes.html),  [`max()`](https://rdrr.io/r/base/Extremes.html), [`sd()`](https://rdrr.io/r/stats/sd.html), [`median()`](https://rdrr.io/r/stats/median.html), [`n()`](https://dplyr.tidyverse.org/reference/context.html) sont fréquemment utilisées dans [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html).
+
+
+## Recoder une variable — `ifelse()`
+
+La fonction [`ifelse()`](https://rdrr.io/r/base/ifelse.html) permet de créer ou recoder une variable en appliquant une condition simple.
+
+Elle fonctionne comme un "si … alors … sinon …".
+
+Principe
+
+```{r}
+#| echo: true
+#| eval: false
+#| attr.source: 'style="font-size: 0.55em;"'
+ifelse(condition, valeur_si_vrai, valeur_si_faux)
+```
+
+Exemples : créer une variable `majeur` (oui/non) et dichotomiser le revenu
+
+```{r}
+#| echo: true
+#| eval: true
+#| attr.source: 'style="font-size: 0.55em;"'
+#| attr.output: 'style="font-size: 0.35em;"'
+d |>
+  mutate(
+    majeur = ifelse(age >= 18, "oui", "non"),
+    rev_haut = ifelse(revenu > 5000, 1, 0)
+    )
+```
+
+
+## Recoder avec `ifelse()` — bonnes pratiques
+
+::: {.callout-tip appearance="simple" icon="false"}
+- [`ifelse()`](https://rdrr.io/r/base/ifelse.html) est adapté aux recodages binaires (2 catégories).
+- La condition de [`ifelse()`](https://rdrr.io/r/base/ifelse.html) peut utiliser plusieurs variables (ex. `ifelse(age >= 18 & genre == "F", ...)`).
+- Il est possible d’emboîter plusieurs [`ifelse()`](https://rdrr.io/r/base/ifelse.html), mais cela devient vite illisible → utiliser [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html) pour plusieurs conditions.
+:::
+
+
+## Recodages multiples — `case_when()`
+
+La fonction [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html) est une version lisible de plusieurs `ifelse` en cascade et permet de recoder ou de créer une variable selon plusieurs conditions.
+
+Principe
+```{r}
+#| echo: true
+#| eval: false
+#| attr.source: 'style="font-size: 0.6em;"'
+case_when(
+  condition1 ~ valeur1,
+  condition2 ~ valeur2,
+  .default   = valeur_par_defaut # valeur utilisée si aucune condition n’est vraie 
+)
+```
+
+::: {.callout-tip appearance="simple" icon="false"}
+- Dans [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html), les conditions sont testées une par une, de haut en bas.
+- La **première condition vraie** détermine la valeur renvoyée.
+- L’argument `.default =` permet d’indiquer une valeur à utiliser si aucune condition n’est satisfaite (sinon `.default = NULL`).
+- Sans `.default`, toutes les valeurs qui ne correspondent à aucune condition deviennent `NA`.
+- L’ordre des conditions est essentiel : toujours aller du plus **spécifique → au plus général**.
+:::
+
+
+## Recoder une variable — `case_when()`
+
+Recoder les âges en classes
+```{r}
+#| echo: true
+#| eval: false
+#| attr.source: 'style="font-size: 0.5em;"'
+#| attr.output: 'style="font-size: 0.3em;"'
+d |>
+  mutate(age_cat = case_when(
+    age < 18 ~ "<18",
+    age >= 18 & age < 30 ~ "18-29",
+    age >= 30 ~ "30+",
+    .default = NA  # NA renvoyé si aucune condition n’est vraie
+    ))
+
+```
+
+
+```{r}
+#| echo: true
+#| eval: true
+#| attr.source: 'style="font-size: 0.5em;"'
+#| attr.output: 'style="font-size: 0.3em;"'
+# Variante : gestion explicite des valeurs manquantes avec is.na()
+d |>
+  mutate(age_cat = case_when(
+    is.na(age) ~ NA, # attribue NA si l'âge est manquant
+    age < 18 ~ "<18",
+    age >= 18 & age < 30 ~ "18-29",
+    .default = "30+" # toutes les autres situations (30 ans et +)
+  ))
+```
+
+::: {.callout-tip appearance="simple" icon="false"}
+- [`is.na(x)`](https://rdrr.io/r/base/NA.html) teste si une valeur est manquante.
+- Elle renvoie `TRUE` si x est [`NA`](https://rdrr.io/r/base/NA.html), et `FALSE` sinon.
+- Très utile pour recoder explicitement les valeurs manquantes dans [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html).
+:::
+
+## Recoder avec plusieurs variables — `case_when()`
+
+Recoder selon l’âge et le genre
+```{r}
+#| echo: true
+#| eval: true
+#| attr.source: 'style="font-size: 0.5em;"'
+#| attr.output: 'style="font-size: 0.3em;"'
+d |>
+  mutate(age_genre = case_when(
+    age >= 18 & genre == "H" ~ "Homme majeur",
+    age < 18  & genre == "H" ~ "Homme mineur",
+    age >= 18 & genre == "F" ~ "Femme majeure",
+    age < 18  & genre == "F" ~ "Femme mineure",
+    .default = NA   # NA renvoyé si aucune condition n’est vraie
+  ))
+```
+
+::: {.callout-tip appearance="simple" icon="false"}
+- [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html) permet de combiner plusieurs variables dans les conditions (ex. âge et genre).
+:::
+
+
+## Interfaces graphiques de recodage
+
+Le package [`questionr`](https://juba.github.io/questionr/) propose des [interfaces graphiques](https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html) (*Addins*) dans RStudio qui permettent de recoder les variables sans écrire de code.
+
+- Chaque [*Addin*](https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html) génère automatiquement le code R correspondant que vous pouvez ensuite exécuter dans votre script.
+
+Dans RStudio : **Addins → QUESTIONR →**
+
+- [**Levels recoding**](https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html#levels-recoding-irec) : recoder et regrouper des modalités d’une variable catégorielle, changer la classe d'une variable
+- [**Levels ordering**](https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html#levels-ordering-iorder) : réordonner les niveaux d’un facteur
+- [**Numeric range dividing**](https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html#numeric-range-dividing-icut) : découper une variable numérique en classes
+
+
+## Les *Addins* interactifs du package `questionr`
+
+| *Addin* (RStudio)            | Fonction principale                                               | Fonctions R équivalentes                            |
+| -------------------------- | ----------------------------------------------------------------- | -------------------------------------------- |
+| **Levels recoding**        | Regrouper / renommer les modalités d’un facteur ou d’un caractère | [`fct_recode()`](https://forcats.tidyverse.org/reference/fct_recode.html), [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html)                |
+| **Levels ordering**        | Réordonner manuellement les niveaux d’un facteur                  | [`fct_relevel()`](https://forcats.tidyverse.org/reference/fct_relevel.html), [`factor(..., levels = ...)`](https://rdrr.io/r/base/factor.html) |
+| **Numeric range dividing** | Découper une variable numérique en classes (catégories)             | [`cut()`](https://rdrr.io/r/base/cut.html), [`case_when()`](https://dplyr.tidyverse.org/reference/case_when.html)                       |
+
+::: {.callout-tip appearance="simple" icon="false"}
+- Chaque [*Addin*](https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html) génère automatiquement le code R reproduisant exactement la transformation choisie.
+- Vous devez ensuite exécuter ce code pour appliquer le recodage.
+:::
+
 
 ## Ressources
 
-- Dossier `data/`
-- Script `R/`
-- Références à ajouter
+-   [Site du tidyverse](https://tidyverse.org/)
+-   [Introduction à R et au
+    tidyverse](ttps://juba.github.io/tidyverse/06-tidyverse.html)

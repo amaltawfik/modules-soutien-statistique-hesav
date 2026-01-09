@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="fr"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
-  <title>Modules de soutien statistique 2025–2026 – Nettoyage et manipulation des données avec R : introduction au tidyverse</title>
+  <meta name="author" content="Amal Tawfik">
+  <title>Modules de soutien statistique 2025–2026 – Nettoyage et manipulation des données avec R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,8 +31,75 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-bb72d792dec02ec08d7426c713f2f004.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-5ae9c59b2727fcd5357d4f034d95f9e0.css">
+  <link rel="stylesheet" href="nicecustom.scss">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -123,60 +194,1268 @@
     }
   </style>
 </head>
-<body class="quarto-dark">
+<body class="quarto-light">
+<script src="mathjax-config.js"></script>
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Nettoyage et manipulation des données avec R : introduction au tidyverse</h1>
-  <p class="subtitle">Importation, transformation et nettoyage des données</p>
+  <h1 class="title">Nettoyage et manipulation des données avec R</h1>
+  <p class="subtitle">Introduction au tidyverse</p>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Amal Tawfik <a href="https://orcid.org/0009-0006-2422-1555" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:amal.tawfik@hesav.ch">amal.tawfik@hesav.ch</a>
+</div>
+        <p class="quarto-title-affiliation">
+            HESAV Haute École de Santé - Vaud (HES-SO)
+          </p>
+    </div>
 </div>
 
-</section><section id="TOC">
-<nav role="doc-toc"> 
-<h2 id="toc-title">Table of contents</h2>
-<ul>
-
-<li><a href="#/objectifs" id="/toc-objectifs">Objectifs</a></li>
-<li><a href="#/plan" id="/toc-plan">Plan</a></li>
-<li><a href="#/ressources" id="/toc-ressources">Ressources</a></li>
-</ul>
-</nav>
+  <p class="date">15 janvier 2026</p>
 </section>
-<section class="slide level2">
-
-<div style="text-align:right; margin-top:-1em">
-<p><a href="index.pdf" target="_blank" class="btn btn-outline-secondary">📄 Télécharger le PDF</a></p>
-</div>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<ul>
+<li>Introduction au <a href="https://tidyverse.org/"><code>tidyverse</code></a></li>
+<li>Structure des données et principes <em>tidy</em></li>
+<li>Nettoyer le tableau de données (<a href="https://sfirke.github.io/janitor/"><code>janitor</code></a>)</li>
+<li>Le <em>pipe</em> : enchaîner les opérations</li>
+<li>Manipulation des données avec <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> : <a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code></a>, <a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a>, <a href="https://dplyr.tidyverse.org/reference/arrange.html"><code>arrange()</code></a>, <a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a>, <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a>, <a href="https://dplyr.tidyverse.org/reference/group_by.html"><code>group_by()</code></a></li>
+<li>Résumés globaux vs par groupe</li>
+<li>Recoder des variables (<a href="https://rdrr.io/r/base/ifelse.html"><code>ifelse()</code></a>, <a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>case_when()</code></a> et interfaces graphiques)</li>
+</ul>
 </section>
 <section id="objectifs" class="slide level2">
 <h2>Objectifs</h2>
 <ul>
-<li>À compléter selon le cours.</li>
+<li>Transformer un fichier brut en un <a href="https://rdrr.io/r/base/data.frame.html"><code>data.frame</code></a> (ou <a href="https://tibble.tidyverse.org/"><code>tibble</code></a>) propre et prêt pour l’analyse.</li>
+</ul>
+<p>Pour y parvenir :</p>
+<ul>
+<li>Identifier et corriger les problèmes courants dans les données brutes</li>
+<li>Utiliser les outils du <a href="https://tidyverse.org/"><code>tidyverse</code></a> pour nettoyer les données</li>
+<li>Structurer vos données selon les principes <em>tidy</em></li>
+<li>Préparer vos données pour l’analyse statistique</li>
 </ul>
 </section>
-<section id="plan" class="slide level2">
-<h2>Plan</h2>
+<section id="pourquoi-nettoyer-les-données" class="slide level2">
+<h2>Pourquoi nettoyer les données ?</h2>
+<p><strong>≈ 80%</strong> du temps est consacré à la préparation et au nettoyage des données, et seulement 20% à l’analyse.</p>
+<p>Ce qu’on rencontre dans les données brutes&nbsp;:</p>
+<ul>
+<li><p>valeurs manquantes (<a href="https://rdrr.io/r/base/NA.html"><code>NA</code></a>, cases vides)</p></li>
+<li><p>codages incohérents (<code>F</code>, <code>f</code>, <code>1</code>, <code>2</code>, etc.)</p></li>
+<li><p>erreurs de saisie (<code>99999</code> comme revenu)</p></li>
+<li><p>doublons (individu présent plusieurs fois)</p></li>
+<li><p>classes erronées (âge importé comme texte)</p></li>
+<li><p>colonnes inutiles ou mal nommées</p></li>
+</ul>
+</section>
+<section id="quest-ce-que-le-tidyverse" class="slide level2">
+<h2>Qu’est-ce que le <em>tidyverse</em> ?</h2>
+<p>Le <a href="https://tidyverse.org/"><code>tidyverse</code></a> est un ensemble cohérent de packages R dédiés à la <em>science des données</em>, conçu pour être :</p>
+<ul>
+<li>lisible<br>
+</li>
+<li>expressif<br>
+</li>
+<li>reproductible<br>
+</li>
+<li>intuitif</li>
+</ul>
+<p>Il repose sur une philosophie commune, une syntaxe uniforme et la structure <em>tidy</em> des données.</p>
+<ul>
+<li>Installation en une fois : <code>install.packages("tidyverse")</code></li>
+<li>Charger le tidyverse : <code>library(tidyverse)</code></li>
+</ul>
+</section>
+<section id="les-packages-principaux-du-tidyverse" class="slide level2">
+<h2>Les packages principaux du <em>tidyverse</em></h2>
+<p>Le <a href="https://tidyverse.org/"><code>tidyverse</code></a> fournit des outils pour chaque étape du <em>data workflow</em> :</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Étape</th>
+<th>Packages &amp; utilités</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Importer</td>
+<td><a href="https://readr.tidyverse.org/"><code>readr</code></a> (CSV), <a href="https://readxl.tidyverse.org/"><code>readxl</code></a> (Excel), <a href="https://haven.tidyverse.org/"><code>haven</code></a> (SPSS/Stata/SAS)</td>
+</tr>
+<tr class="even">
+<td>Manipuler</td>
+<td><a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> : filtrer, trier, sélectionner, créer des variables</td>
+</tr>
+<tr class="odd">
+<td>Restructurer</td>
+<td><a href="https://tidyr.tidyverse.org/"><code>tidyr</code></a> : pivoter (long ↔︎ wide), séparer, combiner</td>
+</tr>
+<tr class="even">
+<td>Visualiser</td>
+<td><a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a> : graphiques élégants et cohérents</td>
+</tr>
+<tr class="odd">
+<td>Gérer les textes</td>
+<td><a href="https://stringr.tidyverse.org/"><code>stringr</code></a> : chaînes de caractères</td>
+</tr>
+<tr class="even">
+<td>Gérer les facteurs</td>
+<td><a href="https://forcats.tidyverse.org/"><code>forcats</code></a> : niveaux, réordonnements</td>
+</tr>
+<tr class="odd">
+<td>Gérer les dates</td>
+<td><a href="https://lubridate.tidyverse.org/"><code>lubridate</code></a> : dates, heures, durées</td>
+</tr>
+<tr class="even">
+<td>Tibble moderne</td>
+<td><a href="https://tibble.tidyverse.org/"><code>tibble</code></a> : version améliorée d’un <code>data.frame</code></td>
+</tr>
+</tbody>
+</table>
+<p>Tous ces packages partagent une syntaxe cohérente et fonctionnent parfaitement ensemble.</p>
+</section>
+<section id="structure-dun-tableau-de-données-variables-valeurs-et-observations" class="slide level2">
+<h2>Structure d’un tableau de données : variables, valeurs et observations</h2>
+<ul>
+<li><p>Une <strong>variable</strong> représente une caractéristique mesurée (quantité, qualité, propriété).</p></li>
+<li><p>Une <strong>valeur</strong> est le résultat obtenu pour une variable lors d’une mesure.</p></li>
+<li><p>Une <strong>observation</strong> regroupe l’ensemble des valeurs mesurées dans les mêmes conditions (cas ou individu statistique).</p></li>
+<li><p>Un <strong>tableau de données rectangulaire</strong> associe chaque valeur à une variable (colonne) et à une observation (ligne).</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Dans R, ce type de tableau est représenté par un <a href="https://rdrr.io/r/base/data.frame.html"><code>data.frame</code></a> et sa version modernisée est le <a href="https://tibble.tidyverse.org/"><code>tibble</code></a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="données-tidy" class="slide level2">
+<h2>Données <em>tidy</em></h2>
+<p>Tous les tableaux de données rectangulaires ne sont pas également faciles à utiliser pour l’analyse.</p>
+<p>Plusieurs tableaux peuvent représenter les mêmes données, mais seule une structure <em>tidy</em> est pleinement exploitable dans le <a href="https://tidyverse.org/"><code>tidyverse</code></a>.</p>
+<p>Les données sont dites <em>tidy</em> (rangées) lorsque trois règles interdépendantes sont respectées :</p>
+<ul>
+<li>chaque variable correspond à une colonne<br>
+</li>
+<li>chaque observation correspond à une ligne<br>
+</li>
+<li>chaque valeur occupe une cellule et chaque cellule contient une seule valeur (pas de valeurs empilées du type “foot, basket, tennis”, ni de valeurs composites du type “23 kg”)</li>
+</ul>
+</section>
+<section id="visualisation-de-la-structure-tidy" class="slide level2">
+<h2>Visualisation de la structure <em>tidy</em></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="images/tidy-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="images/tidy-1.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+<p><em>Source :</em> <a href="https://r4ds.hadley.nz/data-tidy.html#fig-tidy-structure">https://r4ds.hadley.nz/data-tidy.html#fig-tidy-structure</a></p>
+</section>
+<section id="en-pratique-que-change-la-structure-tidy" class="slide level2">
+<h2>En pratique, que change la structure <em>tidy</em> ?</h2>
+<p>Lorsque ces règles sont respectées :</p>
+<ul>
+<li>chaque unité d’observation est clairement identifiée<br>
+</li>
+<li>des unités d’observation différentes sont stockées dans des tables distinctes</li>
+</ul>
+<p>Conséquence : on évite de mélanger individus, événements et mesures dans une même table.</p>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Les données <em>tidy</em> respectent une structure standardisée, conçue pour faciliter la manipulation, la visualisation et l’analyse avec les outils du <a href="https://tidyverse.org/"><code>tidyverse</code></a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="les-tibbles" class="slide level2">
+<h2>Les <em>tibbles</em></h2>
+<p>Dans le <a href="https://tidyverse.org/"><code>tidyverse</code></a>, les données sont manipulées sous forme de <a href="https://tibble.tidyverse.org/"><code>tibble</code></a>, une version moderne et améliorée de <a href="https://rdrr.io/r/base/data.frame.html"><code>data.frame</code></a> de R.</p>
+<p>Les <a href="https://tibble.tidyverse.org/"><code>tibbles</code></a> sont :</p>
+<ul>
+<li>fournis par le package <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> (au cœur du <a href="https://tidyverse.org/"><code>tidyverse</code></a>)</li>
+<li>acceptés par la plupart des fonctions du <a href="https://tidyverse.org/"><code>tidyverse</code></a></li>
+<li>retournés par défaut par <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a>, <a href="https://tidyr.tidyverse.org/"><code>tidyr</code></a>, <a href="https://ggplot2.tidyverse.org/"><code>ggplot2</code></a>, etc.</li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Un <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> est un <a href="https://rdrr.io/r/base/data.frame.html"><code>data.frame</code></a> plus strict, plus lisible et plus sûr.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pourquoi-utiliser-des-tibbles" class="slide level2">
+<h2>Pourquoi utiliser des <em>tibbles</em> ?</h2>
+<p>Contrairement aux <a href="https://rdrr.io/r/base/data.frame.html"><code>data.frames</code></a> classiques, les <a href="https://tibble.tidyverse.org/"><code>tibbles</code></a> :</p>
+<ul>
+<li>n’ont pas de noms de lignes (<code>rownames</code>)</li>
+<li>autorisent des noms de colonnes non standards (espaces, caractères spéciaux, nombres…) entourés avec des backticks (<code>`</code>)</li>
+<li>s’affichent intelligemment (aperçu des lignes, dimensions, types de variables)</li>
+<li>pas de <em>partial matching</em> sur les noms de colonnes (si une table <code>d</code> contient une colonne <code>qualif</code>, <code>d$qual</code> ne retournera pas cette colonne)</li>
+<li>avertissent lorsqu’une colonne n’existe pas</li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Ils font moins de choses automatiques mais signalent plus tôt les erreurs</p>
+</div>
+</div>
+</div>
+</section>
+<section id="compatibilité-de-tibble-et-data.frame" class="slide level2">
+<h2>Compatibilité de <code>tibble</code> et <code>data.frame</code></h2>
+<p>Un <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> reste totalement compatible avec un <a href="https://rdrr.io/r/base/data.frame.html"><code>data.frame</code></a> :</p>
+<ul>
+<li>la plupart des fonctions du tidyverse acceptent un <a href="https://rdrr.io/r/base/data.frame.html"><code>data.frame</code></a> en entrée</li>
+<li>elles retournent généralement un <a href="https://tibble.tidyverse.org/"><code>tibble</code></a></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars) <span class="co"># Affiche les 6 premières lignes (n = 6 par défaut)</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+</div>
+</div>
+</section>
+<section id="conversion-de-data.frame-en-tibble" class="slide level2">
+<h2>Conversion de <code>data.frame</code> en <code>tibble</code></h2>
+<p><a href="https://tibble.tidyverse.org/reference/as_tibble.html"><code>as_tibble()</code></a> convertit un <a href="https://rdrr.io/r/base/data.frame.html"><code>data.frame</code></a> en <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> :</p>
+<ul>
+<li>les variables et leurs types sont conservés</li>
+<li>les <code>rownames</code> sont supprimés par défaut</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(mtcars)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 32 × 11
+     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+ 2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+ 3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+ 4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+ 5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+ 6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+ 7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+ 8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+ 9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+# ℹ 22 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="convertir-les-noms-de-lignes-en-variables" class="slide level2">
+<h2>Convertir les noms de lignes en variables</h2>
+<p>Il est possible de transformer les <code>rownames</code> en colonne explicite en utilisant l’argument <code>rownames</code> :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>(mtcars, <span class="at">rownames =</span> <span class="st">"car_names"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.5em;"><code># A tibble: 32 × 12
+   car_names     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 Mazda RX4    21       6  160    110  3.9   2.62  16.5     0     1     4     4
+ 2 Mazda RX4 …  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+ 3 Datsun 710   22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+ 4 Hornet 4 D…  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+ 5 Hornet Spo…  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+ 6 Valiant      18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+ 7 Duster 360   14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+ 8 Merc 240D    24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+ 9 Merc 230     22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+10 Merc 280     19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+# ℹ 22 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="nettoyer-les-noms-des-variables" class="slide level2">
+<h2>Nettoyer les noms des variables</h2>
+<p>Le package <a href="https://sfirke.github.io/janitor/"><code>janitor</code></a> fournit des outils simples pour nettoyer et standardiser les données.</p>
+<p>Souvent, les données importées contiennent des colonnes avec :</p>
+<ul>
+<li>des espaces<br>
+</li>
+<li>des caractères spéciaux<br>
+</li>
+<li>des majuscules mélangées<br>
+</li>
+<li>des noms peu lisibles</li>
+</ul>
+<p>La fonction <a href="https://sfirke.github.io/janitor/reference/clean_names.html"><code>clean_names()</code></a> nettoie les noms de colonnes pour qu’ils soient propres, cohérents et faciles à manipuler.</p>
+</section>
+<section id="que-fait-clean_names" class="slide level2">
+<h2>Que fait <code>clean_names()</code> ?</h2>
+<p>Par défaut, la fonction <a href="https://sfirke.github.io/janitor/reference/clean_names.html"><code>clean_names()</code></a> du package <a href="https://sfirke.github.io/janitor/"><code>janitor</code></a> applique la convention de nommage <em>snake case</em> qui est la convention recommandée dans le <a href="https://style.tidyverse.org/syntax.html">tidyverse</a>.</p>
+<p>Elle transforme les noms de colonnes pour :</p>
+<ul>
+<li>être en minuscules</li>
+<li>remplacer les espaces et caractères spéciaux par des <em>underscores</em> (<code>_</code>)</li>
+<li>éviter les noms invalides ou ambigus</li>
+<li>produire des noms faciles à taper et cohérents</li>
+</ul>
+</section>
+<section id="exemple" class="slide level2">
+<h2>Exemple</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="font-size: 0.8em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb7-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Nom Col 1"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb7-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Âge (ans)"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">24</span>, <span class="dv">30</span>, <span class="dv">29</span>),</span>
+<span id="cb7-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="st">"Score (%)"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">90</span>, <span class="dv">85</span>)</span>
+<span id="cb7-7"><a aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-8"><a aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.5em;"><code># A tibble: 3 × 3
+  `Nom Col 1` `Âge (ans)` `Score (%)`
+        &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+1           1          24          80
+2           2          30          90
+3           3          29          85</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="font-size: 0.8em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">clean_names</span>(d)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.5em;"><code># A tibble: 3 × 3
+  nom_col_1 age_ans score_percent
+      &lt;int&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+1         1      24            80
+2         2      30            90
+3         3      29            85</code></pre>
+</div>
+</div>
+</section>
+<section id="autres-fonctions-utiles-de-nettoyage" class="slide level2">
+<h2>Autres fonctions utiles de nettoyage</h2>
+<p>Plusieurs autres fonctions du package <a href="https://sfirke.github.io/janitor/"><code>janitor</code></a>&nbsp;:</p>
+<ul>
+<li><p><a href="https://sfirke.github.io/janitor/reference/remove_empty.html"><code>remove_empty()</code></a> supprime les lignes ou colonnes entièrement composées de <code>NA</code>.</p></li>
+<li><p><a href="https://sfirke.github.io/janitor/reference/get_dupes.html"><code>get_dupes()</code></a> identifie les doublons sur une ou plusieurs variables.</p></li>
+</ul>
+<p>Exemple</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">id    =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="cn">NA</span>),</span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">nom   =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Bob"</span>, <span class="cn">NA</span>),</span>
+<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="cn">NA</span>),</span>
+<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">vide  =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>))</span>
+<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 4 × 4
+     id nom   score vide 
+  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;lgl&gt;
+1     1 Alice    15 NA   
+2     2 Bob      10 NA   
+3     2 Bob      15 NA   
+4    NA &lt;NA&gt;     NA NA   </code></pre>
+</div>
+</div>
+</section>
+<section id="exemples" class="slide level2">
+<h2>Exemples</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">remove_empty</span>(d)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 3 × 3
+     id nom   score
+  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+1     1 Alice    15
+2     2 Bob      10
+3     2 Bob      15</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">remove_empty</span>(d, <span class="at">which =</span> <span class="st">"cols"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 4 × 3
+     id nom   score
+  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+1     1 Alice    15
+2     2 Bob      10
+3     2 Bob      15
+4    NA &lt;NA&gt;     NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">get_dupes</span>(d, score)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 2 × 5
+  score dupe_count    id nom   vide 
+  &lt;dbl&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;
+1    15          2     1 Alice NA   
+2    15          2     2 Bob   NA   </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">get_dupes</span>(d, id, nom)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 2 × 5
+     id nom   dupe_count score vide 
+  &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;lgl&gt;
+1     2 Bob            2    10 NA   
+2     2 Bob            2    15 NA   </code></pre>
+</div>
+</div>
+</section>
+<section id="le-pipe-enchaîner-les-opérations" class="slide level2">
+<h2>Le <em>pipe</em> : enchaîner les opérations</h2>
+<p>Le <em>pipe</em> (<a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/pipeOp.html"><code>|&gt;</code></a> natif R ou <a href="https://magrittr.tidyverse.org/reference/pipe.html"><code>%&gt;%</code></a> du package <a href="https://magrittr.tidyverse.org/index.html"><code>magrittr</code></a>) permet d’enchaîner plusieurs opérations dans l’ordre où on les lit.</p>
+<p><strong>Principe :</strong> Ce qui se trouve <strong>à gauche</strong> du pipe est envoyé comme premier argument à la fonction <strong>à droite</strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> <span class="fu">fonction1</span>() <span class="sc">|&gt;</span> <span class="fu">fonction2</span>() <span class="sc">|&gt;</span> <span class="fu">fonction3</span>()</span>
+<span id="cb21-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb21-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">fonction1</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb21-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">fonction2</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb21-6"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">fonction3</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>“Prends cet objet → puis applique cette transformation → puis cette autre → etc.”</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pourquoi-utiliser-le-pipe" class="slide level2">
+<h2>Pourquoi utiliser le <em>pipe</em> ?</h2>
+<p>Exemple</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb22-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">id_etud =</span> <span class="fu">c</span>(<span class="st">"E001"</span>, <span class="st">"E002"</span>, <span class="st">"E003"</span>, <span class="st">"E004"</span>),</span>
+<span id="cb22-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">genre =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"H"</span>, <span class="st">"F"</span>, <span class="st">"H"</span>)),</span>
+<span id="cb22-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">19</span>),</span>
+<span id="cb22-5"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">filiere =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Soins infirmiers"</span>, </span>
+<span id="cb22-6"><a aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Physiothérapie"</span>, </span>
+<span id="cb22-7"><a aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Soins infirmiers"</span>, </span>
+<span id="cb22-8"><a aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Ergothérapie"</span>)),</span>
+<span id="cb22-9"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">abs_just =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>),</span>
+<span id="cb22-10"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">abs_non_just =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb22-11"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">revenu =</span> <span class="fu">c</span>(<span class="dv">6200</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">4800</span>)</span>
+<span id="cb22-12"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-13"><a aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 4 × 7
+  id_etud genre   age filiere          abs_just abs_non_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 E001    F        17 Soins infirmiers        2            0   6200
+2 E002    H        20 Physiothérapie          4            1     NA
+3 E003    F        23 Soins infirmiers        1            2     NA
+4 E004    H        19 Ergothérapie            3            0   4800</code></pre>
+</div>
+</div>
+</section>
+<section id="sans-pipe-deux-problèmes-courants" class="slide level2">
+<h2>Sans <em>pipe</em>, deux problèmes courants</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ol type="1">
-<li>…</li>
-<li>…</li>
-<li>…</li>
+<li>Fonctions imbriquées (difficile à lire, ordre inversé) :</li>
 </ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">select</span>(</span>
+<span id="cb24-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb24-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(d, age <span class="sc">&gt;=</span> <span class="dv">18</span>),</span>
+<span id="cb24-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">abs_total =</span> abs_just <span class="sc">+</span> abs_non_just</span>
+<span id="cb24-5"><a aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb24-6"><a aria-hidden="true" tabindex="-1"></a>  id_etud, genre, filiere, abs_total</span>
+<span id="cb24-7"><a aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb24-8"><a aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 3 × 4
+  id_etud genre filiere          abs_total
+  &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt;                &lt;dbl&gt;
+1 E002    H     Physiothérapie           5
+2 E003    F     Soins infirmiers         3
+3 E004    H     Ergothérapie             3</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ol start="2" type="1">
+<li>Objets intermédiaires (répétitif, risque d’erreur) :</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(d, age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
+<span id="cb26-2"><a aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d1, <span class="at">abs_total =</span> abs_just <span class="sc">+</span> abs_non_just)</span>
+<span id="cb26-3"><a aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">select</span>(d1, id_etud, genre, filiere, abs_total)</span>
+<span id="cb26-4"><a aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 3 × 4
+  id_etud genre filiere          abs_total
+  &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt;                &lt;dbl&gt;
+1 E002    H     Physiothérapie           5
+2 E003    F     Soins infirmiers         3
+3 E004    H     Ergothérapie             3</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="le-pipe-lire-le-code-comme-une-phrase" class="slide level2">
+<h2>Le <em>pipe</em> : lire le code comme une phrase</h2>
+<p>Avec <em>pipe</em>, lisible de gauche à droite (et de haut en bas) :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">18</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">abs_total =</span> abs_just <span class="sc">+</span> abs_non_just) <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id_etud, genre, filiere, abs_total)</span>
+<span id="cb28-5"><a aria-hidden="true" tabindex="-1"></a>d1</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.4em;"><code># A tibble: 3 × 4
+  id_etud genre filiere          abs_total
+  &lt;chr&gt;   &lt;fct&gt; &lt;fct&gt;                &lt;dbl&gt;
+1 E002    H     Physiothérapie           5
+2 E003    F     Soins infirmiers         3
+3 E004    H     Ergothérapie             3</code></pre>
+</div>
+</div>
+<div title="On lit le code comme une phrase">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>On lit le code comme une phrase</strong></p>
+</div>
+<div class="callout-content">
+<p>“Crée <code>d1</code> en prenant <code>d</code>, en filtrant les personnes de 18 ans ou plus, en ajoutant une variable <code>abs_total</code> qui additionne les absences justifiées et non justifiées, puis en sélectionnant uniquement les variables <code>id_etud</code>, <code>genre</code>, <code>filiere</code> et <code>abs_total</code>.”</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="les-avantages-du-pipe" class="slide level2">
+<h2>Les avantages du <em>pipe</em></h2>
+<p>Enchaîner les opérations avec <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/pipeOp.html"><code>|&gt;</code></a> (appelé <em>pipeline</em>) permet :</p>
+<ul>
+<li>Lisibilité : le code se lit comme une phrase, dans l’ordre naturel<br>
+</li>
+<li>Modularité : facile d’ajouter ou retirer une étape<br>
+</li>
+<li>Débogage : on peut tester étape par étape<br>
+</li>
+<li>Reproductibilité : chaque transformation est explicite</li>
+</ul>
+<p><strong>À retenir :</strong></p>
+<ul>
+<li>On sauvegarde le résultat final dans un objet : <code>resultat &lt;- donnees |&gt; ...</code></li>
+<li>Le <em>pipe</em> n’est pas qu’un outil syntaxique, c’est une façon de penser la transformation des données</li>
+</ul>
+</section>
+<section id="manipuler-les-données-avec-dplyr" class="slide level2">
+<h2>Manipuler les données avec <code>dplyr</code></h2>
+<p><a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> est le package du <a href="https://tidyverse.org/"><code>tidyverse</code></a> dédié à la manipulation de données. Il propose une syntaxe claire et cohérente, sous forme de <strong>verbes</strong>, pour transformer une ou plusieurs tables.</p>
+<p>Les principaux verbes de manipulation :</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Action sur les données</th>
+<th>Verbe de <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sélectionner des lignes (observations)</td>
+<td><a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code></a></td>
+</tr>
+<tr class="even">
+<td>Sélectionner ou réordonner des colonnes (variables)</td>
+<td><a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a></td>
+</tr>
+<tr class="odd">
+<td>Trier les observations</td>
+<td><a href="https://dplyr.tidyverse.org/reference/arrange.html"><code>arrange()</code></a></td>
+</tr>
+<tr class="even">
+<td>Créer ou transformer des variables</td>
+<td><a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a></td>
+</tr>
+<tr class="odd">
+<td>Résumer les données (par groupe)</td>
+<td><a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> + <a href="https://dplyr.tidyverse.org/reference/group_by.html"><code>group_by()</code></a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sélectionner-des-lignes-observations-filter" class="slide level2">
+<h2>Sélectionner des lignes (observations) — <code>filter()</code></h2>
+<p>La fonction <a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code></a> permet de conserver uniquement les lignes qui satisfont une ou plusieurs conditions.</p>
+<ul>
+<li>Elle agit sur les observations (lignes), pas sur les variables (colonnes).</li>
+</ul>
+<p><strong>Principe</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> <span class="fu">filter</span>(condition)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>la condition doit être <code>TRUE</code> pour que la ligne soit conservée</li>
+<li>plusieurs conditions peuvent être combinées (<code>&amp;</code>, <code>|</code>)</li>
+</ul>
+<p>Exemple : conserver les personnes âgées de 18 ans ou plus</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="écrire-des-conditions-logiques" class="slide level2">
+<h2>Écrire des conditions logiques</h2>
+<p>Pour sélectionner des observations (créer des sous-ensembles) ou recoder des variables, on écrit des <strong>conditions logiques</strong>.</p>
+<p>Une condition est une expression logique dont le résultat est :</p>
+<ul>
+<li><p><code>TRUE</code> = la ligne est conservée</p></li>
+<li><p><code>FALSE</code> = la ligne est exclue</p></li>
+</ul>
+<p>Les conditions reposent sur :</p>
+<ul>
+<li><p>des opérateurs de comparaison</p></li>
+<li><p>des opérateurs logiques</p></li>
+</ul>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code></a> conserve uniquement les lignes pour lesquelles la condition est vraie.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="opérateurs-logiques-et-de-comparaison" class="slide level2">
+<h2>Opérateurs logiques et de comparaison</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><em>Opérateurs de comparaison</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Opérateur</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>égal à</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>différent de</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>strictement supérieur à</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>strictement inférieur à</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>supérieur ou égal à</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>inférieur ou égal à</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<p><em>Opérateurs logiques</em></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Opérateur</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&amp;</code></td>
+<td>ET logique</td>
+</tr>
+<tr class="even">
+<td><code>|</code></td>
+<td>OU logique</td>
+</tr>
+<tr class="odd">
+<td><code>!</code></td>
+<td>négation logique</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="exemples-de-conditions-logiques-avec-filter" class="slide level2">
+<h2>Exemples de conditions logiques avec <code>filter()</code></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">filter</span>(age <span class="sc">&lt;</span> <span class="dv">18</span>)                                                <span class="co"># comparaison</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 1 × 7
+  id_etud genre   age filiere          abs_just abs_non_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 E001    F        17 Soins infirmiers        2            0   6200</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">filter</span>(genre <span class="sc">==</span> <span class="st">"F"</span>)                                            <span class="co"># égalité</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 2 × 7
+  id_etud genre   age filiere          abs_just abs_non_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 E001    F        17 Soins infirmiers        2            0   6200
+2 E003    F        23 Soins infirmiers        1            2     NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">filter</span>(abs_just <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> genre <span class="sc">==</span> <span class="st">"H"</span>)                            <span class="co"># ET</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 1 × 7
+  id_etud genre   age filiere        abs_just abs_non_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;             &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 E002    H        20 Physiothérapie        4            1     NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">filter</span>(filiere <span class="sc">==</span> <span class="st">"Physiothérapie"</span> <span class="sc">|</span> filiere <span class="sc">==</span> <span class="st">"Ergothérapie"</span>) <span class="co"># OU</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 2 × 7
+  id_etud genre   age filiere        abs_just abs_non_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;             &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 E002    H        20 Physiothérapie        4            1     NA
+2 E004    H        19 Ergothérapie          3            0   4800</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(revenu))                                          <span class="co"># valeurs non manquantes</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 2 × 7
+  id_etud genre   age filiere          abs_just abs_non_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 E001    F        17 Soins infirmiers        2            0   6200
+2 E004    H        19 Ergothérapie            3            0   4800</code></pre>
+</div>
+</div>
+</section>
+<section id="sélectionner-des-colonnes-variables-select" class="slide level2">
+<h2>Sélectionner des colonnes (variables) — <code>select()</code></h2>
+<p>La fonction <a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a> permet de choisir, réordonner ou supprimer des variables (colonnes).</p>
+<ul>
+<li>Elle agit sur les variables (colonnes), pas sur les observations (lignes).</li>
+</ul>
+<p><strong>Principe</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> <span class="fu">select</span>(col1, col2, ...)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>on indique les variables à conserver</li>
+<li>l’ordre d’écriture = ordre final des variables</li>
+</ul>
+<p>Exemple : conserver uniquement les variables <code>id_etud</code>et <code>genre</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">select</span>(id_etud, genre)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="sélectionner-une-plage-de-variables-select" class="slide level2">
+<h2>Sélectionner une plage de variables — <code>select()</code></h2>
+<p>Sélectionner un ensemble de variables consécutives en utilisant <code>:</code> :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">select</span>(genre<span class="sc">:</span>filiere)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 4 × 3
+  genre   age filiere         
+  &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;           
+1 F        17 Soins infirmiers
+2 H        20 Physiothérapie  
+3 F        23 Soins infirmiers
+4 H        19 Ergothérapie    </code></pre>
+</div>
+</div>
+<p><code>genre:filiere</code> sélectionne toutes les variables de <code>genre</code> à <code>filiere</code> incluses (selon leur ordre dans le tableau).</p>
+<p>Quand l’utiliser ?</p>
+<ul>
+<li>Lorsque les variables se suivent dans le tableau</li>
+<li>Pour éviter d’écrire une longue liste de noms de variables</li>
+</ul>
+<div class="callout callout-warning no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>La sélection par plage dépend de l’ordre des variables dans le tableau.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="réordonner-les-variables-colonnes-select" class="slide level2">
+<h2>Réordonner les variables (colonnes) — <code>select()</code></h2>
+<p><a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a> permet aussi de changer l’ordre des variables dans le tableau de données.</p>
+<p>Exemple : placer <code>revenu</code> en première colonne, puis conserver toutes les autres avec <a href="https://tidyselect.r-lib.org/reference/everything.html"><code>everything()</code></a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">select</span>(revenu, <span class="fu">everything</span>())</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.35em;"><code># A tibble: 4 × 7
+  revenu id_etud genre   age filiere          abs_just abs_non_just
+   &lt;dbl&gt; &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;
+1   6200 E001    F        17 Soins infirmiers        2            0
+2     NA E002    H        20 Physiothérapie          4            1
+3     NA E003    F        23 Soins infirmiers        1            2
+4   4800 E004    H        19 Ergothérapie            3            0</code></pre>
+</div>
+</div>
+<p>Utilités :</p>
+<ul>
+<li>Mettre les variables clés au début du tableau de données</li>
+<li>Faciliter la lecture et la compréhension des données avant une analyse ou une exportation</li>
+</ul>
+</section>
+<section id="sélecteurs-de-colonnes-helpers" class="slide level2">
+<h2>Sélecteurs de colonnes (<em>helpers</em>)</h2>
+<p><a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a> propose des <strong>sélecteurs</strong> (<em>helpers</em>) pour choisir plusieurs variables sans écrire leurs noms un par un. Ces fonctions sont fournies par le package <a href="https://tidyselect.r-lib.org/index.html"><code>tidyselect</code></a> dont la liste est <a href="https://tidyselect.r-lib.org/reference/language.html">ici</a>.</p>
+<p>Exemples de sélecteurs : <a href="https://tidyselect.r-lib.org/reference/starts_with.html"><code>starts_with()</code></a>, <a href="https://tidyselect.r-lib.org/reference/starts_with.html"><code>ends_with()</code></a>, <a href="https://tidyselect.r-lib.org/reference/starts_with.html"><code>contains()</code></a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48" style="font-size: 0.5em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"abs"</span>))   <span class="co"># commence par "abs"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 4 × 2
+  abs_just abs_non_just
+     &lt;dbl&gt;        &lt;dbl&gt;
+1        2            0
+2        4            1
+3        1            2
+4        3            0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50" style="font-size: 0.5em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">"_just"</span>))   <span class="co"># se termine par "_just"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 4 × 2
+  abs_just abs_non_just
+     &lt;dbl&gt;        &lt;dbl&gt;
+1        2            0
+2        4            1
+3        1            2
+4        3            0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" style="font-size: 0.5em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"age"</span>))      <span class="co"># contient "age"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 4 × 1
+    age
+  &lt;dbl&gt;
+1    17
+2    20
+3    23
+4    19</code></pre>
+</div>
+</div>
+</section>
+<section id="supprimer-ou-renommer-des-variables" class="slide level2">
+<h2>Supprimer ou renommer des variables</h2>
+<p>Supprimer une variable avec <code>-</code> :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>abs_non_just)        <span class="co"># supprimer "abs_non_just"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.35em;"><code># A tibble: 4 × 6
+  id_etud genre   age filiere          abs_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;  &lt;dbl&gt;
+1 E001    F        17 Soins infirmiers        2   6200
+2 E002    H        20 Physiothérapie          4     NA
+3 E003    F        23 Soins infirmiers        1     NA
+4 E004    H        19 Ergothérapie            3   4800</code></pre>
+</div>
+</div>
+<p>Renommer des variables :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span></span>
+<span id="cb56-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">identifiant =</span> id_etud,</span>
+<span id="cb56-3"><a aria-hidden="true" tabindex="-1"></a>         <span class="at">sexe =</span> genre,</span>
+<span id="cb56-4"><a aria-hidden="true" tabindex="-1"></a>         revenu)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.35em;"><code># A tibble: 4 × 3
+  identifiant sexe  revenu
+  &lt;chr&gt;       &lt;fct&gt;  &lt;dbl&gt;
+1 E001        F       6200
+2 E002        H         NA
+3 E003        F         NA
+4 E004        H       4800</code></pre>
+</div>
+</div>
+</section>
+<section id="trier-les-observations-arrange" class="slide level2">
+<h2>Trier les observations — <code>arrange()</code></h2>
+<p>La fonction <a href="https://dplyr.tidyverse.org/reference/arrange.html"><code>arrange()</code></a> permet de trier les lignes (observations) d’un tableau selon une ou plusieurs variables.</p>
+<p>Elle change uniquement l’ordre des observations, sans modifier les valeurs.</p>
+<p>Principe</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> <span class="fu">arrange</span>(variable)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>le tri est croissant par défaut</li>
+<li>les valeurs manquantes (<code>NA</code>) sont placées à la fin</li>
+</ul>
+<p>Exemple : trier les observations par âge croissant</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">arrange</span>(age)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="trier-selon-plusieurs-variables-arrange" class="slide level2">
+<h2>Trier selon plusieurs variables — <code>arrange()</code></h2>
+<p>Il est possible de trier selon plusieurs variables, dans l’ordre indiqué.</p>
+<p>Exemple : trier d’abord par <code>filiere</code>, puis par <code>age</code> à l’intérieur de chaque <code>filiere</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">arrange</span>(filiere, age)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.35em;"><code># A tibble: 4 × 7
+  id_etud genre   age filiere          abs_just abs_non_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 E004    H        19 Ergothérapie            3            0   4800
+2 E002    H        20 Physiothérapie          4            1     NA
+3 E001    F        17 Soins infirmiers        2            0   6200
+4 E003    F        23 Soins infirmiers        1            2     NA</code></pre>
+</div>
+</div>
+<p>Pour trier en ordre décroissant, on utilise <a href="https://dplyr.tidyverse.org/reference/desc.html"><code>desc()</code></a> :</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(revenu))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.35em;"><code># A tibble: 4 × 7
+  id_etud genre   age filiere          abs_just abs_non_just revenu
+  &lt;chr&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 E001    F        17 Soins infirmiers        2            0   6200
+2 E004    H        19 Ergothérapie            3            0   4800
+3 E002    H        20 Physiothérapie          4            1     NA
+4 E003    F        23 Soins infirmiers        1            2     NA</code></pre>
+</div>
+</div>
+</section>
+<section id="créer-ou-transformer-des-variables-mutate" class="slide level2">
+<h2>Créer ou transformer des variables — <code>mutate()</code></h2>
+<p>La fonction <a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a> permet de :</p>
+<ul>
+<li>créer de nouvelles variables</li>
+<li>transformer/recoder des variables existantes</li>
+</ul>
+<p>Elle ne modifie pas le nombre d’observations.</p>
+<p>Principe</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">nouvelle_variable =</span> expression)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>la nouvelle variable est ajoutée au tableau</li>
+</ul>
+<p>Exemple : créer une variable <code>abs_total</code> (total des absences)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">abs_total =</span> abs_just <span class="sc">+</span> abs_non_just)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="exemples-avec-mutate" class="slide level2">
+<h2>Exemples avec <code>mutate()</code></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span></span>
+<span id="cb66-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb66-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">age2 =</span> age<span class="sc">^</span><span class="dv">2</span>,                           <span class="co"># transformation numérique (au carré)</span></span>
+<span id="cb66-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">majeur =</span> age <span class="sc">&gt;=</span> <span class="dv">18</span>,                     <span class="co"># indicateur logique TRUE / FALSE</span></span>
+<span id="cb66-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">age_plus_1 =</span> age <span class="sc">+</span> <span class="dv">1</span>,                   <span class="co"># création d’une nouvelle variable</span></span>
+<span id="cb66-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">abs_total =</span> abs_just <span class="sc">+</span> abs_non_just,    <span class="co"># somme de deux variables</span></span>
+<span id="cb66-7"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">abs_dicho =</span> <span class="fu">as.integer</span>(abs_total <span class="sc">&gt;</span> <span class="dv">3</span>),  <span class="co"># indicateur binaire (1 si &gt; 3 absences, 0 sinon)</span></span>
+<span id="cb66-8"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">id_etud =</span> <span class="fu">as.factor</span>(id_etud)            <span class="co"># transformation en facteur</span></span>
+<span id="cb66-9"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a aria-hidden="true" tabindex="-1"></a>d </span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.35em;"><code># A tibble: 4 × 12
+  id_etud genre   age filiere          abs_just abs_non_just revenu  age2 majeur age_plus_1 abs_total abs_dicho
+  &lt;fct&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;
+1 E001    F        17 Soins infirmiers        2            0   6200   289 FALSE          18         2         0
+2 E002    H        20 Physiothérapie          4            1     NA   400 TRUE           21         5         1
+3 E003    F        23 Soins infirmiers        1            2     NA   529 TRUE           24         3         0
+4 E004    H        19 Ergothérapie            3            0   4800   361 TRUE           20         3         0</code></pre>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Dans <a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a>, les variables sont créées de haut en bas : une variable nouvellement créée peut être réutilisée immédiatement.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="résumer-les-données-summarise" class="slide level2">
+<h2>Résumer les données — <code>summarise()</code></h2>
+<p>La fonction <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> permet de calculer des statistiques sur une ou plusieurs variables d’un tableau de données.</p>
+<ul>
+<li>Elle retourne un nouveau tableau contenant uniquement les résumés spécifiés.</li>
+</ul>
+<p>Principe</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb69-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb69-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">nom_stat1 =</span> expression1,</span>
+<span id="cb69-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">nom_stat2 =</span> expression2</span>
+<span id="cb69-5"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Chaque <code>expression</code> calcule une statistique</li>
+<li>Le résultat est un <em>tibble</em> réduit contenant les nouvelles variables</li>
+</ul>
+</section>
+<section id="exemple-dutilisation-de-summarise" class="slide level2">
+<h2>Exemple d’utilisation de <code>summarise()</code></h2>
+<p><a href="https://dplyr.tidyverse.org/reference/context.html"><code>n()</code></a> retourne le nombre d’observations (lignes)</p>
+<p>Exemple : un <em>tibble</em> avec 3 variables résumé.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span></span>
+<span id="cb70-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb70-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),                               <span class="co"># nombre total d’observations</span></span>
+<span id="cb70-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">age_moyen =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),   <span class="co"># moyenne (ignore les NA)</span></span>
+<span id="cb70-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">revenu_max =</span> <span class="fu">max</span>(revenu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># maximum (ignore les NA)</span></span>
+<span id="cb70-6"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+      n age_moyen revenu_max
+  &lt;int&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+1     4      19.8       6200</code></pre>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> agrège les données : elle produit un ou des résumés statistiques.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="résumer-les-données-par-groupe" class="slide level2">
+<h2>Résumer les données par groupe</h2>
+<p><a href="https://dplyr.tidyverse.org/reference/group_by.html"><code>group_by()</code></a> définit des groupes d’observations à partir d’une ou plusieurs variables et <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> calcule des statistiques pour chaque groupe.</p>
+<p>Principe</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72" style="font-size: 0.55em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb72-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable_groupe) <span class="sc">|&gt;</span>      <span class="co"># crée des groupes</span></span>
+<span id="cb72-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nom_stat =</span> expression)  <span class="co"># calcule une statistique par groupe</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Exemple : un <em>tibble</em> avec 1 ligne par filière contenant les résumés.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73" style="font-size: 0.55em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span></span>
+<span id="cb73-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(filiere) <span class="sc">|&gt;</span>                    <span class="co"># crée un groupe par filière</span></span>
+<span id="cb73-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb73-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),                              <span class="co"># nombre d'observations par filière</span></span>
+<span id="cb73-5"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">age_moyen =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)   <span class="co"># moyenne d'âge par filière (ignore les NA)</span></span>
+<span id="cb73-6"><a aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.35em;"><code># A tibble: 3 × 3
+  filiere              n age_moyen
+  &lt;fct&gt;            &lt;int&gt;     &lt;dbl&gt;
+1 Ergothérapie         1        19
+2 Physiothérapie       1        20
+3 Soins infirmiers     2        20</code></pre>
+</div>
+</div>
+</section>
+<section id="summarise-global-vs-par-groupe" class="slide level2">
+<h2><code>summarise()</code> : global vs par groupe</h2>
+<ul>
+<li><p>Sans <a href="https://dplyr.tidyverse.org/reference/group_by.html"><code>group_by()</code></a>, <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> calcule une statistique globale : le résultat contient une seule ligne et une variable par statistique demandée.</p></li>
+<li><p>Avec <a href="https://dplyr.tidyverse.org/reference/group_by.html"><code>group_by()</code></a>, <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a> calcule une statistique par groupe : une ligne est produite pour chaque groupe et une variable par statistique demandée.</p></li>
+<li><p>Les fonctions comme <a href="https://rdrr.io/r/base/mean.html"><code>mean()</code></a>, <a href="https://rdrr.io/r/base/sum.html"><code>sum()</code></a>, <a href="https://rdrr.io/r/base/Extremes.html"><code>min()</code></a>, <a href="https://rdrr.io/r/base/Extremes.html"><code>max()</code></a>, <a href="https://rdrr.io/r/stats/sd.html"><code>sd()</code></a>, <a href="https://rdrr.io/r/stats/median.html"><code>median()</code></a>, <a href="https://dplyr.tidyverse.org/reference/context.html"><code>n()</code></a> sont fréquemment utilisées dans <a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a>.</p></li>
+</ul>
+</section>
+<section id="recoder-une-variable-ifelse" class="slide level2">
+<h2>Recoder une variable — <code>ifelse()</code></h2>
+<p>La fonction <a href="https://rdrr.io/r/base/ifelse.html"><code>ifelse()</code></a> permet de créer ou recoder une variable en appliquant une condition simple.</p>
+<p>Elle fonctionne comme un “si … alors … sinon …”.</p>
+<p>Principe</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75" style="font-size: 0.55em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(condition, valeur_si_vrai, valeur_si_faux)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Exemples : créer une variable <code>majeur</code> (oui/non) et dichotomiser le revenu</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76" style="font-size: 0.55em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span></span>
+<span id="cb76-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb76-3"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">majeur =</span> <span class="fu">ifelse</span>(age <span class="sc">&gt;=</span> <span class="dv">18</span>, <span class="st">"oui"</span>, <span class="st">"non"</span>),</span>
+<span id="cb76-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">rev_haut =</span> <span class="fu">ifelse</span>(revenu <span class="sc">&gt;</span> <span class="dv">5000</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb76-5"><a aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.35em;"><code># A tibble: 4 × 13
+  id_etud genre   age filiere          abs_just abs_non_just revenu  age2 majeur age_plus_1 abs_total abs_dicho rev_haut
+  &lt;fct&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;
+1 E001    F        17 Soins infirmiers        2            0   6200   289 non            18         2         0        1
+2 E002    H        20 Physiothérapie          4            1     NA   400 oui            21         5         1       NA
+3 E003    F        23 Soins infirmiers        1            2     NA   529 oui            24         3         0       NA
+4 E004    H        19 Ergothérapie            3            0   4800   361 oui            20         3         0        0</code></pre>
+</div>
+</div>
+</section>
+<section id="recoder-avec-ifelse-bonnes-pratiques" class="slide level2">
+<h2>Recoder avec <code>ifelse()</code> — bonnes pratiques</h2>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><a href="https://rdrr.io/r/base/ifelse.html"><code>ifelse()</code></a> est adapté aux recodages binaires (2 catégories).</li>
+<li>La condition de <a href="https://rdrr.io/r/base/ifelse.html"><code>ifelse()</code></a> peut utiliser plusieurs variables (ex. <code>ifelse(age &gt;= 18 &amp; genre == "F", ...)</code>).</li>
+<li>Il est possible d’emboîter plusieurs <a href="https://rdrr.io/r/base/ifelse.html"><code>ifelse()</code></a>, mais cela devient vite illisible → utiliser <a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>case_when()</code></a> pour plusieurs conditions.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="recodages-multiples-case_when" class="slide level2">
+<h2>Recodages multiples — <code>case_when()</code></h2>
+<p>La fonction <a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>case_when()</code></a> est une version lisible de plusieurs <code>ifelse</code> en cascade et permet de recoder ou de créer une variable selon plusieurs conditions.</p>
+<p>Principe</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78" style="font-size: 0.6em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">case_when</span>(</span>
+<span id="cb78-2"><a aria-hidden="true" tabindex="-1"></a>  condition1 <span class="sc">~</span> valeur1,</span>
+<span id="cb78-3"><a aria-hidden="true" tabindex="-1"></a>  condition2 <span class="sc">~</span> valeur2,</span>
+<span id="cb78-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="at">.default   =</span> valeur_par_defaut <span class="co"># valeur utilisée si aucune condition n’est vraie </span></span>
+<span id="cb78-5"><a aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li>Dans <a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>case_when()</code></a>, les conditions sont testées une par une, de haut en bas.</li>
+<li>La <strong>première condition vraie</strong> détermine la valeur renvoyée.</li>
+<li>L’argument <code>.default =</code> permet d’indiquer une valeur à utiliser si aucune condition n’est satisfaite (sinon <code>.default = NULL</code>).</li>
+<li>Sans <code>.default</code>, toutes les valeurs qui ne correspondent à aucune condition deviennent <code>NA</code>.</li>
+<li>L’ordre des conditions est essentiel : toujours aller du plus <strong>spécifique → au plus général</strong>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="recoder-une-variable-case_when" class="slide level2">
+<h2>Recoder une variable — <code>case_when()</code></h2>
+<p>Recoder les âges en classes</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79" style="font-size: 0.5em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span></span>
+<span id="cb79-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb79-3"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&lt;</span> <span class="dv">18</span> <span class="sc">~</span> <span class="st">"&lt;18"</span>,</span>
+<span id="cb79-4"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"18-29"</span>,</span>
+<span id="cb79-5"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"30+"</span>,</span>
+<span id="cb79-6"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="cn">NA</span>  <span class="co"># NA renvoyé si aucune condition n’est vraie</span></span>
+<span id="cb79-7"><a aria-hidden="true" tabindex="-1"></a>    ))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80" style="font-size: 0.5em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a aria-hidden="true" tabindex="-1"></a><span class="co"># Variante : gestion explicite des valeurs manquantes avec is.na()</span></span>
+<span id="cb80-2"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span></span>
+<span id="cb80-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb80-4"><a aria-hidden="true" tabindex="-1"></a>    <span class="fu">is.na</span>(age) <span class="sc">~</span> <span class="cn">NA</span>, <span class="co"># attribue NA si l'âge est manquant</span></span>
+<span id="cb80-5"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&lt;</span> <span class="dv">18</span> <span class="sc">~</span> <span class="st">"&lt;18"</span>,</span>
+<span id="cb80-6"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"18-29"</span>,</span>
+<span id="cb80-7"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="st">"30+"</span> <span class="co"># toutes les autres situations (30 ans et +)</span></span>
+<span id="cb80-8"><a aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 4 × 13
+  id_etud genre   age filiere          abs_just abs_non_just revenu  age2 majeur age_plus_1 abs_total abs_dicho age_cat
+  &lt;fct&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;  
+1 E001    F        17 Soins infirmiers        2            0   6200   289 FALSE          18         2         0 &lt;18    
+2 E002    H        20 Physiothérapie          4            1     NA   400 TRUE           21         5         1 18-29  
+3 E003    F        23 Soins infirmiers        1            2     NA   529 TRUE           24         3         0 18-29  
+4 E004    H        19 Ergothérapie            3            0   4800   361 TRUE           20         3         0 18-29  </code></pre>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><a href="https://rdrr.io/r/base/NA.html"><code>is.na(x)</code></a> teste si une valeur est manquante.</li>
+<li>Elle renvoie <code>TRUE</code> si x est <a href="https://rdrr.io/r/base/NA.html"><code>NA</code></a>, et <code>FALSE</code> sinon.</li>
+<li>Très utile pour recoder explicitement les valeurs manquantes dans <a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>case_when()</code></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="recoder-avec-plusieurs-variables-case_when" class="slide level2">
+<h2>Recoder avec plusieurs variables — <code>case_when()</code></h2>
+<p>Recoder selon l’âge et le genre</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82" style="font-size: 0.5em;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span></span>
+<span id="cb82-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_genre =</span> <span class="fu">case_when</span>(</span>
+<span id="cb82-3"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="sc">&amp;</span> genre <span class="sc">==</span> <span class="st">"H"</span> <span class="sc">~</span> <span class="st">"Homme majeur"</span>,</span>
+<span id="cb82-4"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&lt;</span> <span class="dv">18</span>  <span class="sc">&amp;</span> genre <span class="sc">==</span> <span class="st">"H"</span> <span class="sc">~</span> <span class="st">"Homme mineur"</span>,</span>
+<span id="cb82-5"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="sc">&amp;</span> genre <span class="sc">==</span> <span class="st">"F"</span> <span class="sc">~</span> <span class="st">"Femme majeure"</span>,</span>
+<span id="cb82-6"><a aria-hidden="true" tabindex="-1"></a>    age <span class="sc">&lt;</span> <span class="dv">18</span>  <span class="sc">&amp;</span> genre <span class="sc">==</span> <span class="st">"F"</span> <span class="sc">~</span> <span class="st">"Femme mineure"</span>,</span>
+<span id="cb82-7"><a aria-hidden="true" tabindex="-1"></a>    <span class="at">.default =</span> <span class="cn">NA</span>   <span class="co"># NA renvoyé si aucune condition n’est vraie</span></span>
+<span id="cb82-8"><a aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre style="font-size: 0.3em;"><code># A tibble: 4 × 13
+  id_etud genre   age filiere          abs_just abs_non_just revenu  age2 majeur age_plus_1 abs_total abs_dicho age_genre    
+  &lt;fct&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;fct&gt;               &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;       &lt;dbl&gt;     &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;        
+1 E001    F        17 Soins infirmiers        2            0   6200   289 FALSE          18         2         0 Femme mineure
+2 E002    H        20 Physiothérapie          4            1     NA   400 TRUE           21         5         1 Homme majeur 
+3 E003    F        23 Soins infirmiers        1            2     NA   529 TRUE           24         3         0 Femme majeure
+4 E004    H        19 Ergothérapie            3            0   4800   361 TRUE           20         3         0 Homme majeur </code></pre>
+</div>
+</div>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li><a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>case_when()</code></a> permet de combiner plusieurs variables dans les conditions (ex. âge et genre).</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="interfaces-graphiques-de-recodage" class="slide level2">
+<h2>Interfaces graphiques de recodage</h2>
+<p>Le package <a href="https://juba.github.io/questionr/"><code>questionr</code></a> propose des <a href="https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html">interfaces graphiques</a> (<em>Addins</em>) dans RStudio qui permettent de recoder les variables sans écrire de code.</p>
+<ul>
+<li>Chaque <a href="https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html"><em>Addin</em></a> génère automatiquement le code R correspondant que vous pouvez ensuite exécuter dans votre script.</li>
+</ul>
+<p>Dans RStudio : <strong>Addins → QUESTIONR →</strong></p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html#levels-recoding-irec"><strong>Levels recoding</strong></a> : recoder et regrouper des modalités d’une variable catégorielle, changer la classe d’une variable</li>
+<li><a href="https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html#levels-ordering-iorder"><strong>Levels ordering</strong></a> : réordonner les niveaux d’un facteur</li>
+<li><a href="https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html#numeric-range-dividing-icut"><strong>Numeric range dividing</strong></a> : découper une variable numérique en classes</li>
+</ul>
+</section>
+<section id="les-addins-interactifs-du-package-questionr" class="slide level2">
+<h2>Les <em>Addins</em> interactifs du package <code>questionr</code></h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><em>Addin</em> (RStudio)</th>
+<th>Fonction principale</th>
+<th>Fonctions R équivalentes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Levels recoding</strong></td>
+<td>Regrouper / renommer les modalités d’un facteur ou d’un caractère</td>
+<td><a href="https://forcats.tidyverse.org/reference/fct_recode.html"><code>fct_recode()</code></a>, <a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>case_when()</code></a></td>
+</tr>
+<tr class="even">
+<td><strong>Levels ordering</strong></td>
+<td>Réordonner manuellement les niveaux d’un facteur</td>
+<td><a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a>, <a href="https://rdrr.io/r/base/factor.html"><code>factor(..., levels = ...)</code></a></td>
+</tr>
+<tr class="odd">
+<td><strong>Numeric range dividing</strong></td>
+<td>Découper une variable numérique en classes (catégories)</td>
+<td><a href="https://rdrr.io/r/base/cut.html"><code>cut()</code></a>, <a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>case_when()</code></a></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-tip no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<ul>
+<li>Chaque <a href="https://cran.r-project.org/web/packages/questionr/vignettes/recoding_addins.html"><em>Addin</em></a> génère automatiquement le code R reproduisant exactement la transformation choisie.</li>
+<li>Vous devez ensuite exécuter ce code pour appliquer le recodage.</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="ressources" class="slide level2">
 <h2>Ressources</h2>
 <ul>
-<li>Dossier <code>data/</code></li>
-<li>Script <code>R/</code></li>
-<li>Références à ajouter</li>
+<li><a href="https://tidyverse.org/">Site du tidyverse</a></li>
+<li><a href="ttps://juba.github.io/tidyverse/06-tidyverse.html">Introduction à R et au tidyverse</a></li>
 </ul>
 
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="images/logo_hesav_black.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -205,7 +1484,7 @@
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': true,
-'previewLinksAuto': false,
+'previewLinksAuto': true,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -366,7 +1645,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -392,6 +1671,82 @@
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
@@ -414,12 +1769,12 @@
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
+          button.setAttribute("title", "Copié");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
+            button.setAttribute("data-bs-title", "Copié");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",
@@ -565,6 +1920,38 @@
         }
       });
       </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
     
 
 </body></html>
