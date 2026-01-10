@@ -78,12 +78,12 @@ modules <- tibble(
   )
 ) %>%
   mutate(
-    Présentation = map_chr(Dossier, ~
-                             paste0(
-                               "<a href='", .x, "/index.html' class='btn btn-success btn-sm' target='_blank'>Ouvrir</a> ",
-                               "<a href='", .x, "/index.pdf' class='btn btn-outline-secondary btn-sm' target='_blank'>PDF</a>"
-                               )
-                           ),
+Présentation = map_chr(Dossier, ~
+  paste0(
+    "<a href='", .x, "/' class='btn btn-success btn-sm' target='_blank'>Ouvrir</a> ",
+    "<a href='", .x, "/index.pdf' class='btn btn-outline-secondary btn-sm' target='_blank'>PDF</a>"
+  )
+),
     `Mise à jour` = format(
       file.info(paste0("docs/", Dossier, "/index.html"))$mtime,
       "%d.%m.%Y"
@@ -92,7 +92,7 @@ modules <- tibble(
   select(-Dossier)
 
 
-tt(modules, theme = "grid", html_e) |> 
+tt(modules, theme = "grid") |> 
   style_tt(i = 0, bold = TRUE)
 
 
