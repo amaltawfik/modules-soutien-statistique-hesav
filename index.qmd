@@ -81,7 +81,7 @@ modules <- tibble(
 Présentation = map_chr(Dossier, ~
   paste0(
     "<a href='", .x, "/' class='btn btn-success btn-sm' target='_blank'>Ouvrir</a> ",
-    "<a href='", .x, "/index.pdf' class='btn btn-outline-secondary btn-sm' target='_blank'>PDF</a>"
+    "<a href='", .x, "/index.pdf' class='btn btn-danger btn-sm' target='_blank'>PDF</a>"
   )
 ),
     `Mise à jour` = format(
