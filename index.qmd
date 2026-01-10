@@ -62,7 +62,7 @@ modules <- tibble(
     "Nettoyage et manipulation des données avec R&nbsp;: introduction au <a href='https://tidyverse.tidyverse.org/' target='_blank'>tidyverse</a>",
     "Analyses bivariées : tableaux croisés, comparaison de moyennes, analyse de variance, corrélation",
     "Régression linéaire",
-    "Analyses factorielles exploratoires (EFA) et construction d’échelles",
+    "Analyses factorielles exploratoires (EFA) et construction d'échelles",
     "Visualisation des données avec <a href='https://ggplot2.tidyverse.org/' target='_blank'>ggplot2</a>",
     "Régression logistique"
   ),
@@ -80,8 +80,8 @@ modules <- tibble(
   mutate(
     Présentation = map_chr(Dossier, ~
                              paste0(
-                               "<a href='/modules-soutien-statistique-hesav/", .x, "/index.html' class='btn btn-success btn-sm' target='_blank'>Ouvrir</a> ",
-                               "<a href='/modules-soutien-statistique-hesav/", .x, "/index.pdf' class='btn btn-outline-secondary btn-sm' target='_blank'>PDF</a>"
+                               "<a href='", .x, "/index.html' class='btn btn-success btn-sm' target='_blank'>Ouvrir</a> ",
+                               "<a href='", .x, "/index.pdf' class='btn btn-outline-secondary btn-sm' target='_blank'>PDF</a>"
                                )
                            ),
     `Mise à jour` = format(
@@ -89,7 +89,7 @@ modules <- tibble(
       "%d.%m.%Y"
     )
   ) %>%
-  select(-Dossier)   # ← SUPPRESSION ICI
+  select(-Dossier)
 
 
 tt(modules, theme = "grid", html_e) |> 
