@@ -85,9 +85,9 @@ Présentation = map_chr(Dossier, ~
   )
 ),
     `Mise à jour` = format(
-      file.info(paste0("docs/", Dossier, "/index.html"))$mtime,
-      "%d.%m.%Y"
-    )
+  file.info(paste0(Dossier, "/index.qmd"))$mtime,
+  "%d.%m.%Y"
+)
   ) %>%
   select(-Dossier)
 
@@ -100,14 +100,3 @@ tt(modules, theme = "grid") |>
 ```
 
 
-
-------------------------------------------------------------------------
-
-> Astuce PDF : dans chaque présentation, un bouton **« Télécharger le PDF »** ouvre le fichier `index.pdf` correspondant.\
-> Pour générer ces PDF localement :
->
-> ``` bash
-> quarto render <dossier>/index.qmd --to pdf
-> ```
->
-> (Chrome/Chromium nécessaire pour la conversion revealjs→PDF.)
