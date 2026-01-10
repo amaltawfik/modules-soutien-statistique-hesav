@@ -92,8 +92,10 @@ Présentation = map_chr(Dossier, ~
   select(-Dossier)   # ← SUPPRESSION ICI
 
 
-tt(modules, theme = "grid") |> 
+tt(modules, theme = "grid") |>
+  format_tt(escape = FALSE) |>
   style_tt(i = 0, bold = TRUE)
+
 
 
 
