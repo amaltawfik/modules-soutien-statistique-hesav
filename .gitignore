@@ -16,7 +16,8 @@ _freeze/
 **/*.quarto_ipynb
 
 # --- Quarto HTML/PDF intermediates ---
-*_files/
+**/*_files/
+
 index_files/
 *_cache/
 
